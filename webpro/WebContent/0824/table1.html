@@ -14,7 +14,7 @@
 	
 	th{
 		height : 60px;
-		background: gray;
+		background: lightgray;
 		color : white;
 		font-size : 1.5rem;
 	}
@@ -30,6 +30,7 @@
 	}
 	
 	table#tab2 th{
+		/* tab2의 th 부분만 */
 		background: gold;
 		color : black;
 		width : 400px;
@@ -41,7 +42,13 @@
 	}
 	table#tab4{
 		/* 선끼리 간격 더 넓게 */
-		border-spacing: 20px;
+		border-spacing: 10px;
+	}
+	table#tab4 th{
+		/* tab4의 th 부분만 */
+		border: 10px double purple;	
+		border-left: none;
+		border-right: none;
 	}
 	
 	
@@ -111,7 +118,7 @@
 		</tr>		
 	</table>
 	
-	<h2>border-spacing: 20px;</h2>
+	<h2>border-spacing: 10px;</h2>
 	<table border="1" id="tab4">
 		<tr>
 			<th>1</th>
@@ -131,6 +138,8 @@
 			<td></td>
 		</tr>		
 	</table>
+	
+	
 
 </body>
 
