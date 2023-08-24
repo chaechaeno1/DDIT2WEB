@@ -1,0 +1,55 @@
+<!doctype html> <!-- html 파일임을 선언-->
+<html>
+  <head>
+	<title> 두번째 연습 </title>
+	
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/public.css">
+	
+	<style>
+	p{
+		background : yellow;
+		font-size : 30px;
+		color : red; 
+		font-weight : bold;
+		text-align : center;
+		
+		/* margin은 상하좌우 간격 */
+		/* width를 적용하지 않았기 때문에 상하좌우 모두 100px 적용 */
+		/* margin : 50px; */
+		/* 위아래 50px, 좌우 100px */
+		/* margin : 50px 100px; */
+		/* 위 40px 좌우 100px 아래 80px */
+		/* margin : 40px 100px 80px;*/
+		
+		/* 상50 우30 하70 좌100 */
+		margin : 50px 30px 70px 100px
+
+		/* 주석처리 하지 않은 같은 값은 가장 마지막 값으로 출력 */
+	}
+	
+	/* ID를 이용한 선택(selector)*/
+	#pp{
+		background : blue;
+		color : white;
+		text-align : right;
+		font-style : italic;
+		font-size : 50px;
+	}
+	
+	</style>
+  
+  </head>
+  
+  <body>
+   <pre>
+	p태그 : 짧은 단락을 표현, 자동 줄바꿈, 앞뒤여백(겹쳐서 표현됨)
+	여러개의 같은 태그들 중에 특별히 구분이 필요할 때 id를 사용
+  </pre>
+ 
+  <!-- p태그 : 짧은 단락을 표현, 자동 줄바꿈, 앞뒤여백(겹쳐서 표현됨)-->
+	<p>Hello~</p>
+	<p id="pp">안녕하세요~~</p> <!-- '', "" 구분안함-->
+	<p>html을 배웁니다</p>
+  </body>
+</html>

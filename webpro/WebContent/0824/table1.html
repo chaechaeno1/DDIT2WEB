@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	/* 가로 길이는 th나 td 둘 중에 한군데만 주어도 됨 */
+	/* 세로 길이는 별도로 주어야 함 */
+	table{
+		border : 5px solid lightpink;
+		margin : 20px;
+	}
+	
+	th{
+		height : 60px;
+		background: gray;
+		color : white;
+		font-size : 1.5rem;
+	}
+	
+	td{
+		width : 200px;
+		height : 50px;
+		text-align: center;
+	}
+	
+	table#tab2{
+		border : 10px outset green;		
+	}
+	
+	table#tab2 th{
+		background: gold;
+		color : black;
+		width : 400px;
+	}
+	
+</style>
+
+</head>
+
+<body>
+	<table border="1">
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>		
+	</table>
+	
+	<table border="1" id="tab2">
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>		
+	</table>
+	
+
+</body>
+
+</html>
