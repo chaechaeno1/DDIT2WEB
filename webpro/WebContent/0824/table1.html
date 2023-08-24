@@ -34,13 +34,23 @@
 		color : black;
 		width : 400px;
 	}
+	table#tab3{
+		/* 테이블 내의 선 한줄로 만들기 */
+		/* border-style은 각각따로 혹은 한꺼번에 설정 가능 */
+		border-collapse: collapse;
+	}
+	table#tab4{
+		/* 선끼리 간격 더 넓게 */
+		border-spacing: 20px;
+	}
+	
 	
 </style>
 
 </head>
 
 <body>
-	<table border="1">
+	<table  border="1">
 		<tr>
 			<th>1</th>
 			<th>2</th>
@@ -80,6 +90,47 @@
 		</tr>		
 	</table>
 	
+	<h2>border-collapse: collapse </h2>
+	<table border="1" id="tab3">
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>		
+	</table>
+	
+	<h2>border-spacing: 20px;</h2>
+	<table border="1" id="tab4">
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>		
+	</table>
 
 </body>
 
