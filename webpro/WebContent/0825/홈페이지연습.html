@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>김민채의 홈페이지</title>
+<style>
+	body{
+		margin-left : 10%;
+	}
+
+	caption{
+		font-weight: bold;
+		font-size: 1.5rem;
+		margin : 20px;
+	}
+
+	/* 테이블과 trh는 부모자식간이므로 띄어쓰기*/
+	table{
+		text-align: center;
+		border : 2px solid blue;
+		margin : 20px;
+	}
+	
+	table #trh{
+		width : 100px;
+		height : 60px;
+		background: lightblue;
+		font-weight: bold;
+	}
+	img{
+		width: 50%;
+	}
+	
+	
+</style>
+
+</head>
+
+
+<body>
+
+<!-- 홈페이지 제목 -->
+<h1>김민채의 홈페이지</h1>
+
+<!-- 이미지 삽입 -->
+<img src="../images/spongebob.png" alt="spongebob.png">
+
+<h2>컴퓨터 프로그래머를 꿈꾸며 열심히 <a href="http://www.ddit.or.kr">대덕인재개발원</a>에서 공부하고 있습니다!</h2>
+
+<p>현재 학습하고 있는 과목</p>
+	<ul>
+	  	<li>HTML5 & Script <a href="http://www.w3c.org">W3C 사이트</a></li>	
+  		<li>JAVA</li>
+  		<li>CSS</li>
+		<li>JAVASCRIPT</li>
+	</ul>
+	
+	<table border="1">
+	<caption>
+		시간표
+	</caption>
+	
+	<!-- 1행  -->
+	<tr id="trh">
+		<td></td>
+		<td>3월</td>
+		<td>4월</td>
+		<td>5월</td>
+		<td>6월</td>
+		<td>7월</td>
+		<td>8월</td>
+		<td>9월</td>			
+	</tr>	
+	
+	<!-- 2행  -->
+	<tr>
+		<td>오전</td>
+		<td>HTML5 & Script</td>
+		<td>jQuery</td>
+		<td rowspan="2">고급자바</td>
+		<td rowspan="2">JSP</td>
+		<td rowspan="2">Framework</td>
+		<td rowspan="2">프로젝트</td>
+		<td rowspan="2">프로젝트</td>						
+	</tr>	
+	
+	<!-- 3행  -->
+	<tr>
+		<td>오후</td>
+		<td>기초자바</td>
+		<td>Oracle</td>
+	</tr>			
+	
+	</table>	
+
+</body>
+</html>
