@@ -2,11 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>코알라</title>
 <style>
+/* 네이버처럼 최소 길이 지정할때 사용
+body{
+	min-width : 1000px;
+}
+*/
 
 div{
-	border : 2px solid blue;
+	border : 5px solid lightblue;
 	margin : 5px;
 	padding : 5px;
 	box-sizing : border-box;
@@ -16,25 +21,45 @@ div{
 	/* border-box : 크기 산정 시 내용과 border,padding 구간까지 적용*/
 }
 
+/* 구글 홈페이지처럼 할 경우 width에 calc 설정 */
 /* div가 main이므로 붙여서 씀*/
 div#main{
-	width : 95%;
+/* 	width : 95%; */
+	width: calc(95% - 1%);
 	height : 500px;
 
+}
+
+/* 클래스명은 . , 아이디는 #*/
+.dd{
+	height : 380px;
+	border : 2px dotted red;
+	float : left; /* 옆으로 나란히 정렬*/
 }
 
 #d1{
 	/* border와 padding은 30%안에 포함 됨 */
 	/* 그러나, margin은 30%안에 포함되지 않음*/
 	/* 그래서 주려는 값보다 더 적게 주어야 크기가 맞음 */
-	width : 25%;
+/* 	width : 20%; */
+	width : calc(29% - 3px);
 }
 #d2{
 	/* border와 padding은 70%안에 포함 됨 */
 	/* 그러나, margin은 70%안에 포함되지 않음 */
 	/* 그래서 주려는 값보다 더 적게 주어야 크기가 맞음 */
-	width : 65%;
+/* 	width : 60%; */
+	width : calc(68% - 5px);
+	/* overflow : hidden;  사이즈가 줄어들면 내용이 아예 보이지 않음*/
+	/* overflow : scrrol;  스크롤이 생기는데 내용이 다 보일때도 스크롤이 보임*/
+	overflow : auto; 
 }
+img{
+	width : 95%;
+	height : 95%;
+}
+
+
 	
 
 </style>
