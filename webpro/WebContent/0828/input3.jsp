@@ -25,7 +25,7 @@
 	String str="";
 	
 	for(int i=0; i<fr.length; i++){
-		str += fr[i];
+		str += fr[i]+"&nbsp;&nbsp;";
 	}
 	
 /* 	for(String ff : fr){
