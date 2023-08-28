@@ -11,12 +11,55 @@ label{
 	width : 100px;
 	height : 30px;
 }
+form{
+	border : 2px solid blue;
+	margin : 20px auto;
+	padding : 10px;
+	width : 50%;
+}
+
+/* button은 이미 inline-block 상태이므로 display 선언 안해줌 */
+button{
+	width: 100px;
+	height: 40px;
+}
+button[type=button]{
+	margin-left: 105px;
+}
+textarea, input{
+	box-sizing:border-box;	
+}
+textarea{
+	width: calc(200px - 3%);	
+}
+input{
+	width: 200px;
+}
 
 </style>
+
+<script>
+function sayHello(){
+	
+	//html요소 검색하기
+/* 	a = document.getElementsByName('id').value; */
+	
+	//값 가져오기
+/* 	vid = a[0].value; */
+	
+	
+	vid = document.getElementsByName('id')[0].value;
+	
+	alert("hello ~~"+vid+" 님!");
+
+}
+
+</script>
+
 </head>
 <body>
 
-<form action="" method="">
+<form action="button1.jsp" method="post">
 	<label>아이디</label>
 	<input type="text" name="id">
 	<br>
@@ -26,10 +69,11 @@ label{
 	<br>
 	
 	<label>자기소개</label>
-	<textarea rows="10" cols="60"></textarea>
+	<textarea rows="10" name="area"></textarea>
 	<br>
 	
 	<!-- input은 value값에, button은 여닫는 태그 사이에 이름 적기 -->
+	<button type="button" onclick="sayHello()">확인</button> 
 	<button>전송</button>
 	<button type="submit">전송</button>
 	<button type="reset">취소</button>
