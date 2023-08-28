@@ -5,6 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style>
+	table{
+	border : 1px solid blue;
+	margin : 20px auto;
+	}
+	
+	td{
+	width: 200px;
+	height : 50px;
+	text-align: center;	
+	}
+	
+	h1, p{
+	text-align: center;
+	}
+	
+	/* class일때는 앞에 ., id일때는 앞에 # */
+	.title{
+		background : lightblue;
+		font-size : 1.2rem;
+		font-weight : bold;
+		color : white;
+	}
+
+</style>
+
 </head>
 <body>
 
@@ -36,27 +63,27 @@
 
 <table border="1">
 	<tr>
-		<td>아이디</td>
+		<td class="title">아이디</td>
 		<td><%= userId %></td>
 	</tr>	
 	
 	<tr>
-		<td>이름</td>
+		<td class="title">이름</td>
 		<td><%= userName %></td>
 	</tr>	
 
 	<tr>
-		<td>파일</td>
+		<td class="title">파일</td>
 		<td><%= upfile %></td>
 	</tr>		
 	
 	<tr>
-		<td>성별</td>
+		<td class="title">성별</td>
 		<td><%= userGender %></td>
 	</tr>	
 	
 	<tr>
-		<td>과일</td>
+		<td class="title">과일</td>
 		<td><%= str %></td>
 	</tr>	
 

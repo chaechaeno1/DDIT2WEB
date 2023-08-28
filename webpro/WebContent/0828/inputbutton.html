@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function calc(){
+/* 		//본문(body)의 입력태그(input)에서 입력한 값을 가져온다
+		var a = document.getElementById('price');
+		var b = document.getElementById('qty');
+		
+		var res1 = a.value;
+		var res2 = b.value;
+		
+/* 		var res3 = parseInt(res1) * parseInt(res2); */
+		/* var res3 = res1 * res2; */
+		/* +의 경우에는 parse~ 반드시 해주어야함 */
+		
+/* 		alert(res3 + "원 입니다."); */ 
+		
+		a = parseInt(document.getElementById('price').value);
+		b = parseInt(document.getElementById('qty').value);
+		
+		res = a * b;
+		
+		alert(res+"원 입니다.");	
+	
+	}
+</script>
+
+</head>
+<body>
+
+<form>
+	<label>가격</label>
+	<!-- button 자체 만으로는 아무런 기능이 없다 -->
+	<!-- button은 action, method필요없고 name도 있어도 되고 없어도됨 -->
+	<!-- value는 초기값 -->
+<!-- 	<input type="text" name="price"> -->
+	<input id="price" type="number" step="10" min="10000" max="100000" value="10000">
+	<br>
+	
+	<label>수량</label>
+<!-- 	<input type="text" name="qty"> -->
+	<input id="qty" type="number" step="10" min="100" max="5000" value="1000">
+	<br>
+	
+	<br>
+	<!-- value값 반드시 있어야 함 -->
+	<!-- alert()는 팝업창 내용 출력 -->
+	<!-- onclick="alert('10000원 입니다!')" ==> 자바스크립트 문장  -->
+<!-- <input type="button" value="확인" onclick="alert('10000원 입니다!')"> -->
+	<input type="button" value="확인" onclick="calc()">
+	<!-- onclick은 함수 호출, 위의 calc는 함수 정의 -->
+	<!--  -->
+	
+
+</form>
+
+</body>
+</html>
