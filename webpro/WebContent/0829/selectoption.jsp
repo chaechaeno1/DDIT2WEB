@@ -33,6 +33,8 @@ th{
 </head>
 <body>
 <h1>JSP : Java Server Page</h1>
+<!-- 선택문(select)이 있기 때문에  jsp에서 바로 실행하면 오류뜸-->
+<!-- HTTP Status 500 – Internal Server Error -->
 
 <%
 	/* 한글깨짐 방지하기 위해 인코딩 설정 */
