@@ -17,11 +17,17 @@ label{
 	display : inline-block;
 	width : 120px;
 	height : 40px;
+	vertical-align: top; /* 라벨명이 위쪽에 위치하도록 */
 }
 select[name=food]{
 	width : 200px;
 	height : 40px;
 }
+select[name=foodmulti]{
+	width : 200px;
+}
+
+
 
 
 </style>
@@ -38,13 +44,13 @@ select[name=food]{
 	<label>생일</label>
 	<input type="date" name="bir"><br>
 	
-	<label>좋아하는 음식<br>하나만 선택</label>
+	<label>좋아하는 음식<br>하나만 선택</label> <!-- 다중 선택을 하여도 가장 마지막 값이 선택됨 -->
 	<select name="food">
-		<option>떡볶이</option>
+		<option selected>떡볶이</option>
 		<option>불고기</option>
 		<option>삼겹살</option>
 		<option>치킨</option>
-		<option>짜장면</option>
+		<option selected>짜장면</option>
 		<option>피자</option>
 	</select><br><br>
 
@@ -52,10 +58,10 @@ select[name=food]{
 	<select name="foodmulti" multiple size="6">
 		<option>떡볶이</option>
 		<option>불고기</option>
-		<option>삼겹살</option>
+		<option selected>삼겹살</option>
 		<option>치킨</option>
 		<option>짜장면</option>
-		<option>피자</option>
+		<option selected>피자</option>
 	</select><br><br>	
 	
 	

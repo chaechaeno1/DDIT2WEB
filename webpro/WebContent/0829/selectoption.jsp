@@ -45,6 +45,15 @@ th{
 	String userBir = request.getParameter("bir");
 	String userFood = request.getParameter("food");
 	
+	String foodmulti[] = request.getParameterValues("foodmulti");
+		
+	String str =""; /* for문에 쓰일 문자열 초기값 변수 설정 */
+	
+	/* for문을 안돌리면 주소값이 출력되므로 */
+	for(int i=0; i < foodmulti.length; i++){
+		str += foodmulti[i] + "&nbsp;&nbsp;&nbsp;";
+	}
+	
 %>
 
 <table border="1">
@@ -67,6 +76,11 @@ th{
 		<th>좋아하는 음식</th>
 		<td><%= userFood%></td>
 	</tr>		
+	
+	<tr>
+		<th>좋아하는 음식들</th>
+		<td><%= str%></td>
+	</tr>	
 
 </table>
 
