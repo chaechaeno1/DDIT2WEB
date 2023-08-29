@@ -25,14 +25,14 @@ h1{
 
 	String userAddr = request.getParameter("addr"); //readonly
 	String userPass = request.getParameter("pass"); //disabled
+	String userId = request.getParameter("id");
 	
+	out.print("아이디 : "+userId+"<br>");
 	out.print("주소 : "+userAddr+"<br>");	
 	out.print("PASS : "+userPass+"<br>");
 
 %>
 
-<%= userAddr%>
-<%= userPass%>
 
 
 

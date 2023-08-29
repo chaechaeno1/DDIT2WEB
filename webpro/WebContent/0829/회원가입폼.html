@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h3{
+	text-align: center;
+	margin-bottom: 50px;
+}
+form{
+	border : 2px solid blue;
+	margin : 30px auto;
+	padding : 15px;
+	width : 30%;
+}
+#내용{
+	vertical-align: top;
+}
+span{
+	font-weight: bold;
+}
+label{
+	display : inline-block;
+	width : 50px;
+	height : 30px;
+}
+
+
+
+</style>
+
+</head>
+<body>
+<h3>회원가입 화면</h3>
+
+<form action="그루핑.jsp" method="post">
+
+	<label>이름</label>
+	<input type="text" name="name" pattern="[a-z][a-zA-Z0-9]{3,7}" required >
+	<br>
+	
+	<label>주소</label>
+	<input type="text" name="addr">
+	<br>
+	
+	<label>이메일</label>
+	<input type="text" name="email" pattern="[a-z][a-zA-Z0-9]+@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}">	
+	<br>
+	
+	<label>성별</label>
+	<input type="radio" name="gender" value="남성"><span>Male</span>
+	<input type="radio" name="gender" value="여성"><span>Female</span>
+	<br>
+	
+	<label id="내용">내용</label>
+	<textarea rows="" cols="" name="context"></textarea>
+	<br>
+	<br>
+	
+	<input type="submit">
+	<input type="reset">
+	
+
+</form>
+
+	
+
+
+</body>
+</html>
