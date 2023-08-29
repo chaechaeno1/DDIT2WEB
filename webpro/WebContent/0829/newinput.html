@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 정적 스타일 지정-->
+<!-- 고정된 스타일 적용되어 출력-->
+<style>
+form{
+	border : 2px solid blue;
+	margin : 20px;
+	padding : 20px;
+	
+}
+
+</style>
+
+<script>
+function colorChange(){ //함수정의
+	//html요소검색 접근
+	/* var 생략 가능, 끝 ; 생략 가능 -> 단 메서드가 여러개 있으면 기술해주는 게 좋음*/
+	/* 지역변수, 전역변수냐에 따라 달라짐 */
+	/* var 대신 let을 쓰기도 함. 그러나 var와 다르게 let은 동시에 쓰면 실행시 오류 */
+	var a = document.getElementById('color');
+	var a = document.querySelector('#color');
+	
+	var res = a.value;
+	
+	console.log(res);
+	
+	//form 배경색을 변경
+	//== id를 이용한 form 선택 ---- 
+/* 	var b = document.getElementsByTagName('ff');
+	var b = document.querySelector('#ff'); */
+	
+/* 	document.querySelector('form'); //form내부의 첫번째 요소 선택
+	document.querySelectorAll('form'); /form내부의 모든 요소 선택 */
+	
+	/* forms 는 이미 내장된 객체 */
+	//form자체를 선택 - forms[] 객체를 이용
+	var b = document.forms[0];
+
+	console.log(b);
+	//동적 스타일
+	b.style.background = res;
+	
+}
+</script>
+</head>
+<body>
+
+<form id="ff" action="newinput.jsp" method="post">
+
+	<input type="text" name="id" placeholder="id입력" size="50">
+	<br>
+	<br>
+	
+	<input type="text" name="name" placeholder="name입력">
+	<br>
+	<br>
+	
+	<input type="email" name="email" placeholder="email입력">
+	<br>
+	<br>
+	
+	<input type="tel" name="tel" placeholder="tel입력">
+	<br>
+	<br>
+	
+	<input type="range" min="0" max="100" value="10" step="10" name="score" placeholder="score입력">
+	<br>
+	<br>
+	
+	<input type="color" name="color" id="color" >
+	<input type="button" value="색변경" onclick="colorChange()">
+
+	<input type="submit">
+
+</form>
+
+</body>
+</html>

@@ -7,8 +7,14 @@ var a = document.querySelector('#id이름')
 	
 2. class를 이용한 검색
 var b = document.getElementsByClassName('class이름') --s가 있음
-var b = document.querySelector('.class이름')
+var b = documnet.quertSelcetiorAll('.class이름')
 => 리턴 b의 결과는 배열 - b[0], b[1], b[2]...
+
+var b = document.querySelector('.class이름')
+=> 같은 class이름이 여러개 일지라도 첫번째 요소만 선택한다.
+
+
+
 
 3. name을 이용한 검색
 var c = document.getElementsByName('name이름') --s가 있음
@@ -16,8 +22,18 @@ var c = document.getElementsByName('name이름') --s가 있음
 	
 4. tag이름을 이용한 검색
 var d = document.getElementsByTagName('tag이름'); --s가 있음
-var d = document.querySelector('tag이름');
+var d = document.querySelectorAll('tag이름');
 => 리턴 d의 결과는 배열 - d[0], d[1], d[2]...
+
+var d = document.querySelector('tag이름');
+=> 여러개의 같은 tag이름 중에서 첫번째만 선택 되어짐
+* tag이름 중에서 form을 대입시키면, 
+form태그 안의 요소 중 첫번째 요소만 선택 
+
+var d = document.querySelectorAll('tag이름');
+* tag이름 중에서 form을 대입시키면, 
+form태그 안의 모든 요소를 선택
+
 
 
 +) java와 달리 자료형을 입력하지않고 var로 통일
