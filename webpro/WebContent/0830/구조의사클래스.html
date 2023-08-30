@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 스타일 순서 중요 -->
+<style>
+div p{
+	border : 1px solid orange;
+	padding : 10px;
+}
+div p:first-child{
+	background: pink;
+}
+div p:last-child{
+	/* 가운데 style 속성은 필수항목 */
+	border : 5px dotted green;
+	/* 	border-width
+	border-style
+	border-color */
+}
+div p:nth-child(3){
+	background: lightblue;
+	/* background 입력시 color부분은 color 기술하지 않아도 입력하면 적용됨 */
+/* 	background-color
+	background-image
+	background-size
+	background-attachment */
+}
+
+div p:nth-child(2n){
+	background: lightyellow;
+}
+div p:nth-child(4){
+	/* 투명도 나타내기 */
+	background: rgb(0,0,255,0.6);
+}
+
+/* 상태에 따른 클래스 link, visited, hover, active */
+/* hover 마우스 올려놓을 때, active 마우스를 누를 때 */
+/* p : hover 라고 쓰면 안됨. 공백없이 붙여서 쓰기 */
+div p:hover{
+	background : lime;
+}
+div p:active{
+	font-size : 1.5rem;
+}
+
+
+</style>
+
+</head>
+<body>
+<div>
+	<!-- p태그 : 자동줄바꿈 -->
+	<p>아이브</p>
+	<p>뉴진스</p>
+	<p>르세라핌</p>
+	<p>에스파</p>
+	<p>I AM</p>
+	<p>Super Shy</p>
+	<p>Unforgiven</p>
+</div>
+
+</body>
+</html>
