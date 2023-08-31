@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+body{
+	min-width: 1200px;
+	
+}
+
+header, footer, aside, section{
+	border: 2px dotted purple;
+	box-sizing: border-box;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 30px; /* 모서리 */
+}
+header{
+	background: lightpink;
+}
+footer{
+	background: lightgrey;
+}
+header, footer{
+	width: 99%;
+	height: 100px;
+}
+#aside1, #aside2{
+	background: #AAB9FF;
+	width:calc(20% - 2px);
+	height: 500px;
+}
+#aside1{
+	float: left;
+}
+#aside2{
+	float: right;
+}
+section{
+	background: #FFDEE9;
+	width:calc(58% - 3px);
+	height: 500px;
+	float: left;
+}
+footer{
+	clear: both;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<header>header</header>
+<aside id="aside1">aside1</aside>
+<section>content</section>
+<aside id="aside2">aside2</aside>
+<footer>footer</footer>
+
+</body>
+</html>
