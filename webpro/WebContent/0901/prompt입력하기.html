@@ -73,7 +73,7 @@ div {
 		var su2 = parseInt(prompt("두번째 수 입력", "입력하시오"));
 
 		//비교해서 연산
-		if (vop == "+") {
+/* 		if (vop == "+") {
 			res = su1 + su2;
 		} else if (vop == "-") {
 			res = su1 - su2;
@@ -83,6 +83,15 @@ div {
 			res = su1 / su2;
 		} else {
 			res = "오류입니다.";
+		} */
+		
+		switch(vop){
+		case "+": res = su1 + su2; break;
+		case "-": res = su1 - su2; break;
+		case "*": res = su1 * su2; break;
+		case "/": res = su1 / su2; break;
+		default: res = "오류입니다.";	
+		
 		}
 		
 		//출력
