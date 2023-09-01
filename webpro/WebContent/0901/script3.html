@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+	//p태그를 검색
+
+	//body를 먼저 실행한 후 onload 안에 있는 식을 실행
+	//body document가 먼저 실행된 후에 head script안에서 또 document 실행하면
+	//body document 리셋됨
+	window.onload = function() {
+
+		var vp = document.querySelector('p'); //첫번째 값만 리턴
+		vp.style.color = "red";
+		vp.style.fontSize = "1.5rem";
+
+		var vp = document.querySelectorAll('p'); //배열로 리턴
+		for (let i = 0; i < vp.length; i++) {
+			vp[i].style.color = "blue";
+
+		}
+		//document.write("Hello!! 1"); 
+		//document.write를 쓰면 안됨!@
+		//대부분 이렇게 쓰진 않음. 테스트용으로만!!
+		//이전 것이 모두 리셋되고 해당 문구만 출력
+		//document 동시에 실행 불가능 
+
+	}
+</script>
+
+</head>
+<body>
+<pre>
+	script가 haed태그  안에 있을 때 
+	
+	html요소를 검색 할 수 없다.
+	
+	검색하기 위해서 window.onload = function() {} 함수 내에서
+	할 수 있다.
+	
+	document.write()를 이용하여 출력하면
+	이미 생성된 body의 내용을 실행한 document는 사라진다.
+</pre>
+
+	<p>Hello... 2</p>
+	<p>안녕하세요</p>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- head 안에 있으면 헤드 -> 바디 순으로 출력 -->
+<!-- body요소 검색이 스크립트 내에서 불가능 -->
+
+	<script>
+	
+		document.write("Hello! 1");
+
+		//코딩 순서대로 실행하기 때문에 p태그를 검색할 수 없음
+		//p가 앞에 없기 때문에 값이 나오지 않음
+		var vp = document.getElementsByTagName('p');
+		var vp = document.querySelectorAll('p');
+		
+		//vp[1].style.color="blue"; //오류 발생
+		console.log(vp.length);
+		//for문을 수행하지 않았기 때문에 에러가 없었음
+		for(var i = 0; i<vp.length; i++){
+			vp[i].style.color = "blue";
+			vp[i].style.fontSize = "2.0rem"; 
+			
+		}
+		console.log(i);
+		console.log(vp);
+
+		var vp = document.querySelector('p');
+		vp.style.color = "red"; //오류 발생
+		vp.style.fontSize = "1.5rem";
+		
+		
+	</script>
+
+
+</head>
+<body>
+	<p>Hello...2</p>
+	<p>안녕하세요</p>
+
+</body>
+</html>
