@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	border: 1px dotted blue;
+	margin: 20px;
+	padding: 20px;
+	height: auto;
+}
+</style>
+
+<script type="text/javascript">
+	window.onload = function() {
+
+		/* window 생략 가능 */
+		//입력
+		var vinput = window.prompt("이름을 입력하세요!", "이름입력하세용");
+
+		//id=result 요소 검색
+		var vres = document.getElementById('result');
+
+		vres.innerHTML = "이름 : " + vinput + "<br>";
+
+	}
+
+	function addCalc() {
+
+		//입력
+		let su1 = parseInt(prompt("입력하세요!", "첫번째 정수 입력"));
+		let su2 = parseInt(prompt("입력하세요!", "두번째 정수 입력"))
+
+		//계산
+		let vres = su1 + su2;
+
+		//출력
+		//id="result2"를 검색
+		//document.getElementById('result2').innerHTML = vres;
+				
+		//출력내용 만들기
+		let str = su1 + "+" + su2 + "="+ vres+"<br>";		
+		document.getElementById('result2').innerHTML = str;
+		
+	}
+</script>
+
+</head>
+<body>
+
+	<p>prompt를 이용하여 입력 후 출력</p>
+	<div id="result"></div>
+
+	<hr color="red">
+
+	<br>
+
+	<p>prompt를 이용하여 수를 입력하고 덧셈하기</p>
+	<input type="button" value="확인" onclick="addCalc()">
+	<div id="result2"></div>
+
+
+</body>
+</html>

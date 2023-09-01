@@ -17,7 +17,13 @@
 		let vdiv = document.getElementsByTagName('div');
 		//vdiv[0].innerText = today
 		
-		today.toLocaleDateString(today);
+		//vdiv[0].innerText = today.toLocaleString();
+		//vdiv[0].innerText += today.toLocaleDateString(today);
+		
+		let str = today.toLocaleString() + "<br>";
+		str += today.toLocaleDateString() + "<br>";
+		
+		vdiv[0].innerHTML = str;
 		
 	}
 </script>
@@ -36,7 +42,9 @@ div {
 	<br>
 	<br>
 
-	<input type="button" value="확인" onclick="datePrint()">
+
+	<input type="button" value="확인" onclick="datePrint()"><br>
+	<input type="button" value="확인" onclick="alert('Hello!')">
 	<br>
 	<br>
 
