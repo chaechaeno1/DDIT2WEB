@@ -39,11 +39,57 @@ div {
 		//출력
 		//id="result2"를 검색
 		//document.getElementById('result2').innerHTML = vres;
-				
+
 		//출력내용 만들기
-		let str = su1 + "+" + su2 + "="+ vres+"<br>";		
+		//let str = let str = su1 + "+" + su2 + "="+ vres+"<br>";	
+		let str = `${su1}+${su2}=${vres}`;
 		document.getElementById('result2').innerHTML = str;
+
+	}
+
+	function calc() {
+		//id=first, id=second요소 검색, 값을 가져오기
+		var vfirst = parseInt(document.getElementById('first').value);
+		var vsecond = parseInt(document.getElementById('second').value);
+
+		//계산
+		var vres = vfirst + vsecond;
+
+		//출력 내용 만들기
+		str = `${vfirst}+${vsecond}=${vres}`;
+
+		//출력 요소 검색
+		document.getElementById('result3').innerHTML = str;
+		document.getElementById('res').value = str;
+
+		//출력
+
+	}
+
+	function opProc() {
+		//두개의 수와 연산자 입력
+		var su1 = parseInt(prompt("첫번째 수 입력", "입력하시오"));
+		var vop = prompt("연산자 입력(+ - * /)");
+		var su2 = parseInt(prompt("두번째 수 입력", "입력하시오"));
+
+		//비교해서 연산
+		if (vop == "+") {
+			res = su1 + su2;
+		} else if (vop == "-") {
+			res = su1 - su2;
+		} else if (vop == "*") {
+			res = su1 * su2;
+		} else if (vop == "/") {
+			res = su1 / su2;
+		} else {
+			res = "오류입니다.";
+		}
 		
+		//출력
+		str =`${su1} ${vop} ${su2} = ${res} <br>`;
+		
+		document.getElementById('result4').innerHTML = str;
+
 	}
 </script>
 
@@ -54,12 +100,37 @@ div {
 	<div id="result"></div>
 
 	<hr color="red">
-
 	<br>
 
 	<p>prompt를 이용하여 수를 입력하고 덧셈하기</p>
 	<input type="button" value="확인" onclick="addCalc()">
 	<div id="result2"></div>
+	<br>
+
+	<p>input text를 이용하여 수를 입력하고 덧셈하기</p>
+	<br>
+	<br> 첫번째 수 :
+	<input type="text" id="first">
+	<br> 두번째 수 :
+	<input type="text" id="second">
+	<br>
+	<input type="button" value="확인" onclick="calc()">
+	<br> 결과 :
+	<div id="result3"></div>
+	결과 :
+	<input type="text" id="res">
+
+	<hr color="red">
+	<br>
+	<p>두개의 수와 연산자로 입력하여 계산하기</p>
+
+	<input type="button" value="확인" onclick="opProc()">
+	<div id="result4"></div>
+
+	<br>
+
+
+
 
 
 </body>
