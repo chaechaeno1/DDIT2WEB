@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	//오늘의 날짜를 생성
+	var today = new Date(); //전역변수
+
+	document.write(today);
+	
+	function datePrint(){
+		
+		//div를 검색하여 출력
+		
+		let vdiv = document.getElementsByTagName('div');
+		//vdiv[0].innerText = today
+		
+		today.toLocaleDateString(today);
+		
+	}
+</script>
+
+<style>
+div {
+	border: 2px solid blue;
+	height: 50px;
+	margin: 20px;
+	padding: 20px;
+}
+</style>
+
+</head>
+<body>
+	<br>
+	<br>
+
+	<input type="button" value="확인" onclick="datePrint()">
+	<br>
+	<br>
+
+	<div></div>
+
+</body>
+</html>

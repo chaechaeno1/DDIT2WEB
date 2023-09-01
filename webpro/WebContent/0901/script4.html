@@ -3,8 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script>
+
+//funcion은 누군가 호출해주어야만 실행이 되므로 아래부분이 먼저 실행이 된 후 실행
+function func(){
+	alert("안녕하세요");	
+	
+	//p태그 검색
+	var vp = document.querySelectorAll('p');
+	for(let i = 0; i<vp.length; i++){
+		vp[i].style.color="purple";
+		vp[i].style.fontSize="1.5rem";
+		vp[i].style.backgroundColor="yellow";
+	}
+}
+
+</script>
+
 </head>
 <body>
+
+<p>9월입니다</p>
+<p>9월 1일 입니다</p>
+
+<input type="button" value="확인" onclick="func()"> 
 
 </body>
 </html>
