@@ -73,30 +73,44 @@ div {
 		var su2 = parseInt(prompt("두번째 수 입력", "입력하시오"));
 
 		//비교해서 연산
-/* 		if (vop == "+") {
+		/* 		if (vop == "+") {
+		 res = su1 + su2;
+		 } else if (vop == "-") {
+		 res = su1 - su2;
+		 } else if (vop == "*") {
+		 res = su1 * su2;
+		 } else if (vop == "/") {
+		 res = su1 / su2;
+		 } else {
+		 res = "오류입니다.";
+		 } */
+
+		switch (vop) { //비교연산자 사용하지 못함
+		case "+":
 			res = su1 + su2;
-		} else if (vop == "-") {
+			break;
+		case "-":
 			res = su1 - su2;
-		} else if (vop == "*") {
+			break;
+		case "*":
 			res = su1 * su2;
-		} else if (vop == "/") {
+			break;
+		case "/":
 			res = su1 / su2;
-		} else {
+			//소수이하 자리수  number객체의 toFixed()
+			r1 = res.toFixed(2);
+			break;
+		default:
 			res = "오류입니다.";
-		} */
-		
-		switch(vop){
-		case "+": res = su1 + su2; break;
-		case "-": res = su1 - su2; break;
-		case "*": res = su1 * su2; break;
-		case "/": res = su1 / su2; break;
-		default: res = "오류입니다.";	
-		
+
 		}
-		
+
 		//출력
-		str =`${su1} ${vop} ${su2} = ${res} <br>`;
-		
+		var str = `${su1} ${vop} ${su2} = ${res} <br>`;
+		if(vop == "/"){
+			str += `${r1} <br>`;
+		}
+
 		document.getElementById('result4').innerHTML = str;
 
 	}

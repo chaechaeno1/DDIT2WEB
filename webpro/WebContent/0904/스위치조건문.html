@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	border: 2px dotted pink;
+	margin: 20px;
+	padding: 10px;
+	height: auto; /* 세로길이는 내용에따라서 자동으로 증가 */
+}
+</style>
+
+<script>
+	//함수호출방법
+	//방법1. function scorePro(){}
+
+	//방법2.
+	var scorePro = function() {
+		//입력 - 점수
+		var score = prompt("점수를 입력하세요!", "0~100사이의 수를 입력")
+
+		//점수 비교
+		var parseScore = parseInt(parseInt(score) / 10)
+		// (parseInt(score)/10) -> 실수(생략가능)
+		// parseInt(parseInt(score)/10) -> 정수로 변환
+		switch (parseScore) {
+		case 10:
+		case 9:
+			res = "수";
+			break;
+		case 8:
+			res = "우";
+			break;
+		case 7:
+			res = "미";
+			break;
+		case 6:
+			res = "양";
+			break;
+		default:
+			res = "가";
+			break;
+		}
+
+		//출력내용
+		let str = `점수 : ${score} <br>`;
+		str += `학점 : ${res}<br>`
+
+		//출력
+		document.querySelector('#result1').innerHTML = str;
+
+	}
+</script>
+
+</head>
+<body>
+
+	<h2>점수를(0~100) 입력받아 학점을 출력</h2>
+	<input type="button" value="확인" onclick="scorePro()">
+	<br>
+	<br>
+	<div id="result1"></div>
+
+</body>
+</html>
