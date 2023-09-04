@@ -147,12 +147,11 @@ td {
 
 		str = "";
 
-		for (i = 1; i <= 10; i++) {
+		for (let i = 1; i <= 10; i++) {
 
-			for (k = 1; i <= 10; k++) {
-				if ((i + k) % 3 != 0)
-					continue;
-				str += `${i} ${k} <br>`
+			for (let k = 1; k <= 10; k++) {
+				if ((i + k) % 3 != 0) continue;
+				str += `${i} ${k} <br>`;
 
 			}
 		}
@@ -168,7 +167,7 @@ td {
 		str = "";
 		
 		for(i=1; i<=100;i++){
-			if (i % 2 = 0 && i % 3 == 0) {	
+			if (i % 2 == 0 && i % 3 == 0) {	
 				str += i + "<br>"
 			}
 
@@ -179,6 +178,42 @@ td {
 		
 		
 	}
+	
+	//두 수를 입력(prompt) 두수의 합이 100이상 일때만 출력 <br> 
+	//(continue를 이용 , 두수 모두 0이 입력되면 종료)
+	var proc8 = function(){
+	
+		
+		//출력변수
+		str ="";
+		
+		while(true){
+			//입력1
+			input1 = parseInt(prompt("첫번째 숫자 입력"));		
+			//입력2
+			input2 = parseInt(prompt("두번째 숫자 입력"));
+			
+			//비교 - break;
+			if(input1 == 0 && input2 ==0) break;
+
+			
+			//두 수를 더하기 - 100 미만 비교 - continue
+			if( (input1 + input2) < 100) continue;
+
+		
+			str += `${input1} ${input2} <br>`;
+			
+		}
+		
+		//출력
+		document.getElementById('result8').innerHTML=str;
+		
+		
+		
+		
+	}
+	
+	
 </script>
 
 
@@ -233,14 +268,27 @@ td {
 	<br>
 	<br>
 	<div id="result6"></div>
-	
-		<hr color="red">
 
-	<h2>1~100 까지 중 2의 배수이면서 3의 배수인 것만 출력 </h2>
+	<hr color="red">
+
+	<h2>1~100 까지 중 2의 배수이면서 3의 배수인 것만 출력</h2>
 	<input type="button" value="확인" onclick="proc7()">
 	<br>
 	<br>
 	<div id="result7"></div>
+
+	<hr color="red">
+
+	<h2>
+		두 수를 입력(prompt) 두수의 합이 100이상일이때만 출력 <br> 
+		(continue를 이용 , 두수 모두 0이 입력되면 종료)
+	</h2>
+	<input type="button" value="확인" onclick="proc8()">
+	<br>
+	<br>
+	<div id="result8"></div>
+
+
 
 
 
