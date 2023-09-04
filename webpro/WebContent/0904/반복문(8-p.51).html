@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div {
+	border: 2px solid pink;
+	margin: 20px;
+	padding: 10px;
+	height: auto;
+}
+
+table {
+	border: 2px solid purple;
+	border-spacing: 10px;
+}
+
+td {
+	text-align: center;
+	width: 50px;
+	height: 50px;
+}
+</style>
+
+<script>
+	var proc1 = function() {
+
+		str = `<table border="1">`;
+
+		for (i = 1; i < 10; i++) {
+			str += `<tr>`
+			for (j = 1; j < 10; j++) {
+				str += `<td>${i*j}</td>`
+
+			}
+			str += `</t r>`
+		}
+		str += `</table>`;
+
+		//출력
+		document.querySelector('#result1').innerHTML = str;
+
+	}
+
+	var proc2 = function() {
+
+		let myCar = {
+			make : "BMW",
+			model : "X5",
+			year : 2013
+		};
+
+		str = ""; //초기값 설정
+
+		//for문을 이용하여 객체 속성을 순회한다.
+		for ( let x in myCar) {
+			//myCar[make] --> make의 value값(BMW)이 출력
+			str += `myCar[${x}] : ${myCar[x]}<br>`
+
+		}
+
+		//출력
+		document.querySelector('#result2').innerHTML = str;
+
+	}
+
+	var proc3 = function() {
+
+		//javascript는 +일때만 parseInt 해주면 됨!!
+
+		//입력받기
+		var input = prompt("정수 입력"); //prompt의 결과값은 String
+
+		sum = 0; //초기값은 for문 전에 설정해야함
+		for (let i = 1; i <= input; i++) {
+			sum += i;
+		}
+
+		sum = sum.toLocaleString();
+		//number타입이므로 그에 맞는 형식으로 바뀜
+		//ex) 1234567 --> 1,234,567 
+
+		//출력내용
+		str = `1~${input} 까지의 합 = ${sum}`
+
+		document.querySelector('#result3').innerHTML = str;
+
+	}
+
+	var proc4 = function() {
+
+		sum = 0;//초기값은 for문 전에 설정해야함
+		/* 		for(let i=1; i<= 100; i+=2){
+		 sum+= i;
+		 } */
+
+		//----------------------------------
+		/* 		for(let i=1; i<=100; i++){
+		 if(i%2==0){
+		 sum=+i;
+		 }
+		 } */
+		//----------------------------------
+		for (let i = 1; i <= 100; i++) {
+			if (i % 2 != 0) {
+				continue;
+			}
+
+			sum += i;
+
+		}
+
+		//출력
+		document.querySelector('#result4').innerHTML = sum;
+
+	}
+
+	var proc5 = function() {
+		sum = 0; //정수의 합
+		res = ""; //입력받은 수가 문자로 더해지는 것
+
+		while (true) {
+			//입력
+			input = parseInt(prompt("숫자를 입력하시오"));
+
+			//비교 - break;
+			if (input == 0)
+				break;
+			//합구하기
+			sum += input;
+			res += input + "&nbsp;&nbsp;";
+
+		}
+
+		//출력내용
+		str = `합계 : ${sum}<br>`;
+		str += `입력 값들 : ${res}`;
+
+		//출력
+		document.querySelector('#result5').innerHTML = str;
+
+	}
+
+	var proc6 = function() {
+
+		str = "";
+
+		for (i = 1; i <= 10; i++) {
+
+			for (k = 1; i <= 10; k++) {
+				if ((i + k) % 3 != 0)
+					continue;
+				str += `${i} ${k} <br>`
+
+			}
+		}
+		//출력
+		document.getElementById('result6').innerHTML=str;
+		
+
+	}
+	
+	//1~100 까지 중 2의 배수이면서 3의 배수인 것만 출력
+	var proc7 = function(){
+		
+		//sum=0; //초기화
+		for(i=1; i<=100;i++){
+			if (i % 2 = 0 && i % 3 == 0) {	
+
+			}
+			
+		sum += i;	
+		res += i + "&nbsp;&nbsp;";	
+			
+
+		}
+		//출력
+		document.querySelector('#result7').innerHTML=str;
+		
+		
+		
+	}
+</script>
+
+
+</head>
+<body>
+
+	<h2>반복문을 이용하여 table 작성</h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+
+	<hr color="red">
+
+	<h2>객체 반복문(for/in)을 이용하여 객체 속성명과 속성값을 출력</h2>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+
+	<hr color="red">
+
+	<h2>1부터 입력받은 수 까지의 합 구하기</h2>
+	<input type="button" value="확인" onclick="proc3()">
+	<br>
+	<br>
+	<div id="result3"></div>
+
+	<hr color="red">
+
+	<h2>1부터 100까지의 짝수의 합 구하기</h2>
+	<input type="button" value="확인" onclick="proc4()">
+	<br>
+	<br>
+	<div id="result4"></div>
+
+	<hr color="red">
+
+	<h2>입력받은 수의 합 구하기 - 0을 입력할때까지</h2>
+	<input type="button" value="확인" onclick="proc5()">
+	<br>
+	<br>
+	<div id="result5"></div>
+
+	<hr color="red">
+
+	<h2>
+		다중 for문을 이용해서 1~ 10 까지 중 <br> i와 k의 더한 합이 3의 배수일 때만 출력 (continue를
+		이용)
+	</h2>
+	<input type="button" value="확인" onclick="proc6()">
+	<br>
+	<br>
+	<div id="result6"></div>
+	
+		<hr color="red">
+
+	<h2>1~100 까지 중 2의 배수이면서 3의 배수인 것만 출력 </h2>
+	<input type="button" value="확인" onclick="proc7()">
+	<br>
+	<br>
+	<div id="result7"></div>
+
+
+
+
+</body>
+</html>
