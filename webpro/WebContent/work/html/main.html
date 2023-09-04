@@ -2,9 +2,96 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Web Shop</title>
+
+<style>
+body {
+/* 	min-width: 1200px; */
+}
+
+header, footer, aside, section, nav {
+	border: 2px dotted purple;
+	box-sizing: border-box;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 30px; /* 모서리 */
+}
+
+#contatiner {
+	display: flex;
+	flex-direction: column; /* 밑으로 */
+}
+
+#main {
+	display: flex;
+	flex-direction: row; /* 옆으로 */
+}
+
+header, footer, nave {
+	width: 100%;
+	height: 100px;
+}
+
+nav {
+	background: rgb(128, 30, 95);
+	height: 50px;
+}
+
+header {
+	background: lightpink;
+}
+
+footer {
+	background: lightgrey;
+}
+
+header, footer {
+	width: 100%;
+	height: 100px;
+}
+
+aside {
+	background: #AAB9FF;
+	flex: 20%;
+	height: 500px;
+}
+
+section {
+	background: #FFDEE9;
+	flex: 60%;
+	height: 500px;
+}
+
+/* 반응형 웹 */
+/* 500px보다 작아지면 실행 */
+@media (max-width : 500px){
+	#main{
+	flex:100%;
+	flex-direction: column;
+	height: auto;
+	
+	}
+
+}
+
+
+
+</style>
+
 </head>
 <body>
+
+	<div id="contatiner">
+		<header></header>
+		<nav></nav>
+		<div id="main">
+			<aside id="aside1"></aside>
+			<section></section>
+			<aside id="aside2"></aside>
+		</div>
+		<footer></footer>
+	</div>
+
 
 </body>
 </html>
