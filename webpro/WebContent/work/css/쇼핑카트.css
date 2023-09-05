@@ -1,0 +1,66 @@
+
+#container {
+	display: flex;
+	flex-direction: column;
+	width: 65%;
+	margin: 10px auto;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	border: 3px solid gray;
+	margin: 10px auto;
+}
+
+th {
+	border: 1px solid gray;
+	width: 200px;
+	height: 60px;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+td {
+	border: 1px solid gray;
+	width: 200px;
+	height: 60px;
+	text-align: center;
+}
+
+#button1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin-top: 20px; /* 버튼과 테이블 간의 간격 추가 */
+}
+
+#button2 {
+	font-size: 1.1rem;
+	text-align: center;
+	margin-top: 20px; /* 링크와 테이블 간의 간격 추가 */
+}
+
+#button2 a {
+	text-decoration: none;
+	color: black;
+	border: 1px solid lightgray;
+	padding: 5px;
+	background: lightgray;
+	border-radius: 30px;
+	text-decoration: none;
+	font-size: 0.7rem;
+}
+
+input {
+	height: 40px;
+}
+
+input[placeholder] {
+	text-align: center;
+}
