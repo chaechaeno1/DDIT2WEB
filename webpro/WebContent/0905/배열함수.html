@@ -3,15 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <title>배열함수</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+	var arrPrint = function(arr, result) {
+
+		str = "";
+		for ( let x in arr) {
+			str += arr[x] + "&nbsp;&nbsp;";
+		}
+		
+		document.getElementById(result).innerHTML=str;
+
+	}
+
+	var proc1 = function() {
+		const arr = [ "사과", "바나나", "복숭아", "참외", "수박", "딸기", "포도" ]
+
+		//출력 - 함수호출(arr, result1)
+		arrPrint(arr, "result1");
+
+	}
+
+	var proc2 = function() {
+		const arr = [];
+		arr[0] = "사과";
+		arr[1] = "바나나";
+		arr[2] = "복숭아";
+		arr[3] = "참외";
+		arr[4] = "파인애플";
+		arr[5] = "딸기";
+		arr[6] = "포도";
+
+		//출력 - 함수호출(arr, result2)
+		arrPrint(arr, "result2");
+
+	}
+
+	var proc3 = function() {
+		const arr = new Array();
+		arr[0] = "사과";
+		arr[1] = "자두";
+		arr[2] = "복숭아";
+		arr[3] = "참외";
+		arr[4] = "수박";
+		arr[5] = "딸기";
+		arr[6] = "망고";
+
+		//출력 - 함수호출(arr, result3)
+		arrPrint(arr, "result3");
+
+	}
+</script>
+
 </head>
 <body>
 
 	<h2></h2>
 	<input type="button" value="확인" onclick="proc1()">
-	<br><br>
+	<br>
+	<br>
 	<div id="result1"></div>
 	<hr color="red">
-	<br><br>
+	<br>
+	<br>
+
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc3()">
+	<br>
+	<br>
+	<div id="result3"></div>
+	<hr color="red">
+	<br>
+	<br>
 
 </body>
 </html>
