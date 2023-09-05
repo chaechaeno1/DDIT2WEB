@@ -2,19 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Web Shop</title>
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<title>DDIT Ent. #SHOP</title>
+
 
 <style>
-body {
-/* 	min-width: 1200px; */
-}
+@import
+	url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Passion+One&family=Permanent+Marker&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Passion+One&family=Permanent+Marker&family=Roboto:wght@300&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Passion+One&family=Permanent+Marker&family=Roboto:wght@300&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@500&family=Passion+One&family=Permanent+Marker&family=Roboto:wght@300&display=swap')
+	;
 
 header, footer, aside, section, nav {
-	border: 2px dotted purple;
 	box-sizing: border-box;
 	margin: 5px;
 	padding: 5px;
-	border-radius: 30px; /* 모서리 */
 }
 
 #contatiner {
@@ -27,70 +43,261 @@ header, footer, aside, section, nav {
 	flex-direction: row; /* 옆으로 */
 }
 
-header, footer, nave {
+footer, nav {
 	width: 100%;
 	height: 100px;
 }
 
 nav {
-	background: rgb(128, 30, 95);
+	display: flex;
+	border: 2px dotted gray;
+	border-left: none;
+	border-right: none;
+	background: white;
 	height: 50px;
+	font-family: 'Permanent Marker', cursive;
+	align-items: center; /* 수직 가운데 정렬 */
+	justify-content: center; /* 수평 가운데 정렬 */
+	font-family: 'Permanent Marker', cursive;
+	font-size: 1.3rem;
+	white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	gap: 100px; /* 링크 사이의 간격 조정 */
+}
+
+nav li {
+	display: inline;
+}
+
+nav a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	letter-spacing: 5px;
 }
 
 header {
-	background: lightpink;
+	display: flex;
+	width: 100%;
+	height: 150px;
+	text-align: center;
+	background-image: url('../images/footer3.jpg');
+	align-items: center; /* 수직 가운데 정렬 */
+	justify-content: center;
+	width: 100%; 
 }
 
 footer {
-	background: lightgrey;
-}
-
-header, footer {
+	dispaly: flex;
 	width: 100%;
-	height: 100px;
+	height: 50px;
+	background-image: url('../images/footer3.jpg');
+	text-align: center;
+	width: 100%;
 }
 
 aside {
 	background: #AAB9FF;
-	flex: 20%;
+	flex: 15%;
 	height: 500px;
+	border-top: 7px double purple;
+	border-bottom: 7px double purple;
+	border-left: none;
+	border-right: none;
+	background-image: url('../images/aside2.png');
+	padding: 30px;
+}
+
+aside ul {
+	list-style-type: none;
+}
+
+aside#h3 {
+	font-size: 1.5rem;
+}
+
+#artistList li {
+	margin-bottom: 15px;
+	list-style-type: none;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 1.3rem;
+	list-style-type: none;
+	letter-spacing: 3px;
 }
 
 section {
-	background: #FFDEE9;
-	flex: 60%;
-	height: 500px;
+    display: flex;
+    border: 2px solid purple;
+    background: white;
+    flex: 70%;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
 }
+
+article {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    align-items: center;
+    box-sizing: border-box; /* inset 테두리 문제 해결을 위해 추가 */
+}
+
+
+img {
+	width: 40px;
+	height: 40px;
+}
+
+h1 {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 3.0rem;
+	margin: 0; /* 텍스트 주변의 여백 제거 */
+}
+
+form {
+	padding: 7px;
+	width: 70%;
+}
+
+label {
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+}
+
+#login-buttons {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.divider {
+	margin: 0 10px;
+}
+
+#footer-content {
+	display: inline-block;
+	text-align: center;
+	line-height: 40px;
+	width: 100%; /* 수평 가운데 정렬을 위해 너비 100%로 설정 */
+}
+#headerText, .artlist {
+    color: black; /* 텍스트 색상을 검은색으로 설정 */
+    text-decoration: none; /* 밑줄을 없애기 위해 설정 */
+}
+
+
 
 /* 반응형 웹 */
-/* 500px보다 작아지면 실행 */
-@media (max-width : 500px){
-	#main{
-	flex:100%;
-	flex-direction: column;
-	height: auto;
-	
+/* 700px보다 작아
+지면 실행 */
+@media ( max-width : 900px) {
+	#main {
+		flex: 100%;
+		flex-direction: column;
+		height: auto;
 	}
-
 }
-
-
-
 </style>
 
 </head>
 <body>
 
 	<div id="contatiner">
-		<header></header>
-		<nav></nav>
+
+		<header>
+			<h1>
+				<img src="../images/ddit로고-배경없음.png" alt="ddit로고"> <a
+					id="headerText" href=“main.html”>DDIT Ent. #SHOP</a>
+			</h1>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href='#'>Home</a></li>
+				<li><a href='#'>About Us</a></li>
+				<li><a href='#'>News</a></li>
+				<li><a href='#'>My Account</a></li>
+				<li><a href='#'>Contacts</a></li>
+			</ul>
+		</nav>
+
 		<div id="main">
-			<aside id="aside1"></aside>
-			<section></section>
-			<aside id="aside2"></aside>
+
+			<aside id=“left”>
+				<h3 id="artist">ARTIST</h3>
+				<ul id="artistList">
+					<li><a class="artlist" href='aside1-shinee.html'>SHINee</a></li>
+					<li><a class="artlist" href='#'>RedVelvet</a></li>
+					<li><a class="artlist" href='#'>TWICE</a></li>
+					<li><a class="artlist" href='#'>Aespa</a></li>
+					<li><a class="artlist" href='#'>IVE</a></li>
+					<li><a class="artlist" href='#'>NEWJEANS</a></li>
+
+				</ul>
+			</aside>
+
+
+
+
+			<section id="main">
+				<article id="article">
+					<iframe src='aside1-redvelvet.html' name='ifr'> </iframe>
+				</article>
+			</section>
+
+
+			<aside id="right">
+				<div id="shopcart">
+					<h3>SHOPPING CART</h3>
+					<p>
+						현재 쇼핑카트에 물품이 없습니다.<br> <a href='aside2-쇼핑카트폼.html' target="_blank">쇼핑카트
+							보기</a>
+					</p>
+				</div>
+
+				<div id="login">
+					<h3>LOG IN</h3>
+					<form action="#">
+						<label>ID </label> <input type="text" name="name"
+							pattern="[a-z][a-zA-Z0-9]{3,7}" required> <br> <label>PW</label>
+						<input type="text" name="pw"> <br> <br> <input
+							id="button" type="submit" value="로그인"> <input id="button"
+							type="reset"> <br> <br>
+						<div id="login-buttons">
+							<a href='aside2-회원가입폼.html' target="_blank">회원가입</a> <span
+								class="divider">|</span> <a href='#'>비밀번호분실
+							</a>
+						</div>
+					</form>
+				</div>
+			</aside>
+
+
 		</div>
-		<footer></footer>
+
+
+		<footer>
+			<div id="footer-content">Copyright © 2023 DDIT Entertainment.
+				All Rights Reserved.</div>
+		</footer>
 	</div>
+
 
 
 </body>

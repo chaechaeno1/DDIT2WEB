@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	//여기서 선언되면 전역변수
+	//함수 안에서 선언되면 지역변수
+
+	var proc1 = function() {
+		const arr = ["사과", "바나나", "복숭아", "참외", "수박", "딸기", "포도"]
+
+		//document.querySelector("#result1").innerHTML=arr;
+		//자바와 다르게 스크립트에서는 배열을 찍어도 배열값이 나옴. 주소값X
+
+		str = ""; 
+		//★★★ var, let을 안쓰면 함수안에있지만 전역변수임
+		//그러나, proc1()에 있는 str를 뒤에서도 계속 쓰게되면 누적되므로 새로 선언해줘야함
+		
+		
+/* 		for (i = 0; i < arr.length; i++) {
+			str += arr[i] + "&nbsp;&nbsp;";
+		} */
+		
+		for(let x in arr){
+			str += arr[x] + "&nbsp;&nbsp;";
+		}
+		
+		document.querySelector("#result1").innerHTML = str;
+
+	}
+	
+	var proc2 = function() {
+		const arr = [];
+		arr[0]= "사과";
+		arr[1]= "바나나";
+		arr[2]= "복숭아"; 
+		arr[3]= "참외";
+		arr[4]= "파인애플";
+		arr[5]= "딸기";
+		arr[6]= "포도";
+		
+		str = "";
+		
+		for(let x in arr){
+			str += arr[x] + "&nbsp;&nbsp;";
+		}
+		
+		document.querySelector("#result2").innerHTML = str;
+		
+		
+		
+	}
+	
+	var proc3 = function() {
+		const arr = new Array();
+		arr[0] = "사과";
+		arr[1] = "자두";
+		arr[2] = "복숭아";
+		arr[3] = "참외";
+		arr[4] = "수박";
+		arr[5] = "딸기";
+		arr[6] = "망고";
+		
+		str = "";
+		
+		for(let x in arr){
+			str += arr[x] + "&nbsp;&nbsp;";
+		}
+		
+		document.querySelector("#result3").innerHTML = str;
+		
+		
+	}
+	
+	
+	
+	
+</script>
+
+</head>
+<body>
+
+	<h2>const arr = ["사과", "바나나", "복숭아", "참외", "수박", "딸기", "포도"]</h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>const arr = [];</h2>
+	arr[0]= "사과"; <br>
+	arr[1]= "바나나";<br>
+	arr[2]= "복숭아"; <br>
+	arr[3]= "참외";<br>
+	arr[4]= "파인애플";<br> 
+	arr[5]= "딸기";<br>
+	arr[6]= "포도";<br><br>
+
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>const arr = new Array();</h2>
+	arr[0]= "사과"; <br>
+	arr[1]= "자두";<br>
+	arr[2]= "복숭아"; <br>
+	arr[3]= "참외";<br>
+	arr[4]= "수박";<br> 
+	arr[5]= "딸기";<br>
+	arr[6]= "망고";<br><br>
+	
+	<input type="button" value="확인" onclick="proc3()">
+	<br>
+	<br>
+	<div id="result3"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>
