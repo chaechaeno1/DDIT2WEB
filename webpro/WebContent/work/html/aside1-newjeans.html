@@ -2,9 +2,75 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<title>DDIT Ent. #SHOP</title>
+
+<style>
+#artist {
+	color: gray;
+}
+
+#price {
+	font-weight: bold;
+}
+
+img {
+	display: block; /* 이미지를 블록 요소로 설정합니다. */
+	margin: 0 auto; /* 가운데 정렬을 위해 좌우 마진을 자동으로 설정합니다. */
+	width: 150px;
+	height: 150px;
+}
+
+#main div {
+	width: 25%;
+	height: 400px;
+	padding: 30px;
+	border: 3px inset pink;
+	display: inline-block;
+	margin: 10px;
+	vertical-align: middle;
+}
+
+#main {
+	display: flex;
+	margin: 50px auto;
+	width: 100%;
+	align-items: center; /* 수직 가운데 정렬 */
+	justify-content: center;
+}
+</style>
+
 </head>
 <body>
+
+	<div id="main">
+		<div>
+			<img src="../images/뉴진스1.jpg" alt="뉴진스_ALBUM">
+			<p id="artist">NEWJEANS</p>
+			<p>The 2nd EP 〈Get Up〉</p>
+			<p id="price">₩ 16,400</p>
+			<button type="button">쇼핑카트에 추가하기</button>
+		</div>
+
+		<div>
+			<img src="../images/뉴진스2.jpg" alt="뉴진스_ALBUM"">
+			<p id="artist">NEWJEANS</p>
+			<p>The 1st Single 〈OMG〉</p>
+			<p id="price">₩ 12,700</p>
+			<button type="button">쇼핑카트에 추가하기</button>
+		</div>
+
+		<div>
+			<img src="../images/뉴진스3.jpg" alt="뉴진스_ALBUM"">
+			<p id="artist">NEWJEANS</p>
+			<p>TThe NewJeans 1st EP 'New Jeans'</p>
+			<p id="price">₩ 18,800</p>
+			<button type="button">쇼핑카트에 추가하기</button>
+		</div>
+	</div>
+
+
+
 
 </body>
 </html>

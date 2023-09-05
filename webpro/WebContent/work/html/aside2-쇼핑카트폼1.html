@@ -6,61 +6,73 @@
 <title>장바구니 페이지</title>
 
 <style>
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  margin: 10px auto;
+}
+
 h2 {
-	text-align: center;
-	margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 table {
-	border-collapse: collapse;
-	border: 3px solid gray;
-	margin: 10px auto;
+  border-collapse: collapse;
+  border: 3px solid gray;
+  margin: 10px auto;
 }
 
 th {
-	border: 1px solid gray;
-	width: 200px;
-	height: 60px;
-	font-weight: bold;
-	font-size: 1.2rem;
+  border: 1px solid gray;
+  width: 200px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 td {
-	border: 1px solid gray;
-	width: 200px;
-	height: 60px;
-	text-align: center;
+  border: 1px solid gray;
+  width: 200px;
+  height: 60px;
+  text-align: center;
 }
 
 #button1 {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px; /* 버튼과 테이블 간의 간격 추가 */
 }
 
 #button2 {
-	margin: 10px auto;
-	font-size: 1.1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 20px; /* 링크와 테이블 간의 간격 추가 */
 }
 
 #button2 a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px; /* 각 링크 아래에 간격 추가 */
+
 }
 
 input {
-	height: 40px;
+  height: 40px;
 }
 
 input[placeholder] {
-	text-align: center;
+  text-align: center;
 }
 </style>
 
 </head>
 
 <body>
+	<div id="container">
 	<h2>장바구니 페이지</h2>
 
 	<table border="1">
@@ -79,22 +91,22 @@ input[placeholder] {
 		</tr>
 
 		<tr>
-			<td></td>
-			<td></td>
+			<td>IVE THE 1ST ALBUM</td>
+			<td>₩ 14,200</td>
 			<td><input type="text" placeholder="0"></td>
 			<td><input type="text" placeholder="0"></td>
 		</tr>
 
 		<tr>
-			<td></td>
-			<td></td>
+			<td>The 3rd mini Album - 'MY WORLD' (Intro Ver.)</td>
+			<td>₩ 16,400</td>
 			<td><input type="text" placeholder="0"></td>
 			<td><input type="text" placeholder="0"></td>
 		</tr>
 
 		<tr>
-			<td></td>
-			<td></td>
+			<td>The 2nd EP 〈Get Up〉</td>
+			<td>₩ 16,400</td>
 			<td><input type="text" placeholder="0"></td>
 			<td><input type="text" placeholder="0"></td>
 		</tr>
@@ -113,6 +125,7 @@ input[placeholder] {
 
 	<div id="button2">
 		<a href='main.html' target="_self">Back to Home</a>
+	</div>
 	</div>
 
 

@@ -2,21 +2,87 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 <title>DDIT Ent. #SHOP</title>
 
-
 <style>
-
-img{
-	width: 300px;
-	height: 220px;
+#artist {
+	color: gray;
 }
 
+#price {
+	font-weight: bold;
+}
+
+img {
+	display: block; /* 이미지를 블록 요소로 설정합니다. */
+	margin: 0 auto; /* 가운데 정렬을 위해 좌우 마진을 자동으로 설정합니다. */
+	width: 150px;
+	height: 150px;
+}
+
+#main div {
+	width: 25%;
+	height: 400px;
+	padding: 30px;
+	border: 3px inset pink;
+	display: inline-block;
+	margin: 10px;
+	vertical-align: middle;
+}
+
+#main {
+	display: flex;
+	margin: 50px auto;
+	width: 100%;
+	align-items: center; /* 수직 가운데 정렬 */
+	justify-content: center;
+}
+audio{
+	text-align: center;
+	display: block; /* 이미지를 블록 요소로 설정합니다. */
+	margin: 0 auto; /* 가운데 정렬을 위해 좌우 마진을 자동으로 설정합니다. */
+
+}
 </style>
+
 </head>
 <body>
 
-<img src="../images/ive-ihave.jpg" alt="ive-ihave_ALBUM">
+	<div id="main">
+		<div>
+			<img src="../images/ive-ihave.jpg" alt="ive_ALBUM">
+			<br>
+			<audio src="../multi/old_pop.mp3" autoplay controls></audio>
+			<p id="artist">IVE</p>
+			<p>IVE THE 1ST ALBUM <I’ve IVE></p>
+			<p id="price">₩ 14,200</p>			
+			<button type="button">쇼핑카트에 추가하기</button>
+		</div>
+
+		<div>
+			<img src="../images/ive2.jpg" alt="ive_ALBUM">
+			<br>
+			<audio src="../multi/old_pop.mp3" autoplay controls></audio>
+			<p id="artist">IVE</p>
+			<p>IVE 3rd SINGLE ALBUM <After LIKE></p>
+			<p id="price">₩ 12,700</p>
+			<button type="button">쇼핑카트에 추가하기</button>
+		</div>
+
+		<div>
+			<img src="../images/ive3.jpg" alt="ive_ALBUM">
+			<br>
+			<audio src="../multi/old_pop.mp3" autoplay controls></audio>
+			<p id="artist">IVE</p>
+			<p>IVE THE 2nd SINGLE ALBUM <LOVE DIVE></p>
+			<p id="price">₩ 17,900</p>
+			<button type="button">쇼핑카트에 추가하기</button>
+		</div>
+	</div>
+
+
+
 
 </body>
 </html>
