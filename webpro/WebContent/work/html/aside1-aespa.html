@@ -29,6 +29,7 @@ img {
 	display: inline-block;
 	margin: 10px;
 	vertical-align: middle;
+	text-align: center;
 }
 
 #main {
@@ -38,6 +39,17 @@ img {
 	align-items: center; /* 수직 가운데 정렬 */
 	justify-content: center;
 }
+
+audio{
+	text-align: center;
+	display: block; /* 이미지를 블록 요소로 설정합니다. */
+	margin: 0 auto; /* 가운데 정렬을 위해 좌우 마진을 자동으로 설정합니다. */
+	width: 150px;
+	height: 30px;
+}
+#hear{
+	font-size: 0.8rem;
+}
 </style>
 
 </head>
@@ -46,6 +58,8 @@ img {
 	<div id="main">
 		<div>
 			<img src="../images/aespa-myworld.png" alt="aespa-myworld_ALBUM">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">aespa</p>
 			<p>The 3rd mini Album - 'MY WORLD' (Intro Ver.)</p>
 			<p id="price">₩ 16,400</p>
@@ -54,6 +68,8 @@ img {
 
 		<div>
 			<img src="../images/aespa2.jpg" alt="aespa_ALBUM">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">aespa</p>
 			<p>The 2nd Mini Album - Girls (KWANGYA Ver.)</p>
 			<p id="price">₩ 16,400</p>
@@ -62,6 +78,8 @@ img {
 
 		<div>
 			<img src="../images/aespa3.jpg" alt="aespa_ALBUM">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">aespa</p>
 			<p>The 3rd mini Album - 'MY WORLD' (Poster Ver.)</p>
 			<p id="price">₩ 12,500</p>

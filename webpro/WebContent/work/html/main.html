@@ -8,25 +8,12 @@
 
 <style>
 @import
-	url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap')
-	;
-
-@import
-	url('https://fonts.googleapis.com/css2?family=Passion+One&family=Permanent+Marker&display=swap')
-	;
-
-@import
-	url('https://fonts.googleapis.com/css2?family=Passion+One&family=Permanent+Marker&family=Roboto:wght@300&display=swap')
-	;
-
-@import
-	url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&family=Passion+One&family=Permanent+Marker&family=Roboto:wght@300&display=swap')
-	;
-
-@import
 	url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@500&family=Passion+One&family=Permanent+Marker&family=Roboto:wght@300&display=swap')
 	;
 
+/* body {
+	min-width: 900px;
+}  */
 header, footer, aside, section, nav {
 	box-sizing: border-box;
 	margin: 5px;
@@ -55,24 +42,19 @@ nav {
 	border-right: none;
 	background: white;
 	height: 50px;
-	font-family: 'Permanent Marker', cursive;
 	align-items: center; /* 수직 가운데 정렬 */
 	justify-content: center; /* 수평 가운데 정렬 */
 	font-family: 'Permanent Marker', cursive;
 	font-size: 1.3rem;
-	white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
 }
 
 nav ul {
 	display: flex;
+	justify-content: space-evenly;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	gap: 70px; /* 링크 사이의 간격 조정 */
-}
-
-nav li {
-	display: flex;
+	gap: 60px;
 }
 
 nav a {
@@ -90,7 +72,7 @@ header {
 	background-image: url('../images/footer3.jpg');
 	align-items: center; /* 수직 가운데 정렬 */
 	justify-content: center;
-	width: 100%; 
+	width: 100%;
 }
 
 footer {
@@ -132,32 +114,31 @@ aside#h3 {
 }
 
 section {
-    display: flex;
-    border: 2px solid purple;
-    background: white;
-    flex: 70%;
-    height: 630px;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	border: 2px solid purple;
+	background: white;
+	flex: 70%;
+	height: 630px;
+	align-items: center;
+	justify-content: center;
 }
 
 article {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
 }
 
 iframe {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    border: none;
-    align-items: center;
-    box-sizing: border-box; /* inset 테두리 문제 해결을 위해 추가 */
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border: none;
+	align-items: center;
+	box-sizing: border-box; /* inset 테두리 문제 해결을 위해 추가 */
 }
-
 
 img {
 	width: 40px;
@@ -196,12 +177,20 @@ label {
 	line-height: 40px;
 	width: 100%; /* 수평 가운데 정렬을 위해 너비 100%로 설정 */
 }
+
 #headerText, .artlist {
-    color: black; /* 텍스트 색상을 검은색으로 설정 */
-    text-decoration: none; /* 밑줄을 없애기 위해 설정 */
+	color: black; /* 텍스트 색상을 검은색으로 설정 */
+	text-decoration: none; /* 밑줄을 없애기 위해 설정 */
 }
 
-
+.abutton {
+	color: white;
+	border: 1px solid purple;
+	padding: 5px;
+	background: purple;
+	border-radius: 30px;
+	text-decoration: none;
+}
 
 /* 반응형 웹 */
 /* 700px보다 작아
@@ -223,17 +212,17 @@ label {
 		<header>
 			<h1>
 				<img src="../images/ddit로고-배경없음.png" alt="ddit로고"> <a
-					id="headerText" href=“main.html”>DDIT Ent. #SHOP</a>
+					id="headerText" href="main.html">DDIT Ent. #SHOP</a>
 			</h1>
 		</header>
 
 		<nav>
 			<ul>
-				<li><a href='#'>Home</a></li>
-				<li><a href='#'>About Us</a></li>
-				<li><a href='#'>News</a></li>
-				<li><a href='#'>My Account</a></li>
-				<li><a href='#'>Contacts</a></li>
+				<li><a href='#'>Home </a></li>
+				<li><a href='#'>About Us </a></li>
+				<li><a href='#'>News </a></li>
+				<li><a href='#'>My Account </a></li>
+				<li><a href='#'>Contacts </a></li>
 			</ul>
 		</nav>
 
@@ -242,12 +231,14 @@ label {
 			<aside id=“left”>
 				<h3 id="artist">ARTIST</h3>
 				<ul id="artistList">
-					<li><a class="artlist" href='aside1-shinee.html'>SHINee</a></li>
-					<li><a class="artlist" href='aside1-redvelvet.html'>RedVelvet</a></li>
-					<li><a class="artlist" href='aside1-ITZY.html'>ITZY</a></li>
-					<li><a class="artlist" href='aside1-aespa.html'>Aespa</a></li>
-					<li><a class="artlist" href='aside1-ive.html'>IVE</a></li>
-					<li><a class="artlist" href='aside1-newjeans.html'>NEWJEANS</a></li>
+					<li><a class="artlist" href='aside1-shinee.html' target='ifr'>SHINee</a></li>
+					<li><a class="artlist" href='aside1-redvelvet.html'
+						target='ifr'>RedVelvet</a></li>
+					<li><a class="artlist" href='aside1-ITZY.html' target='ifr'>ITZY</a></li>
+					<li><a class="artlist" href='aside1-aespa.html' target='ifr'>Aespa</a></li>
+					<li><a class="artlist" href='aside1-ive.html' target='ifr'>IVE</a></li>
+					<li><a class="artlist" href='aside1-newjeans.html'
+						target='ifr'>NEWJEANS</a></li>
 
 				</ul>
 			</aside>
@@ -266,11 +257,12 @@ label {
 				<div id="shopcart">
 					<h3>SHOPPING CART</h3>
 					<p>
-						현재 쇼핑카트에 물품이 없습니다.<br> <a href='aside2-쇼핑카트폼1.html' target="_blank">쇼핑카트
-							보기</a>
+						현재 쇼핑카트에 물품이 없습니다.<br>
+						<br> <a class="abutton" href='aside2-쇼핑카트폼1.html'
+							target="_blank">쇼핑카트 보기</a>
 					</p>
 				</div>
-
+				<br>
 				<div id="login">
 					<h3>LOG IN</h3>
 					<form action="#">
@@ -280,8 +272,8 @@ label {
 							id="button" type="submit" value="로그인"> <input id="button"
 							type="reset"> <br> <br>
 						<div id="login-buttons">
-							<a href='aside2-회원가입폼.html' target="_blank">회원가입</a> <span
-								class="divider">|</span> <a href='#'>비밀번호분실
+							<a class="abutton" href='aside2-회원가입폼.html' target="_blank">회원가입</a>
+							<span class="divider">|</span> <a class="abutton" href='#'>비밀번호분실
 							</a>
 						</div>
 					</form>

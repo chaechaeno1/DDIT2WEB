@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 <title>DDIT Ent. #SHOP</title>
 
 <style>
@@ -28,6 +29,7 @@ img {
 	display: inline-block;
 	margin: 10px;
 	vertical-align: middle;
+	text-align: center;
 }
 
 #main {
@@ -37,14 +39,34 @@ img {
 	align-items: center; /* 수직 가운데 정렬 */
 	justify-content: center;
 }
+h2{
+	width: 40%;
+	padding: 30px;
+	margin: 30px;
+}
+
+audio{
+	text-align: center;
+	display: block; /* 이미지를 블록 요소로 설정합니다. */
+	margin: 0 auto; /* 가운데 정렬을 위해 좌우 마진을 자동으로 설정합니다. */
+	width: 150px;
+	height: 30px;
+}
+#hear{
+	font-size: 0.8rem;
+}
 </style>
 
 </head>
 <body>
 
+
 	<div id="main">
+		
 		<div>
 			<img src="../images/shinne-hard.png" alt="SHINee_HARD_ALBUM">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">SHINee</p>
 			<p>The 8th Album - [HARD] (Photo Book Ver.)</p>
 			<p id="price">₩ 17,800</p>
@@ -53,6 +75,8 @@ img {
 
 		<div>
 			<img src="../images/shinee-2.png" alt="SHINee_ALBUM">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">KEY</p>
 			<p>The 2nd Album Repackage - 'Killer' (Zine Ver.)</p>
 			<p id="price">₩ 17,800</p>
@@ -61,6 +85,8 @@ img {
 
 		<div>
 			<img src="../images/shinee-3.png" alt="SHINee_ALBUM">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">ONEW</p>
 			<p>ONEW The 2nd Mini Album - DICE (Digipack Ver.)</p>
 			<p id="price">₩ 11,000</p>

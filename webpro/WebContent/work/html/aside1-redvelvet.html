@@ -29,6 +29,7 @@ img {
 	display: inline-block;
 	margin: 10px;
 	vertical-align: middle;
+	text-align: center;
 }
 
 #main {
@@ -38,6 +39,17 @@ img {
 	align-items: center; /* 수직 가운데 정렬 */
 	justify-content: center;
 }
+
+audio{
+	text-align: center;
+	display: block; /* 이미지를 블록 요소로 설정합니다. */
+	margin: 0 auto; /* 가운데 정렬을 위해 좌우 마진을 자동으로 설정합니다. */
+	width: 150px;
+	height: 30px;
+}
+#hear{
+	font-size: 0.8rem;
+}
 </style>
 
 </head>
@@ -46,6 +58,8 @@ img {
 	<div id="main">
 		<div>
 			<img src="../images/red-album.png" alt="red-album">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">Red Velvet</p>
 			<p>The mini Album - ‘The ReVe Festival 2022 - Birthday’(Photo
 				Book Ver.) (Random cover ver.)</p>
@@ -55,6 +69,8 @@ img {
 
 		<div>
 			<img src="../images/레드벨벳2.jpg" alt="red-album">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">Red Velvet</p>
 			<p>The Mini Album - 'The ReVe Festival’ Day 1(Day 1 Ver.) (Random
 				cover ver.)</p>
@@ -64,6 +80,8 @@ img {
 
 		<div>
 			<img src="../images/레드벨벳3.jpg" alt="red-album">
+			<p id="hear">타이틀곡 미리듣기<p>
+			<audio src="../multi/old_pop.mp3" controls></audio>
 			<p id="artist">Red Velvet</p>
 			<p>The 6th Mini Album - Queendom(Girls Ver.)</p>
 			<p id="price">₩ 19,300</p>
