@@ -117,16 +117,27 @@ var proc4 = () => {
 	
 }
 
-var proc5 = () => {
+let proc5 = () => {
 	
-	arr2 = arr.slice(1,3);
+	idx= 0;
 	
-	str = `원래배열 : ${arr} <br>`
-	str += `arr.slice(1,3) 수행 : ${arr2} <br>`
-	
+	while(true){
+		
 
-	document.querySelector('#result5').innerHTML = str;
+	//두개의 사과 위치
+	start = arr.indexOf("사과", idx); 
+		//0번째 부터 시작 0번째 위치 찾은거 start=0;
+		//3번째 부터 시작 3번째 위치 찾은거 start=3;
+	end = arr.indexOf("사과", start+1); 
+		//1번째 위치부터 3번째 위치 end = 3
+		//3번째 위치부터 찾아서 6번째 위치 end = 6
 	
+	apple = arr.slice(start+1, end);
+
+	document.getElementById('result5').innerHTML = apple;
+	
+	idx = end;
+	}
 }
 	
 	
@@ -148,7 +159,7 @@ var proc5 = () => {
 	<hr color="red">
 	<br>
 	<br>
-	
+
 	<h2>배열요소의 모든 같은 이름의 위치 찾기</h2>
 	<input type="button" value="index" onclick="appleProc()">
 	<br>
@@ -156,7 +167,7 @@ var proc5 = () => {
 	<div id="result"></div>
 	<hr color="red">
 	<br>
-	<br>	
+	<br>
 
 
 	<h2>배열요소 추가, 삭제</h2>
@@ -171,7 +182,8 @@ var proc5 = () => {
 	<br>
 
 	<h2>배열요소 자르기</h2>
-	slice2 : 사과와 사과 사이의 요소 자르기 
+	slice2 : 사과와 사과 사이의 요소 자르기
+	<br>
 	<input type="button" value="slice1" onclick="proc4()">
 	<input type="button" value="slice2" onclick="proc5()">
 	<br>
