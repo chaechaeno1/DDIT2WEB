@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>객체만들기</title>
 
 <link rel="stylesheet" href="../css/public.css">
 
@@ -45,21 +45,23 @@ var proc1 = () => {
 	
 }
 
+rect = { };
+
+rect.garo = 2;
+rect.sero = 5;
+
+rect.getArea = function(){	
+	return this.garo * this.sero;
+}
+
+rect.getCircum = function(){
+	return (this.garo + this.sero) * 2;
+	
+}
+
 var proc2 = () => {
-	rect = { };
-	
-	rect.garo = 2;
-	rect.sero = 5;
-	
-	rect.getArea = function(){	
-		return this.garo * this.sero;
-	}
-	
-	rect.getCircum = function(){
-		return (this.garo + this.sero) * 2;
-		
-	}
-	
+
+
 	//출력 함수 호출
 	printRect("result2");
 
@@ -90,9 +92,11 @@ var proc3 = () => {
 	sinput= prompt("세로길이 입력");
 	
 	//입력한 값을 rext객체의 속성에 대입
-	//rect.garo = ginput;
-	//rect.sero = sinput;
+	rect.garo = ginput;
+	rect.sero = sinput;
 	
+	//출력함수 호출
+	printRect("result3");
 	
 	
 }
