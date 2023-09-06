@@ -120,6 +120,7 @@ var proc4 = () => {
 let proc5 = () => {
 	
 	idx= 0;
+	str="";
 	
 	while(true){
 		
@@ -131,13 +132,18 @@ let proc5 = () => {
 	end = arr.indexOf("사과", start+1); 
 		//1번째 위치부터 3번째 위치 end = 3
 		//3번째 위치부터 찾아서 6번째 위치 end = 6
+		
+	if(end == -1) break;
 	
 	apple = arr.slice(start+1, end);
-
-	document.getElementById('result5').innerHTML = apple;
+	
+	str += apple + "<br>";
 	
 	idx = end;
 	}
+	
+	document.getElementById('result5').innerHTML = str;
+
 }
 	
 	
