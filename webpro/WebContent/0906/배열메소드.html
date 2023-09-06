@@ -145,8 +145,51 @@ let proc5 = () => {
 	document.getElementById('result5').innerHTML = str;
 
 }
+
+
+var proc6 = () => {
 	
 	
+	//arr.splice(2, 1, 100, 200, 300)
+	//arr.splice(3,2);
+	arr.splice(3, 0, 500);
+	document.getElementById('result6').innerHTML = arr;
+	
+}
+
+var proc7 = () => {
+	arr1 = [100, 200, 300, 400, 500];
+	
+	//conarr = arr.concat(arr1);
+	conarr= arr1.concat(arr);
+	
+	document.getElementById('result7').innerHTML = conarr;
+}
+
+var proc8 = () => {
+	
+	str = arr.join();
+	res= `배열길이 : ${arr.length} <br>`;
+	res += `문자열 길이: ${str.length} <br>`;
+	
+	document.getElementById('result8').innerHTML = res;
+	
+	ss ="";
+	for(i=0; i<arr.length; i++){
+		ss += `arr[${i}]: ${arr[i]} <br>`;
+		
+	}
+	
+	document.getElementById('result8').innerHTML += ss;
+	
+	ss="";
+	for(i=0; i<str.length; i++){
+		ss += `str[${i}]: ${str[i]} <br>`;
+		
+	}
+	document.getElementById('result8').innerHTML += ss;
+	
+}
 
 
 
@@ -196,6 +239,32 @@ let proc5 = () => {
 	<br>
 	<div id="result4"></div>
 	<div id="result5"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>배열 수정하기 - 삭제와 삽입</h2>
+	arr.splice(2, 1, 100, 200, 300);
+	<br> arr.splice(3,2);
+	<br> arr.splice(3, 0, 500);
+	<br>
+	<br>
+	<input type="button" value="splice" onclick="proc6()">
+	<input type="button" value="concat" onclick="proc7()">
+	<br>
+	<br>
+	<div id="result6"></div>
+	<div id="result7"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>배열을 문자열로 변환</h2>
+	<br>
+	<input type="button" value="join" onclick="proc8()">
+	<br>
+	<br>
+	<div id="result8"></div>
 	<hr color="red">
 	<br>
 	<br>
