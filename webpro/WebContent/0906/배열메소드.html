@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+
+const arr= ["사과", "바나나", "복숭아","사과", "포도", "수박","사과","파인애플"];
+
+var proc1 = (aa) => {
+	//aa에는 1 또는 2
+	
+	//(1)찾는 과일 입력
+	input = prompt("찾는 과일을 입력하세요!!");
+	
+	//idx = arr.indexOf("복숭아");
+	//idx = arr.indexOf("망고"); //없어서 -1 출력
+	
+	//(2)위치검색
+	if(aa==1){
+		idx = arr.indexOf(input);
+	}else if(aa==2){
+		idx = arr.lastIndexOf(input); 
+	}
+	
+	//alert(idx);
+	
+	//(3) 출력내용
+	str = `과일 이름 : ${input} <br>`;
+	
+	if(idx>-1 && aa == 1) 
+		str += `indexOf : ${idx} 번째에 있습니다. <br>`;
+	else if(idx > -1 && aa ==2 )	
+		str += `lastIndexOf : ${idx} 번째에 있습니다. <br>`;
+	else 
+		str += `찾는 과일이 없습니다.`;
+	
+	document.getElementById('result1').innerHTML = str;
+		
+	}
+	
+
+var proc2 = () => {
+	
+	while(true){
+		//추가할 요소 입력
+		input = prompt("추가 할 과일을 입력");
+		
+		//배열에 추가
+		arr.push(input);
+		
+		//계속???
+		cont = confirm("계속??");
+				
+		//break되는 조건 비교
+		if(!cont) break;
+		
+	}
+	//출력
+	document.querySelector('#result2').innerHTML = arr;
+	
+	
+	
+	
+}
+
+var proc3 = () => {
+	
+	str= `원래 배열 : ${arr} <br>`;
+	popvalue = arr.pop();
+	
+	str += `제거된 요소 : ${popvalue} <br>`;
+	
+	str += `제거 후 배열 : ${arr} <br>`;
+	
+	document.querySelector('#result3').innerHTML = str;
+	
+}
+
+var appleProc = () => {
+	
+	input = prompt("과일입력")
+	
+	start = 0;
+	str = "";
+	while(true){
+		idx = arr.indexOf(input, start);
+		
+		if(idx == -1) break;
+		
+		str += `${idx}번째 `;
+		
+		start = idx +1;
+
+	}
+	str += "에 있습니다.";
+	
+	document.getElementById('result').innerHTML = str;
+	
+	
+	
+}
+
+
+var proc4 = () => {
+	
+	arr2 = arr.slice(1,5);
+	
+	str = `원래배열 : ${arr} <br>`
+	str += `arr.slice(1,5) 수행 : ${arr2} <br>`
+	
+
+	document.querySelector('#result4').innerHTML = str;
+	
+}
+
+var proc5 = () => {
+	
+	arr2 = arr.slice(1,3);
+	
+	str = `원래배열 : ${arr} <br>`
+	str += `arr.slice(1,3) 수행 : ${arr2} <br>`
+	
+
+	document.querySelector('#result5').innerHTML = str;
+	
+}
+	
+	
+
+
+
+</script>
+
+
+</head>
+<body>
+
+	<h2>배열요소의 위치 찾기</h2>
+	<input type="button" value="index" onclick="proc1(1)">
+	<input type="button" value="lastIndex" onclick="proc1(2)">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+	
+	<h2>배열요소의 모든 같은 이름의 위치 찾기</h2>
+	<input type="button" value="index" onclick="appleProc()">
+	<br>
+	<br>
+	<div id="result"></div>
+	<hr color="red">
+	<br>
+	<br>	
+
+
+	<h2>배열요소 추가, 삭제</h2>
+	<input type="button" value="push" onclick="proc2()">
+	<input type="button" value="pop" onclick="proc3()">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<div id="result3"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>배열요소 자르기</h2>
+	slice2 : 사과와 사과 사이의 요소 자르기 
+	<input type="button" value="slice1" onclick="proc4()">
+	<input type="button" value="slice2" onclick="proc5()">
+	<br>
+	<br>
+	<div id="result4"></div>
+	<div id="result5"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

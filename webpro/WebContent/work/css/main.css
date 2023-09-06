@@ -130,8 +130,9 @@ iframe {
 	padding: 10px;
 	border: none;
 	align-items: center;
-	box-sizing: border-box; /* inset 테두리 문제 해결을 위해 추가 */
+	box-sizing: border-box;
 }
+
 
 img {
 	width: 40px;
