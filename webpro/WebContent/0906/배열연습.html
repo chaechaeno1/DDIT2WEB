@@ -15,12 +15,13 @@ var proc1 = () => {
 	
 	while(true){
 		//입력
-		input = prompt("입력하시오.")
+		input = prompt("이름을 입력하시오.");
 		
 		//입력한 값 비교 - 공백 or 취소(null) => break;
+		if(input == " " || input == null) break;
 		
 		//배열에 저장 - arr.push(입력값)
-		
+		arr.push(input)
 		
 		
 	}
@@ -29,20 +30,65 @@ var proc1 = () => {
 	document.getElementById('result1').innerHTML = arr;
 }
 
+// 서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오
+var proc2 = () => {
+	
+	const arr = [];
+	
+	let i = 0;
+	
+	while(true){
+		
+		//입력
+		input = prompt(`${i+1}번째 정수 입력!!!`);
+				
+		//비교 - 저장? (indexOf)
+		if(arr.indexOf(input) == -1)arr.push(input);
+
+		
+		//break비교 - 배열 갯수 5개
+		if(arr.length >=5) break;
+		i++;
+		
+	}
+	document.querySelector("#result2").innerHTML = arr;
+	
+	
+	
+	
+	
+}
+
 </script>
 
 </head>
 <body>
 
 
-	
-	<h2>prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오.<br>
-	- 입력의 마지막은 공백 문자를 입력하거나 “취소” 버튼을 눌렀을 때(null)로 한다.</h2>
+
+	<h2>
+		prompt()를 이용하여 이름을 계속 입력 받아 배열에 저장하고 출력하는 프로그램을 작성하시오.<br> - 입력의
+		마지막은 공백 문자를 입력하거나 “취소” 버튼을 눌렀을 때(null)로 한다.
+	</h2>
 	<input type="button" value="확인" onclick="proc1()">
-	<br><br>
+	<br>
+	<br>
 	<div id="result1"></div>
 	<hr color="red">
-	<br><br>
+	<br>
+	<br>
+
+	<h2>서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오</h2>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+
+
 
 </body>
 </html>
