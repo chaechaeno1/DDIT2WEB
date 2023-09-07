@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String객체</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+
+var sobj = "하나둘셋 몸에 느껴지는 템포 숨길 수 없다면, 정답이야 Bingo";
+
+var proc1 =() => {
+	input = prompt("이름을 입력");
+	
+	//입력한 길이 - 입력문자 앞뒤의 공백
+	console.log(input.length);
+	inputtrim = input.trim();
+	console.log(inputtrim.length);
+	
+	
+}
+
+</script>
+
+</head>
+<body>
+
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br><br>
+
+</body>
+</html>

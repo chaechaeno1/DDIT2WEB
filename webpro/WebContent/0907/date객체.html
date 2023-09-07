@@ -156,6 +156,7 @@ today4= new Date(2000,0,1); // 숫자로 쓸때 월은 0~11(12개)까지 입력�
 	
 	var proc6 = () => {
 		//(1) 선택한 날의 값을 가져옴 => String
+		//selday = documnet.getElementById('pday').value;
 		selday = pday.value; 
 			
 		//(2) (1)번의 값으로 Date객체를 생성한다. 
@@ -167,19 +168,21 @@ today4= new Date(2000,0,1); // 숫자로 쓸때 월은 0~11(12개)까지 입력�
 		
 		times = todayTime - buydayTime;
 		
-		res = times/ (1000*60*60*24);
+		res = times / (1000*60*60*24);
 	
 		
 		//간격비교 if사용 -> 7일이 지났는지??
-		str="";
 		
 		if(res>7){
-			str = `구입한 날로부터 ${res}일이 지났습니다.<br>`;
-			str += `교 환 불 가 !!!ㅠㅠㅠ <br>`;
+			a =  `***7일이 경과되어 교 환 불 가 !!!***<br>`;
 		}else if(res<=7){
-			str = `구입한 날로부터 ${res}일이 지났습니다.<br>`;
-			str += `***교 환 가 능 !!!***<br>`;
+			a = `***교 환 가 능 !!!***<br>`;
 		}
+		
+		//출력
+		str = `today : ${today1.toLocaleString()} <br>`;
+		str += `구입날짜 : ${buyday.toLocaleString()} <br>`;
+		str += a;
 		
 		
 		document.querySelector("#result6").innerHTML = str;
