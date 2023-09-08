@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TimeOut</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+
+proc1 = () => {
+	
+	setTimeout(function(){
+		
+		//id=result1을 검색 - 배경색 바꾸기
+		vres1 = document.getElementById('result1');
+		vres1.style.background = "red";
+		
+	},1000);
+	
+}
+
+proc2 = (but) => {
+	
+	but.style.display = "none";
+	
+	sid = setInterval(function(){
+	
+	console.log(sid);
+	
+	cr = Math.floor(Math.random() * 256);
+	cg = Math.floor(Math.random() * 256);
+	cb = Math.floor(Math.random() * 256);
+	console.log(cr,cg,cb);
+	
+	//id=result1을 검색 - 배경색 바꾸기
+	vres1 = document.getElementById('result2');
+	
+	//vres1.style.background = "#f1aafd";
+	vres1.style.background = `rgb(${cr}, ${cg}, ${cb})`;
+	
+	
+	},500);
+	
+}
+
+
+
+stop = (but) => {
+	
+	
+	
+}
+
+
+</script>
+
+
+</head>
+<body>
+
+	<h2>setTimeout(fn, millisec)</h2>
+	millisec 지정된 시간이 경과하면 function 수행하고 끝남
+	<br>
+	<br>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>setInterval(fn, millisec)</h2>
+	millisec 지정된 시간이 경과할때마다 function 수행하고 끝남
+	<br> 종료하기 위해서 clearInterval(id이름)
+	<br>
+	<input type="button" value="확인" onclick="proc2(this)">
+	<input type="button" value="종료" onclick="stop(this)">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>
