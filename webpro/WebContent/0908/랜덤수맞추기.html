@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>랜덤 수 맞추기</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+
+//랜덤을 고정시켜야 하므로 함수 바깥에 있어야함
+rand = Math.floor(Math.random()*100 + 1);
+
+var proc1 = () => {
+	//입력값 가져오기 : id=su를 검색(value 사용)
+	suvalue = su.value;
+	
+	if(suvalue == rand){
+		hint = "정답!!^0^";
+	}else if(suvalue > rand){
+		hint = "더 작은 수를 입력하세요!";
+	}else {
+		hint = "더 큰 수를 입력하세요!";
+	}
+	
+	
+	//result1에 출력
+	
+	document.getElementById('result1').innerHTML = hint;
+	
+	
+}
+
+</script>
+
+</head>
+<body>
+	
+	<h2>랜덤 수 맞추기</h2>
+	1부터 100사이의 숫자를 입력하시오.<br><br>
+	<input type="text" id="su">
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br><br>
+
+</body>
+</html>
