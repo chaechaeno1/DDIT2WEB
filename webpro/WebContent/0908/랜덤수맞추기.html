@@ -10,13 +10,20 @@
 
 //랜덤을 고정시켜야 하므로 함수 바깥에 있어야함
 rand = Math.floor(Math.random()*100 + 1);
+let count = 0;
+let str = "";
 
 var proc1 = () => {
 	//입력값 가져오기 : id=su를 검색(value 사용)
 	suvalue = su.value;
 	
+	str += suvalue + " ";
+	count++;
+	
 	if(suvalue == rand){
-		hint = "정답!!^0^";
+		hint = `정답!!^0^ <br>`;
+		hint += `입력 횟수 : ${count} <br>`
+		hint += `입력 값들 : ${str}<br>`
 	}else if(suvalue > rand){
 		hint = "더 작은 수를 입력하세요!";
 	}else {
@@ -31,6 +38,32 @@ var proc1 = () => {
 	
 }
 
+
+	var proc2 = () => {
+
+		str = [];
+	
+		for(i=0; ; i++){
+			lotto = Math.floor(Math.random()*45+1);
+			
+			//중복 비교
+			idx = str.indexOf(lotto); 
+			
+			//배열에 저장
+			if(idx == -1) str.push(lotto);
+			
+			//break비교
+			if(str.length >=6) break;
+			
+		}
+		
+		
+		
+		//출력
+		document.getElementById('result2').innerHTML += str + "<br>";
+		
+	}
+
 </script>
 
 </head>
@@ -44,6 +77,14 @@ var proc1 = () => {
 	<div id="result1"></div>
 	<hr color="red">
 	<br><br>
+	
+	<h2>1~45 로또번호 발생</h2>
+	<br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br><br>	
 
 </body>
 </html>
