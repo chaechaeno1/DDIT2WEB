@@ -11,14 +11,15 @@
 var proc1 = () => {
 	
 	//입력
-	input = prompt("주민번호를 입력하시오");
+	input = prompt("주민번호를 입력하시오","ex) 110326-4432618");
 	
 	//각 문자열 추출 - substr, slice, substring
 	yy = parseInt(input.slice(0,2));
 	mm = parseInt(input.slice(2,4));
 	dd = parseInt(input.slice(4,6));
 	
-	gend = parseInt(input.slice(7,8));; 
+	//gend = parseInt(input.slice(7,8));; 
+	gend = input.substr(7,1); //1,2 or 3,4
 	
 	//1,2 -> 1900년대 3,4 -> 2000년대
 	//비교 - 년도, 성별 결정
@@ -30,15 +31,15 @@ var proc1 = () => {
 	
 	//나이계산 = 현재년도 - 태어난연도
 	today = new Date();
-	todayYY = today.getFullYear(today);
+	todayYY = today.getFullYear();
 	age = todayYY - year;
 	
 	
 	//출력
 	str = `주민번호: ${input.substr(0,8)}****** <br>`;
 	str += `생일: ${year}년 ${mm}월 ${dd}일 <br>`;
-	str += `성별: ${gender} <br>`;
 	str += `나이: ${age} <br>`;
+	str += `성별: ${gender} <br>`;
 	
 	
 	document.getElementById('result1').innerHTML = str;
@@ -46,6 +47,66 @@ var proc1 = () => {
 	
 	
 }
+
+var proc2 = () => {
+	
+	//입력
+	input = prompt("주민번호 입력", "ex) 110326-4432618");
+	
+	//1. A*2 + B*3 + ... + H*9 + I*2 + ... + L*5 의 총합
+	//split : 구분자로 구분된 문자열을 분리하여 배열로 반환
+	//concat : 여러 개의 문자열을 연결한다. + 연산자와 동일
+	
+	//replace : 문자열을 대체한다. 정규식도 사용 가능
+	reinput = input.replace("-","");
+	
+	sum=0;
+	
+	
+	/* number="234567892345";
+	
+	//2. 1번의 합을 11로 나눈 나머지를 구한다.
+	//3. 11에서 2번의 결과를 뺀다.
+	
+	//곱하고 합구하기
+	for(i=0; i<reinput.length-1; i++){
+		sum += reinput.substr(i,1)*number.substr(i,1) //곱하기~!!
+		
+		console.log(reinput.substr(i,1),number.substr(i,1))
+	} */
+	
+	//number없이 계산
+	for(i=0; i<reinput.length-1; i++){
+		sum += reinput.substr(i,1) * (i%8+2);
+		
+		console.log(reinput.substr(i,1),(i%8+2));
+	}
+	
+	//res = 11로 나눈 나머지 구하기(결과를 11에서 빼기)
+	//(1~3번 수행식) 11-(sum%11)
+	res = 11 - (sum % 11);
+	
+	//4. 3번의 결과가 0~9이면 값 그대로, '10이면 0, 11이면 1로 변환'='10 이상이면 10빼기'
+	//res의 결과 값은 0~11, 10->0, 11->1
+	//if(res >= 10) res = res-10;
+	res = res % 10;	
+	
+	//5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다
+	//주민번호 마지막 번호와 res의 결과가 같은지 비교
+	if(res == reinput.substr(12,1) ){
+		ss = "맞는 번호!";
+	} else{
+		ss = "가짜 번호;;";
+	}
+	
+	str = `주민번호: ${input.substr(0,8)}****** <br>`;
+	str += `입력하신 주민등록번호는 ${ss} 입니다. <br>`;
+	
+	document.getElementById('result2').innerHTML = str;
+	
+
+}
+
 
 </script>
 
@@ -66,6 +127,25 @@ var proc1 = () => {
 	<br>
 	<br>
 	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>주민등록번호를 입력 받아 주민등록번호의 유효성을 검사하는 프로그램을 작성하시오.(ABCDEF-GHIJKLM)</h2>
+	1. A*2 + B*3 + ... + H*9 + I*2 + ... + L*5 의 총합을 구한다.
+	<br> 2. 1번의 합을 11로 나눈 나머지를 구한다.
+	<br> 3. 11에서 2번의 결과를 뺀다.
+	<br> 4. 3번의 결과가 0~9이면 값 그대로, '10이면 0, 11이면 1로 변환'='10 이상이면 10빼기'
+	<br> 5. 4번의 결과와 M자리의 값이 같으면 맞는 번호이다
+	<br>
+
+
+	<br>
+	<br>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
 	<hr color="red">
 	<br>
 	<br>
