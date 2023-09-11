@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>img_interval</title>
+
+<link rel="stylesheet" href="../css/public.css">
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+
+<script>
+
+//시작버튼 클릭하면 
+proc1 = (start) => {
+	//start는 (this를 받은) 확인 버튼 객체 변수
+	
+	//지역변수를 전역변수로 설정
+	gstart = start;
+	
+	start.style.display = "none";
+	
+	//nodeList로 리턴 - 배열
+	vimg = document.querySelectorAll('img');
+	vres1 = document.querySelector('#result1');
+	
+	i=0;
+		
+	//vid는 전역변수로 사용해야 하기 떄문에 let, var 붙이면 안됨
+	vid=setInterval(function(){
+		//img의 첫번째 선택한다. - //result1(부모)로 이동
+		vres1.appendChild(vimg[i]);
+		
+		if(i>=5) i = 0;
+		else i++;
+
+		
+	}, 500);
+	
+
+	
+}
+
+//종료 버튼 클릭하면
+stop = () => {
+	clearInterval(vid);
+	
+	//시작버튼 다시 보이게 설정
+	gstart.style.display = "inline";
+}
+
+
+</script>
+
+</head>
+<body>
+
+	<h2>이미지의 첫번째를 선택하여 뒤로 이동하기</h2>
+	<div id="result1">
+		<img src="../images/Penguins.jpg" alt="spongebob.png"> <img
+			src="../images/spongebob.png" alt="spongebob.png"> <img
+			src="../images/국화.jpg" alt="국화.jpg"> <img
+			src="../images/대나무숲.jpg" alt="대나무숲.jpg"> <img
+			src="../images/딸기스무디.jpg" alt="딸기스무디.jpg"> <img
+			src="../images/무지게1.png" alt="무지게1.png">
+	</div>
+	<br>
+	<br>
+	<input type="button" value="시작" onclick="proc1(this)">
+	<input type="button" value="종료" onclick="stop()">
+	<br>
+	<br>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

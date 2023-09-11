@@ -47,6 +47,7 @@ proc2 = (start) => {
 	
 	console.log(sid);
 	
+	//cr,cg,cb는 10진수
 	cr = Math.floor(Math.random() * 256);
 	cg = Math.floor(Math.random() * 256);
 	cb = Math.floor(Math.random() * 256);
@@ -55,8 +56,10 @@ proc2 = (start) => {
 	//id=result1을 검색 - 배경색 바꾸기
 	vres1 = document.getElementById('result2');
 	
-	//vres1.style.background = "#" + cr.toString(16) + cg.toString(16) + cb.toString(16)";
-	vres1.style.background = `rgb(${cr}, ${cg}, ${cb})`;
+	// '#f1aaf9' , f1 - cr, aa - cg, f9 - cb
+	//10진수를 16진수로 표현
+	vres1.style.background = `#${cr.toString(16)}${cg.toString(16)}&{cb.toString(16)}`;
+	//vres1.style.background = `rgb(${cr}, ${cg}, ${cb})`;
 	
 	
 	},500);
