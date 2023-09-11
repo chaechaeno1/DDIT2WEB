@@ -41,6 +41,7 @@ proc2 = () => {
 
 proc3 = () => {
 	
+	location.replace('img_interval.html');
 	
 }
 
@@ -68,7 +69,7 @@ proc3 = () => {
 	<hr color="red">
 	<br>
 	<br>
-	
+
 	<h2>replace : 현재 문서를 다른 문서로 대체한다.</h2>
 	<input type="button" value="확인" onclick="proc3()">
 	<br>
@@ -76,7 +77,36 @@ proc3 = () => {
 	<div id="result3"></div>
 	<hr color="red">
 	<br>
-	<br>	
+	<br>
+
+	<h2>location.href 사용 - button 사용</h2>
+	onclick="location.href='test.jsp?id=bb'"
+	<br>
+	<br>
+	<input type="button" value="확인"
+		onclick="location.href='test.jsp?id=bb'">
+	<br>
+	<br>
+	<div id="result4"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>location.href 사용 - a태그</h2>
+	(1) onclick="location.href='test.jsp?id=bb'"<br>
+	(2) href="#" onclick="proc1()"<br>
+	(3) href에서 스크립트 함수 호출 <br>
+	href="javascript:proc1()"<br>
+	<br>
+	<a href="#" onclick="location.href='test.jsp?id=bb'">공지사항</a><br>
+	<a href="#" onclick="proc1()">공지사항</a><br>
+	<a href="javascript:proc1()">공지사항</a>
+	<br>
+	<br>
+	<div id="result4"></div>
+	<hr color="red">
+	<br>
+	<br>
 
 </body>
 </html>
