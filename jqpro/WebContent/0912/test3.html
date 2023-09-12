@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TEST 3</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+proc1 = () => {
+	$('#result1').css('background', 'red'); //onclick 적용	
+}
+
+/////////////////////////////////////////////////////
+
+/* window.onload = function(){
+	$('#btn2').on('click',function(){
+		
+	})
+	
+} */
+
+/////////////////////////////////////////////////////
+
+/* $(document).ready(function(){
+	$('#btn2').on('click',function(){
+		
+	})	
+}) */
+
+////////////////////////////////////////////////////
+
+$(document).ready(() => {
+	$('#btn2').on('click',() => {
+		//vres2 = document.querySelector('#result2');
+		//vres2.style.background = "blue";
+		
+		//방법1
+		vres2 = $('#result2');
+		vres2.css('background','green');
+		
+		//방법2
+		$('#result2').css('background','blue')
+					 .css('border','5px solid red');
+	})	
+}) 
+
+
+</script>
+
+</head>
+<body>
+
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>jquery 방식의 onclick 이벤트</h2>
+	<input type="button" value="확인" id="btn2">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

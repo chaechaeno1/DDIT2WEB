@@ -2,16 +2,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TEST 2</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+
+<!-- 내부스크립트 -->
+<script>
+	// window.onload = function(){}
+	// $(document).ready(function() {}
+	//자바스크립트 혹은 제이쿼리에서 위 문장을 사용하면 각각의 코드를 사용할 수 있음
+
+	/* window.onload = function(){
+	 //result1 검색
+	 vres1 = document.querySelector('#result1');
+	 vres1.style.background = 'pink';
+
+	 vres1 = $('#result1');
+	 vres1.css('background', 'yellow');
+	 } */
+
+	//jquery
+	$(document).ready(function() {
+		//result1 검색
+		vres1 = document.querySelector('#result1');
+		vres1.style.background = 'pink';
+
+		vres1 = $('#result1');
+		vres1.css('background', 'yellow');
+	})
+</script>
+
+
+
+
 </head>
 <body>
-	
+
 	<h2></h2>
-	<input type="button" value="확인" onclick="proc1()">
-	<br><br>
+	<br>
+	<br>
 	<div id="result1"></div>
 	<hr color="red">
-	<br><br>
+	<br>
+	<br>
+
+
 
 </body>
 </html>
