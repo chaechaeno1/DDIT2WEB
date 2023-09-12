@@ -42,6 +42,8 @@ proc1 = () => {
 	}; 	
 	
 	
+	//vdel.onclick = del;
+	
 	//p태그에 input추가
 	ptag.appendChild(vinput);	
 	
@@ -54,6 +56,12 @@ proc1 = () => {
 	//result1에 p태그를 추가
 	vres1.appendChild(ptag);
 	
+	
+}
+
+del = (vdel) => {
+	vparent = vdel.parentNode;
+	vparent.remove();
 	
 }
 
@@ -71,7 +79,7 @@ proc1 = () => {
 	<div id="result1">
 		<p>
 			<input type="file" name="file" class="file">
-			<button type="button" onclick="">삭제</button>
+			<button type="button" onclick="del(this)">삭제</button>
 		</p>
 	</div>
 	<hr color="red">
