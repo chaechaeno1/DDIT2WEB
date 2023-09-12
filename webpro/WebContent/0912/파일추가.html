@@ -6,11 +6,57 @@
 
 <link rel="stylesheet" href="../css/public.css">
 
+<style>
+button[type=file] {
+	width: 80px;
+	height: 30px;
+	background: green;
+	color: white;
+	border-radius: 10px;
+	font-size: 1.2rem;
+}
+</style>
+
+
 <script>
 
 proc1 = () => {
 	
+	//p태그 생성
+	ptag = document.createElement('p');
+	
+	//input 생성 - type, name, class
+	vinput = document.createElement('input');
+	vinput.type = "file";
+	vinput.name = "file";
+	vinput.setAttribute('class','file');
+	
+	//button 버튼 생성 - 삭제 : type, innerHTML
+	vdel = document.createElement('button');
+	vdel.type = "file";
+	vdel.setAttribute('class','file');
+	vdel.innerHTML = "삭제";
+	vdel.onclick = function(){
+		vparent = this.parentNode; //p태그
+		vparent.remove();		
+	}; 	
+	
+	
+	//p태그에 input추가
+	ptag.appendChild(vinput);	
+	
+	//p태그에 button 추가
+	ptag.appendChild(vdel);	
+	
+	//result1 검색
+	vres1 = document.querySelector('#result1');
+	
+	//result1에 p태그를 추가
+	vres1.appendChild(ptag);
+	
+	
 }
+
 
 </script>
 
@@ -23,7 +69,10 @@ proc1 = () => {
 	<br>
 	<br>
 	<div id="result1">
-		<input type="file" name="file" id="file">
+		<p>
+			<input type="file" name="file" class="file">
+			<button type="button" onclick="">삭제</button>
+		</p>
 	</div>
 	<hr color="red">
 	<br>
