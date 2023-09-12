@@ -1,0 +1,35 @@
+
+pre{
+  font-size : 1.5rem;
+  background : #fadeee;
+  margin : 50px;
+  
+  border : 15px solid green;
+  border-left : none;
+  border-right : none;
+  
+  padding : 20px;
+}
+
+div{
+	border: 2px dotted orange;
+	margin: 20px;
+	padding: 10px;
+	height: auto;
+}
+
+label{
+	display: inline-block;
+	width: 100px;
+	text-align: left; /* 라벨 텍스트를 왼쪽 정렬 */
+	
+}
+
+input[type=button], button[type=button]{
+	width: 80px;
+	height: 30px;
+	background: green;
+	color: white;
+	border-radius: 10px;
+	font-size: 1.2rem;
+}
