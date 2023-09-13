@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>새로운요소만들기</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+
+<!-- 내부스크립트 -->
+<script>
+
+proc1 = () => {
+	/* //Hello 문자 객체 만들기
+	vtext = document.createTextNode('Hello');
+	
+	//p태그 만들기
+	ptag = document.createElement('p');
+	ptag.id = ...
+	ptag.name = 'aaa';
+	ptag.innerHTML = "hello";
+	ptag.setAttribute('class','aaa');
+	
+	//p태그에 문자객체를 추가하기
+	ptag.appendChild(vtext);
+	
+	//result검색 - p태그 추가
+	document.querySelector('#result1').appendChild(ptag);
+	 */
+	 
+	 ptag = $("<p class='aaa' name='aaa' onclick='pp()'>Hello</p>");
+	 //$('#result1').append(ptag); -- 새로운 내용
+	 ptag.appendTo($('#result1')); // 부모가 와야함
+	
+}
+
+pp = () => {
+	alert("hello!!!");	
+}
+
+proc2 = () =>{
+	//p태그 생성
+	$('<p></p>', { 
+		'class' : 'aaa',
+		'name' : 'aaa',
+		'text' : 'Hello',
+		'click' : function(){
+			alert("Hello");
+		}
+		
+	}).appendTo($('#result2')); //변수가 없어서 appendTo만 가능
+	
+}
+
+
+proc3 = () => {
+	//이미지 생성
+	//가장 바깥쪽이 '' 이면 안쪽은 "" 으로, 혹은 그 반대로
+	//(1)
+	//vimg = $('<img src="../images/spongebob.png" alt="" onclick="imgClick(this)">');
+	
+	//img는 닫는태그 없음
+	//this 사용시 람다함수 사용 불가
+	//(2)
+	/* vimg = $('<img>', { 
+		'src' : '../images/spongebob.png',
+		'alt' : 'spongebob.png',
+		'click' : function(){
+			$(this).css('border', '3px solid red');
+		}
+	}) */
+	
+	//(3)
+	vimg = $('<img>', { 
+		'src' : '../images/spongebob.png',
+		'alt' : 'spongebob.png',
+		'click' : imgProc
+			
+		})
+		
+		$('#result3').append(vimg);
+	
+	
+
+
+}//proc3 click
+
+imgProc = function(){
+	$(this).css("border", "2px solid red");
+	
+}
+
+//param은 클릭한이미지(this)
+imgClick = (param) => {
+	//param.style.border = "2px solid red";
+	$(param).css("border", "2px solid red");
+	
+	
+}
+
+</script>
+
+</head>
+<body>
+
+	<h2>id=result1번인 요소에 Hello 문자를 갖는 p태그를 생성한다.</h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+
+	<h2>id=result2번인 요소에 Hello 문자를 갖는 p태그를 생성한다.</h2>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>id=result3번인 요소에 img객체 생성한다.</h2>
+	<input type="button" value="이미지 생성" onclick="proc3()">
+	<br>
+	<br>
+	<div id="result3"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

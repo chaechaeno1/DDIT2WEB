@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>컨텍스트</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+/* window.onload = function(){	
+	$('#btn1').on('click', function(){
+		
+	})
+}
+
+$(document).ready(function(){
+	$('#btn1').on('click', function(){
+		
+	})
+}) */
+
+// $(function(){ 은 한번만 만들고 그 안에서 선언
+$(function(){
+	//확인버튼 클릭 했을 때 
+	$('#btn1').on('click', function(){
+		//전체 p태그를 선택
+		$('p').css('background','pink');	
+		
+		//0번째 form 내부의 p태그를 선택
+		$('p', document.forms[0]).css('background','lightblue'); 
+	})
+	
+	//div 클릭 했을 때
+	// +=5px는 jquery에서만 가능 : 클릭할때마다 5px씩 커지는 거
+	$('div.result1').on('click', function(){
+		$('p', this).css('font-size','+=5px');		
+	})
+		
+	//p태그 클릭
+ 	$('p').on('click', function(){
+		//전체 p태그를 선택
+		$(this).css('font-size','+=5px');		
+	}) 
+	
+	
+})
+
+</script>
+
+<style>
+form{
+	border : 3px solid gold;
+	margin : 20px;
+	padding : 20px;
+	
+}
+</style>
+
+
+</head>
+<body>
+
+	<h2></h2>
+	<input type="button" value="확인" id="btn1">
+	<p>무궁화 꽃이 피었습니다</p>
+	<br>
+	<br>
+	
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+	
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+	
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+	
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+	
+	<form>
+		<p>무궁화 꽃이 피었습니다</p>
+	</form>
+	
+	<form>
+		<p>무궁화 꽃이 피었습니다</p>
+	</form>
+	
+	<form>
+		<p>무궁화 꽃이 피었습니다</p>
+	</form>
+	
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>
