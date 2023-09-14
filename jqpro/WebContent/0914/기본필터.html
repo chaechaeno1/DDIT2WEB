@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기본필터</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+$( () => {
+	$('#btn1').on('click', () => {
+		$('#result1 ul li:first').css('background','yellow')
+		$('#result1 > ul > li:last').css('background','yellow')
+		$('#result1 li:eq(5)').css('background','red')
+		//$('#result1 li:lt(4)').css('font-size','1.5rem').css('font-weight','bold')
+		//여러개의 css 적용할 때
+		$('#result1 li:lt(4)').css({'font-size':'1.5rem', 'font-weight':'bold'})
+		//$('#result1 > li') (틀린답)) 
+		
+	})
+	
+	$('#mbtn').on('click', function(){
+		$('#result1 ul li').first().css('background','pink')
+		$('#result1 > ul > li').last().css('background','pink')
+		$('#result1 li').eq(5).css('background','green')
+		$('#result1 li').filter(':lt(4)').css({'font-size':'2.5rem', 'font-weight':'bold', 'font-style':'italic'})
+		
+		
+	})
+	
+	
+	$('#btn2').on('click', function(){
+		//$('#result2 tr:even').css('background','lightgray')
+		$('#result2 tr').even().css('background','lightgray')
+		
+		//$('#result2 tr:first').css('background','lightblue')
+		$('#result2 tr').first().css('background','lightblue')
+		
+	})
+	
+})
+</script>
+
+<style>
+table{
+	border: 1px solid lightblue;
+}
+td{
+	width: 400px;
+	height: 40px;
+	text-align: center;
+	padding: 10px;
+}
+th{
+	height: 50px;
+	font-size: 3.0rem;
+}
+
+</style>
+
+
+</head>
+<body>
+
+	<h2>기본필터 : :first :last :eq :lt :gt</h2>
+	권장하지 않는 필터 - 메서드를 사용<br>
+	.first() .last() .eq(index) ,.filter(':lt(idx)') .filter(':gt(idx)') <br><br>
+	<input type="button" value="기본필터" id="btn1">
+	<input type="button" value="필터메소드" id="mbtn">
+	<br>
+	<br>
+	<div id="result1">
+		<ul>
+			<li>one</li>
+			<li>two</li>
+			<li>three</li>
+			<li>four</li>
+			<li>five</li>
+			<li>six</li>
+			<li>seven</li>
+			<li>eight</li>
+			<li>nine</li>
+		</ul>
+
+
+	</div>
+	<hr color="red">
+	<br>
+	<br>
+	
+	<h2>기본필터  :even :odd</h2>
+	권장하지 않는 필터 - 메서드를 사용<br>
+	 <br><br>
+	<input type="button" value="기본필터" id="btn2">
+	<br>
+	<br>
+	<div id="result2">
+		<table border="1">
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		
+		</table>
+	</div>
+	<hr color="red">
+	<br>
+	<br>	
+
+</body>
+</html>
