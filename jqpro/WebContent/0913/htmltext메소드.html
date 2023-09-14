@@ -16,10 +16,52 @@ proc1 = () => {
 	
 	alert($('body').text());
 }
+
+$(document).ready( ()=> {
+	//btext
+	$('#btext').on('click', ()=>{
+		//#result2 모든 p를 대상으로 모든 문자를 가져옴
+		alert($('#result2 p').text());
+	})
+	
+	//bhtml
+	$('#bhtml').on('click', () =>{
+		//#result2 첫번째 p를 대상으로 태그 포함한 문자를 가져옴
+		alert($('#result2 p').html());
+	})
+	
+	//
+	$('#bhfor').on('click', function(){
+		
+		str="";
+		//$('#result3 p').each(function(i, v){ // 매개변수 i,v는 생략가능 //매개변수의 순서 중요, 첫번째가 index 역할
+		$('#result3 p').each(function(){ 
+			str += $(this).html() + "\n"; //this가 곧 #result3 p의 [0],[1],[2] 순서대로 출력
+		})
+		
+		//$('#result3 p')[0].html() => 불가능. DOM변수가 되어버림.
+		alert(str);
+		
+	})
+	
+})
+
+
+
 </script>
+
+
+<style>
+p{
+	font-size : 1.5rem;
+	color : blue;
+}
+
+</style>
 
 </head>
 <body>
+	
 	
 	<h2>htmltext메소드</h2>
 	<input type="button" value="확인" onclick="proc1()">
@@ -27,6 +69,31 @@ proc1 = () => {
 	<div id="result1"></div>
 	<hr color="red">
 	<br><br>
+	
+	
+	<h2>html메소드</h2>
+	<input type="button" value="html" id="bhtml">
+	<input type="button" value="text" id="btext">
+	<br><br>
+	<div id="result2">
+		<p>hello~<span>HTML</span></p>
+		<p>안녕^0^<span>CSS</span></p>
+		<p>HI~~~!!!!<span>JQUERY</span></p>
+	</div>
+	<hr color="red">
+	<br><br>	
+	
+	
+	<h2>html메소드</h2>
+	<input type="button" value="html반복" id="bhfor">
+	<br><br>
+	<div id="result3">
+		<p>hello~<span>HTML</span></p>
+		<p>안녕^0^<span>CSS</span></p>
+		<p>HI~~~!!!!<span>JQUERY</span></p>
+	</div>
+	<hr color="red">
+	<br><br>		
 
 </body>
 </html>
