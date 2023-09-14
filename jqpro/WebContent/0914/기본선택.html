@@ -2,16 +2,65 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>기본 선택자</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script> // load 직후에 실행
+$(() => {
+	$('#btn1').on('click', ()=>{
+		$('#p2 + p').css('background', 'lightblue');		
+	})
+	
+	$('#btn2').on('click', ()=>{
+		$('#p2 ~ p').css('background', 'pink');		
+	})
+	
+	
+})
+
+</script>
+
+
+
 </head>
 <body>
-	
-	<h2></h2>
-	<input type="button" value="확인" onclick="proc1()">
-	<br><br>
-	<div id="result1"></div>
+
+	<h2>형제 선택</h2>
+	E1 + E2 : 바로 다음에 나오는 첫번째 형제
+	<br> E1 ~ E2 : 다음에 나오는 모든 형제
+	<br> 앞의 형제를 불러오는 건 메서드를 사용해야 한다.
+	<br>
+	<br>
+	<input type="button" value=" + " id="btn1">
+	<input type="button" value=" ~ " id="btn2">
+	<br>
+	<br>
+	<!-- $('#result1 p') : 자식 요소 중 모든 p태그 요소 (후손들) -->
+	<!-- $('#result1 > p') : 자식 요소 중 바로 아래 p태그 요소 (자식만)-->
+
+	<!-- 만약 바로 아래에 자식인 p태그가 3개가 있고, 후손 자리에 아무것도 없다면? -->
+	<!-- $('#result1 p') : 3개 선택-->
+	<!-- $('#result1 > p') : 3개 선택-->
+	<div id="result1">
+		<p id="p1">첫번째</p>
+		<p id="p2">두번째</p>
+		<p id="p3">세번째</p>
+		<p id="p4">네번째</p>
+		<div>
+			<p>네번째2</p>
+		</div>
+		<p id="p5">다섯번째</p>
+		<p id="p6">여섯번째</p>
+	</div>
 	<hr color="red">
-	<br><br>
+	<br>
+	<br>
 
 </body>
 </html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 선택</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+	//body가 먼저 실행되고나서 script가 실행되어야 하기 떄문에 $(function(){})을 써야함
+	$(function() {
+		/////////////////////////////////////////////
+		$('#btn1').on('click', function() {
+			//id가 result-로 시작하는 div 태그를 선택
+			// E1[attr |= val] : attr 속성값이 val과 같거나 ‘val-’로 시작하는 모든 E1요소
+			//border - width style color 중 style은 필수항목
+			$('div[id|=result]').css('border', '3px solid lightblue');
+
+		})
+		/////////////////////////////////////////////
+		$('#btn2').on('click', function() {
+			//class가 pp인 요소를 선택
+			//$('p.pp') - 기본 선택
+			//속성 선택
+			$('p[class=pp]').css('background', 'lightgreen');
+
+		})
+
+		/////////////////////////////////////////////
+		$('#btn3').on('click', function() {
+			$('p[title~=star]').css('font-size', '2.0rem');
+			
+		})
+
+	})
+</script>
+
+<style>
+input[type=button] {
+	width: 150px;
+}
+</style>
+
+
+</head>
+<body>
+
+	<h2>속성 선택</h2>
+	<input type="button" value="div[id|=result]" id="btn1">
+	<input type="button" value="p[class=pp]" id="btn2">
+	<input type="button" value="p[title~=star]" id="btn3">
+	<br>
+	<br>
+	<div id="result-1"></div>
+	<div id="result-2"></div>
+	<div id="result-3"></div>
+	<div id="result-4"></div>
+	<hr color="red">
+	<p class="pp" title="koreastar">HELLO</p>
+	<p class="pp" title="koreastar">HELLO</p>
+	<p class="pp2" title="korea star">HELLO</p>
+	<p class="pp2">HELLO</p>
+	<p class="pp">HELLO</p>
+	<br>
+	<br>
+
+</body>
+</html>

@@ -17,6 +17,7 @@ proc1 = () => {
 	alert($('body').text());
 }
 
+
 $(document).ready( ()=> {
 	//btext
 	$('#btext').on('click', ()=>{
@@ -35,6 +36,10 @@ $(document).ready( ()=> {
 		
 		str="";
 		//$('#result3 p').each(function(i, v){ // 매개변수 i,v는 생략가능 //매개변수의 순서 중요, 첫번째가 index 역할
+		
+		//this일때는 람다함수 안됨!!
+		//람다함수를 쓰면 this가 function이 되버림	
+			
 		$('#result3 p').each(function(){ 
 			str += $(this).html() + "\n"; //this가 곧 #result3 p의 [0],[1],[2] 순서대로 출력
 		})
