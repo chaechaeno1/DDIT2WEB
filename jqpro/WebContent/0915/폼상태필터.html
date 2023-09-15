@@ -12,37 +12,172 @@
 
 <!-- 내부스크립트 -->
 <script>
-
+$(function(){
+	
+	//스크립트 방식
+/* 	vbtn3 = document.querySelector('#btn3');
+	vbtn.addEventListener('click', function(){ }) */
+	
+	
+	//JQuery 방식
+	$('#btn3').on('click', function(){
+		str = "";
+		$('#spring option:selected').each(function(x,y){
+			str += $(this).val() +"<br>";
+		})
+		
+		//브라우저에 출력
+		$('#result3 div').html(str);
+		
+	})
+	
+	$('#btn2').on('click', function(){
+		//$('#result2 > form > input:checked') 
+		//$('#result2 input:checked') 
+		//$('#result2 input[type=checkbox]:checked')
+		//$('#result2 input:checkbox:checked')
+		
+		str = ""; //전송용
+		//str2 = []; 
+		$('#result2 :checkbox:checked').each(function(x,y){ 
+			str += $(this).val() + "&nbsp;&nbsp;&nbsp;";//전송용
+			//str2.push($(this).val()); //배열에 넣어라
+			
+			
+		})
+		//ajax에서 사용법
+		//form에 action과 method를 설정해서 서버로 보내기
+		//$('#ff').attr('action', '폼상태2.jsp');
+		//$('#ff').attr('method', 'post');
+		//$('#ff').submit();
+		
+		//브라우저에 출력
+		$('#result2 div').html(str);
+		
+	})
+	
+	/* x는 idx역할, y는 변수->t생략가능 (this사용)
+	y = #result2 :checkbox:checked[x]
+	y = #result2 :checkbox:checked[x]
+	y = #result2 :checkbox:checked[x]
+	
+	//ajax 방식
+	.attr('action') :action값을 가져와라(getter)
+	.attr('action', 'aa.sjp') :설정값을 가져와라(setter)
+	*/
+	
+	
+	$('#btn1').on('click', function(){
+		//사용가능한 요소를 선택해서 배경색 변경
+		$('form *:enabled').css('background','gold');
+		
+		//사용불가능한 요소를 선택해서 테두리 변경
+		$('form *:disabled').css('border','4px double red');
+		
+		$('select option').css('color','blue');
+		
+	})
+	
+})
 </script>
 
 
 </head>
 <body>
 
-	<h2></h2>
-	<input type="button" value="확인" onclick="proc1()">
+	<h2>폼상태필터<br>
+	:disabled 사용 불가능, 서버로 전송 불가능 <br>
+	:enabled 사용가능, 기본값, 속성에 설정 X<br>
+	:selected select/option의 초기값 설정 <br>
+	:checked 체크된 요소와 일치 checkedbox, radio </h2>
+	<input type="button" value="확인" id="btn1">
 	<br>
 	<br>
 	<div id="result1">
 		<form action="폼상태.jsp" method="post">
-			<input type="text" name="id" ><br> 
+			<input type="text" name="id" value="korea" disabled="disabled"><br> 
 			<input type="password" name="pass"><br> 
-			
-			<select name="disSelect" disabled>
+			<input type="hidden" name="age" value="20"> <!-- 화면에 보이지는 않아도 서버에 전송됨 -->
+			<br>
+			<select name="disSelect" >
 				<option>Option1</option> 
 				<option>Option2</option>
-				<option>Option3</option>
+				<option selected="selected">Option3</option>
 				<option>Option4</option>
-			</select> <br>
+			</select> 
+			<br>
+			<br>
 			<textarea name="area" rows=10 cols=20>text</textarea>
 			<br> 
-			<input type="button" value="확인" onclick="alert('hello!!')" disabled> <br>
-
+			<input type="button" value="클릭!" onclick="alert('hello!!')"> <br>
+			<br>
+			<input type="submit" value="전송">
+			
 		</form>
 	</div>
 	<hr color="red">
 	<br>
 	<br>
+	
+	
+	<pre>
+	📌📌📌📌완전 중요📌📌📌📌
+	
+	innerHTML -> html()
+	innerText -> text()
+	value -> val()
+	</pre>
+	
+	
+	<h2> </h2>
+	<input type="button" value="확인" id="btn2">
+	<br>
+	<br>
+	<div id="result2">
+		<form id="ff">
+		취 미 :
+			<input type="checkbox" name="hobby" value="여행" checked>여행
+			<input type="checkbox" name="hobby" value="장기">장기
+			<input type="checkbox" name="hobby" value="바둑">바둑
+			<input type="checkbox" name="hobby" value="독서" checked>독서
+			<input type="checkbox" name="hobby" value="공부" >공부
+			<input type="checkbox" name="hobby" value="게임" >게임
+			<input type="checkbox" name="hobby" value="영화감상" checked>영화감상
+			<input type="checkbox" name="hobby" value="노래하기">노래하기
+			<input type="checkbox" name="hobby" value="춤추기">춤추기
+			<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+			</form>
+			
+			<div></div>		
+		</form>
+	</div>
+	<hr color="red">
+	<br>
+	<br>	
+	
+	<h2> option:selected </h2>
+	<input type="button" value="확인" id="btn3">
+	<br>
+	<br>
+	<div id="result3">
+	<form>
+		봄소식 : <br> <br>
+		<select name="spring" id="spring" multiple size="6">  <!-- multiple size="6" -->
+				<option >개나리</option>
+				<option selected>진달래</option>
+				<option>민들레</option>
+				<option selected>벚꽃</option>
+				<option>목련</option>
+				<option>철쭉</option>
+			</select>
+	</form>	
+	
+	<div></div>	
+			
+	</div>
+	<hr color="red">
+	<br>
+	<br>		
 
 </body>
 </html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+$( () => {
+	$('#btn1').on('click', () => {
+		vhid = "** hidden결과 **<br>";
+		
+		$('#testForm *:hidden').each(function(){
+			//alert(this.tagName); //dom 객체, input과 span확인용 -> 대문자로 출력됨
+			if(this.tagName == "INPUT"){
+				vattr = $(this).attr('name');
+				vvalue = $(this).val();
+				
+				vhid += `${this.tagName} => [${vattr} : ${vvalue}] <br>`
+			}else{ //span이라면...
+				vtext = $(this).text();
+				
+				vhid += `${this.tagName} => [${vtext}] <br>`
+				
+			}
+						
+		}) //each 끝
+		
+		//documebt.querySelector('#hidden').innerHTML = vhid;
+		$('#hidden').html(vhid);
+		
+	}) //click 끝
+	
+	$('#btn2').on('click', () => {
+		vvis = "** visible 결과 **<br>";
+		$('#testForm *:visible').each(function(){
+			//alert(this.tagName); // input, br, span
+			if(this.tagName == "INPUT"){
+				
+				vtype = $(this).attr('type');
+				if(vtype == "radio"){
+					//checked 되어 있는지에 '상태값'을 가져온다.prop() - true/false로 판단
+					// attr() - 속성값을 가져오는 것
+					// prop() - 상태값을 가져오는 것
+					//checked 되어 있다면 
+					if($(this).prop('checked')){ //checked 되어있는 상태
+						vattr += $(this).attr('name');
+						vvalue += $(this.)val();
+					
+				}else{ //input type = text
+					vattr = $(this).attr('name');
+					vvalue = $(this).val();
+					
+				}
+				
+				vvis += `${this.tagName} => [${vattr} : ${vvalue}] <br>`
+				
+			}else if(this.tagName != "BR"){
+				vtext = $(this).text();
+				//vtext = $(this).html(); -> html태그가 적용되어 출력된다.
+				vvis += `${this.tagName} => [${vtext}] <br>`				
+			}
+				
+	
+			
+		})//each 끝
+		
+		
+		
+		$('#visible').html(vvis);
+		
+	})//click 끝
+	
+})
+
+</script>
+
+
+</head>
+<body>
+	<pre>
+	📌📌📌📌완전 중요📌📌📌📌
+	
+	innerHTML -> html()
+	innerText -> text() (span태그)
+	value -> val() (input태그)
+	==============================
+	attr() - 속성값
+	prop() - 상태값 - true/false
+	
+	</pre>
+
+
+	<h2>
+		<br> visibility:hidden -> 폼에 차지하는 공간 있음 <br> hidden -> 폼에
+		차지하는 공간 없음 <br>
+	</h2>
+	<input type="button" value="hidden" id="btn1">
+	<input type="button" value="visible" id="btn2">
+	<br>
+	<br>
+	<div id="result1">
+		<form id="testForm">
+			<input type="hidden" name="userAge" value="33"> <input
+				type="hidden" name="userCity" value="대전"> I D : <input
+				type="text" name="userID" value="hong"> <span
+				style="display: none">ID가 중복됩니다. </span> <br> 이름 : <input
+				type="text" name="userName" value="홍길동"> <span
+				style="visibility: hidden">이름을 입력하세요</span><br>
+			<p style="visibility: hidden">
+				안보이지만 <b>영역</b>이 <em>있는 속성</em>
+			</p>
+
+			성별 : <input type="radio" name="sung" value="남">남자 <input
+				type="radio" name="sung" value="여" checked>여자
+
+		</form>
+	</div>
+
+	<div id="hidden"></div>
+	<div id="visible"></div>
+
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

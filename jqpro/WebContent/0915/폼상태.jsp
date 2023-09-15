@@ -22,6 +22,7 @@ p{
 	String userId = request.getParameter("id"); //사용가능
 	String userPass = request.getParameter("pass");  //사용가능
 	String userSel = request.getParameter("disSelect"); //사용불가능
+	String userAge = request.getParameter("age");
 	
 	
 %>
@@ -29,6 +30,7 @@ p{
 <p><%= userId %>님 환영합니다!</p>
 <p><%= userPass %></p>
 <p><%= userSel %></p>
+<p><%= userAge %></p>
 
 
 </body>
