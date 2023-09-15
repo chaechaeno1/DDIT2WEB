@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼상태필터</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+
+</script>
+
+
+</head>
+<body>
+
+	<h2></h2>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1">
+		<form action="폼상태.jsp" method="post">
+			<input type="text" name="id" ><br> 
+			<input type="password" name="pass"><br> 
+			
+			<select name="disSelect" disabled>
+				<option>Option1</option> 
+				<option>Option2</option>
+				<option>Option3</option>
+				<option>Option4</option>
+			</select> <br>
+			<textarea name="area" rows=10 cols=20>text</textarea>
+			<br> 
+			<input type="button" value="확인" onclick="alert('hello!!')" disabled> <br>
+
+		</form>
+	</div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

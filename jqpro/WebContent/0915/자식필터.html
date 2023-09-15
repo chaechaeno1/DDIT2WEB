@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>자식필터</title>
 
 <!-- 외부CSS -->
 <link rel="stylesheet" href="../css/public.css">
@@ -12,52 +12,201 @@
 
 <!-- 내부스크립트 -->
 <script>
+	$(function() {
+		
+		// function 안에서는 순서가 정해져있는게 아니다.
+		// 클릭한대로 실행되므로 순서 상관없이 기술해도 됨.
+		
+		$('#btn2').on('click', function() {
+			$('#result2 td:first-child').css('background', 'gray');
+			
+			$('#result2 td:nth-child(2)').css('background', 'lightgray');
+			
+			$('#result2 td:last-child').css('background', 'WhiteSmoke');
+			
+			$('#result2 tr:first-child').css('background', 'YellowGreen');
+			
 
+			
+		})
+		
+		$('#btn1').on('click', function() {
+			//first :  전체 중에서 첫번째 요소 , 선택되는 요소는 반드시 하나
+			//$('tr:first').css('background','lightblue');
+		
+			//child가 없으면 테이블 개수에 상관없이 통틀어서 계산함!!
+			//$('tr:even').css('background', 'LavenderBlush');	
+					
+			//짝수 : even, 2n ... 홀수 : odd, 2n-1 ...
+			$('#result1 tr:nth-child(odd)').css('background', 'Gold');		
+			//:first-child : 부모를 기준으로, 각 tr의 첫번째 요소 선택
+			$('#result1 tr:first-child').css('background', 'lightblue');
+			$('#result1 tr:nth-child(even)').css('background', 'LavenderBlush');
+		})
+		
+		
+
+		
+	})
 </script>
+
+<style>
+table {
+	border: 1px solid lightblue;
+	margin: 10px;
+}
+
+td {
+	width: 300px;
+	height: 30px;
+	text-align: center;
+	padding: 10px;
+}
+
+th {
+	height: 50px;
+	font-size: 3.0rem;
+}
+</style>
 
 
 </head>
 <body>
-	
-	<h2></h2>
-	<input type="button" value="확인" onclick="proc1()">
-	<br><br>
+
+	<h2>tr:first-child<br>
+	tr:nth-child(odd)<br>
+	tr:nth-child(even)<br>
+	</h2>
+	<input type="button" value="확인" id="btn1">
+	<br>
+	<br>
 	<div id="result1">
 		<table border="1">
 			<tr>
 				<th>제목1</th>
 				<th>제목2</th>
 			</tr>
-			
+
+			<tr>
+				<td></td>
+				<td></td>
+				
+			</tr>
+
 			<tr>
 				<td></td>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 				<td></td>
 			</tr>
-			
+
+
+
+		</table>
+
+
+		<table border="1">
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+			</tr>
+
 			<tr>
 				<td></td>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 				<td></td>
 			</tr>
-			
+
 			<tr>
 				<td></td>
 				<td></td>
 			</tr>
-		
+
+
 		</table>
 	</div>
 	<hr color="red">
-	<br><br>
+	<br>
+	<br>
+	
+	<h2>
+	$('#result2 td:first-child').css('background', 'gray');<br>
+	$('#result2 td:nth-child(2)').css('background', 'lightgray');<br>
+	$('#result2 td:last-child').css('background', 'WhiteSmoke');<br>
+	$('#result2 tr:first-child').css('background', 'YellowGreen'); <br>
+	</h2>
+	<input type="button" value="확인" id="btn2">
+	<br>
+	<br>
+	<div id="result2">
+		<table border="1">
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+				<th>제목3</th>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+
+
+		</table>
+
+
+		<table border="1">
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+				<th>제목3</th>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+
+		</table>
+	</div>
+	<hr color="red">
+	<br>
+	<br>	
 
 </body>
 </html>
