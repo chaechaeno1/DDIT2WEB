@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form_val 교재4(p.2)</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+</head>
+
+<script>
+$(function(){
+	
+	$('#btnview').on('click', function(){
+		// 입력한 내용 가져요기	
+		nameValue = $('#user').val();
+
+		gendValue = $('#gend:checked').val();
+		
+		introValue = $('#intro').val();	// 엔터 기호가 포함(\r\n)
+		introValue = introValue.replace(/\n/g, "<br>");
+		
+		workValue = $('#work option:selected').val();
+		
+		// 출력 내용
+		str = `이름 : ${nameValue} <br>`;
+		str += `성별 : ${gendValue} <br>`;
+		str += `소개 : <br> ${introValue} <br>`;
+		str += `직업 : ${workValue}`;
+		
+		$('#info').html(str);
+		
+	})
+	
+	$('#btnchange').on('click', function(){
+		// 이름을 입력
+		input = prompt("입력하세요");
+		
+		// id=user의 값을 변경
+		$('#user').val(input);
+			
+		
+	})
+	
+})
+
+</script>
+
+<body>
+
+<h2> form의 정보 가져오기 </h2>
+val() : input, textarea, select/option에서 입력하거나 선택한 값을 가져올때
+<br><br>
+<div id="result1">
+
+	<form>
+		<label for="user">이름</label>
+		<input type="text" id="user" value="korea"><br>
+		
+		<label >성별</label> 
+		<input type="radio" id="gend" name="gend" value="여자" checked >여자
+		<input type="radio" id="gend" name="gend" value="남자"  >남자
+		<br>
+		
+		<label for="intro">소개</label> 
+		
+		<textarea id="intro" cols="40" rows="4"></textarea> <br>
+		
+		<label for="work">직업</label>		
+		<select id="work" multiful>		
+			<option value="programmer">프로그래머</option>
+			<option value="progammer" selected>프로게이머</option>
+			<option value="whitehand">백수</option>
+		</select><br>
+		<button type="button" id="btnview">조사하기 </button> <!-- button type생략되면 submit => action/method 있어야함 -->
+		<button type="button"  id="btnchange">이름변경 </button>
+	</form>
+
+</div>
+
+<div id="info"></div>
+
+<hr color="red">
+<br><br>
+
+</body>
+</html>

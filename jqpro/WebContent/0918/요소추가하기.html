@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>요소추가하기 교재4(p.4)</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+img{
+	width: 100px;
+	height: 100px;
+}
+
+p{
+	padding: 10px;
+	border: 2px dotted gold;
+
+}
+
+
+</style>
+</head>
+
+<script>
+
+arr = ["국화.jpg", "딸기스무디.jpg", "국화.jpg", "가구1.jpg", "pattern.jpg", "Lighthouse.jpg",
+	"꽃.jpg", "단풍.jpg", "Koala.jpg", "spongebob.png", "Penguins.jpg"]
+
+$(function(){
+	$('#append').on('click', ()=>{
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})
+		
+		// result1에 추가
+		//$('#result1').append(vimg);
+		$(vimg).appendTo($('#result1'));
+		
+	})
+		
+	
+	$('#prepend').on('click', ()=>{
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})		
+		
+		// result2에 추가
+		$('#result2').prepend(vimg);
+	
+	})
+	
+	
+	$('#before').on('click', ()=>{
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})
+		
+		// result3에 추가
+		//$('#result3').before(vimg);
+		vimg.insertBefore($('#result3'));
+			
+	})
+	
+	
+	$('#after').on('click', ()=>{
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})
+		
+		// result4에 추가
+		//$('#result4').after(vimg);
+		vimg.insertAfter($('#result4'));
+		
+	})
+		
+	$('#append2').on('click', function(){
+	let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})
+		
+		$('#result11').append(vimg);
+		
+		
+	})
+	
+	
+	$('#prepend2').on('click', function(){
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})
+		
+
+		$('#result22').prepend(vimg);
+		
+		
+	})
+	$('#before2').on('click', function(){
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})
+		
+
+		$('#result33').before(vimg);
+		
+		
+	})
+	$('#after2').on('click', function(){
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'click' : function()
+				{
+					$(this).css('border', '3px double green')
+				}
+		})
+		
+
+		$('#result44').after(vimg);		
+		
+		
+	})
+	
+	
+	
+})
+</script>
+
+<body>
+
+<h2></h2>
+<input type="button" value="append" id="append">
+<input type="button" value="prepend" id="prepend">
+<input type="button" value="before" id="before">
+<input type="button" value="after" id="after">
+<br><br>
+
+<div id="result1"></div>
+<div id="result2"></div>
+<div id="result3"></div>
+<div id="result4"></div>
+
+<hr color="red">
+<br><br>
+
+
+<h2></h2>
+<input type="button" value="append" id="append2">
+<input type="button" value="prepend" id="prepend2">
+<input type="button" value="before" id="before2">
+<input type="button" value="after" id="after2">
+<br><br>
+
+<p id="result11">코알라</p>
+<p id="result22">펭귄</p>
+<p id="result33">딸기스무디</p>
+<p id="result44">스폰지밥</p>
+
+<hr color="red">
+<br><br>
+
+</body>
+</html>

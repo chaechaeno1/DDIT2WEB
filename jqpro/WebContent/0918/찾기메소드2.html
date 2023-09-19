@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>찾기메소드2 교재4(p.9)</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<style>
+.siblings * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+</head>
+
+<script>
+$(()=>{
+	// 버튼 클릭 했을 때 클릭한 버튼과 같은 영역의 span태그를 찾아라 
+	$('.btn').on('click', function(){
+		$(this).parents($('.siblings'))
+		
+		
+	})
+	
+	
+})
+
+
+</script>
+
+
+
+<body>
+
+<h2></h2>
+
+<br><br>
+<div id="result1" style="width:550px;" class="siblings">
+	<div style="width:500px;">div (great-grandparent)
+		<ul>ul (grandparent)  
+			<li>li (direct parent)
+				<span>1000</span>
+			</li>
+		</ul>   
+	</div> 
+	<input type="button" value="확인" class="btn">
+</div>
+
+<div id='result2' style="width:550px;" class="siblings">
+	<div style="width:500px;">div (great-grandparent)
+		<ul>ul (grandparent)
+			<li>li (direct parent)
+				<span>2000</span>
+			</li>
+		</ul>   
+	</div> 
+	<input type="button" value="확인" class="btn">
+</div>
+
+<div id='result3' style="width:550px;" class="siblings">
+	<div style="width:500px;">div (great-grandparent)
+		<ul>ul (grandparent)  
+			<li>li (direct parent)
+				<span>3000</span>
+			</li>
+		</ul>   
+	</div> 
+	<input type="button" value="확인" class="btn">
+</div>
+
+
+</body>
+</html>
