@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>4.메소드(16p.)</title>
 
 <!-- 외부CSS -->
 <link rel="stylesheet" href="../css/public.css">
@@ -12,6 +12,24 @@
 
 <!-- 내부스크립트 -->
 <script>
+$(()=> {
+	$('#btn1').on('click', function(){
+		//각 요소들의 상태 값을 가져온다
+		vcheck = $('#checkTest').prop('checked');
+		console.log(vcheck);
+		
+		vsel = $('#selTest option:eq(0)').prop('selected');
+		console.log(vsel);
+		
+		vtext = $('#texTest').prop('readonly');
+		console.log(vtext);
+		
+		vbut = $('#runBtn').prop('disabled');
+		console.log(vbut);
+		
+	})
+	
+})
 
 </script>
 
@@ -20,9 +38,28 @@
 <body>
 	
 	<h2></h2>
-	<input type="button" value="확인" onclick="proc1()">
+	<input type="button" value="확인" id="btn1">
 	<br><br>
-	<div id="result1"></div>
+	<div id="result1">
+	<form>
+		체크박스(라디오버튼) :
+		<input type="checkbox" id="checkTest" checked><br><br>
+		
+		리스트박스(select객체) : 
+		 <select id="selTest">
+		     <option value="1">하나</option> 
+		     <option value="2">둘</option>
+		     <option value="3" selected >셋</option> 
+		     <option value="4">넷</option>
+		 </select><br><br>
+		ㄴ
+		 text객체(readonly) : 
+		 <input type="text" value="가나다" id="txtTest"><br><br>
+		
+		 button객체(disabled) : 
+		 <input type="button" value="실행" id="runBtn" >
+</form>
+	</div>
 	<hr color="red">
 	<br><br>
 
