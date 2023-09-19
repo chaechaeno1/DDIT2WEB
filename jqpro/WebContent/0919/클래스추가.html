@@ -14,11 +14,25 @@
 <script>
 
 $(function(){
-	$('p').on('mouseover',function(){
+	$('p').on('mouseover',function(){ //마우스 올리면
 		$(this).addClass('fcolor');
 	})
-	$('p').on('mouseout',function(){
+	$('p').on('mouseout',function(){ //마우스 내리면
 		$(this).removeClass('fcolor');
+	})
+	
+	$('p').on('click', function(){ //클릭이라는 하나의 동작으로 두가지!!
+		$(this).toggleClass('ffont');
+	})
+	
+	
+	$('div.result1').on('click',function(){
+		if($(this).hasClass('bcolor')){
+			$(this).removeClass('bcolor');
+		}else{
+			$(this).addClass('bcolor');
+		}
+		
 	})
 	
 })
@@ -38,17 +52,23 @@ p {
 	background: lightyellow;
 }
 
-p:hover{
-	text-decoration: underline;	
+p:hover {
+	text-decoration: underline;
 }
 
 /* 동적CSS: addClass(), removeClass()
 아직 만들어지지 않음. 이벤트에서 실행 */
-.fcolor{
-	color : red;
+.fcolor {
+	color: red;
 }
 
+.ffont {
+	font-size: 2.0rem;
+}
 
+.bcolor {
+	background: lightblue;
+}
 </style>
 
 

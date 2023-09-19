@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>4.메소드(14p)</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+$(function(){
+	i=0;
+	//jquery('#btn1')
+	$('#btn1').on('click', function(){
+		//i++; //하나의 통일된 값으로 모든 img의 title속성을 설정
+		//$('img').attr('title', '그림'+i);
+		
+		//attr(속성명, fn)
+		$('img').attr('title',function(){
+			//이미지의 src속성 값을 가져오기
+			//vsrc = $('img').attr('src'); // 첫번째만 실행
+			
+			vsrc = $(this).attr('src');
+			//alert(vsrc); //출력확인용
+			
+			//src값에서 이미지의 이름을 추출 -substring(start,end), slice(start,end)
+			//lastIndexOf('.')
+			//lastIndexOf('/')
+			start = vsrc.lastIndexOf('/')+1;
+			end = vsrc.lastIndexOf('.');
+			
+			vtitle = vsrc.substring(start, end);
+			
+			return vtitle;
+
+		}) //attr 끝
+		
+	})//btn1 click 끝
+	
+	//Jquery는 this가 자주쓰이기 때문에 람다함수 적게 씀
+	$('#result2 img').on('dblclick', function(){
+		//$(this).css('display', 'none');
+		$(this).hide();
+	})
+	
+	
+}) //function 끝
+
+</script>
+
+<style>
+img {
+	width: 150px;
+	height: 130px;
+}
+
+input[value=보이기]{
+	display: none;
+}
+
+</style>
+
+
+</head>
+<body>
+
+	<h2></h2>
+	<input type="button" value="확인" id="btn1">
+	<br>
+	<br>
+	<div id="result1">
+		<img src="../images/뉴진스.jpg" alt="뉴진스.jpg"> <img
+			src="../images/옷1.jpg" alt="옷1.jpg"> <img
+			src="../images/펭귄.jpg" alt="펭귄.jpg"> <img
+			src="../images/사막.jpg" alt="사막.jpg"> <img
+			src="../images/수국.jpg" alt="수국.jpg">
+	</div>
+	<hr color="red">
+	<br>
+	
+	<h2>이미지 mouseover, mouseout, dblclick 이벤트 설정<br>
+	mouseover : 다른 이미지<br>
+	mouseout : 원래 이미지<br>
+	dblclick : 이미지 삭제<br>
+	버튼 : 다시 이미지 보이기 (처음 실행시 보이지 않음, 이미지가 다 사라졌을 때)</h2>
+	<br>
+	<div id="result2">
+		<img src="../images/뉴진스.jpg" alt="뉴진스.jpg"> <img
+			src="../images/옷1.jpg" alt="옷1.jpg"> <img
+			src="../images/펭귄.jpg" alt="펭귄.jpg"> <img
+			src="../images/사막.jpg" alt="사막.jpg"> <img
+			src="../images/수국.jpg" alt="수국.jpg">
+	</div>
+	<input type="button" value="보이기">
+	<hr color="red">
+	<br>
+	<br>
+	
+
+</body>
+</html>
