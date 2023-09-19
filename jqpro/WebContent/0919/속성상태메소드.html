@@ -14,20 +14,63 @@
 <script>
 $(()=> {
 	$('#btn1').on('click', function(){
-		//각 요소들의 상태 값을 가져온다
+		//각 요소들의 '현재' 상태 값을 가져온다
 		vcheck = $('#checkTest').prop('checked');
-		console.log(vcheck);
 		
-		vsel = $('#selTest option:eq(0)').prop('selected');
-		console.log(vsel);
+		vsel = $('#selTest option:eq(1)').prop('selected');
 		
-		vtext = $('#texTest').prop('readonly');
-		console.log(vtext);
+		vtext = $('#txtTest').prop('readonly');
 		
 		vbut = $('#runBtn').prop('disabled');
-		console.log(vbut);
 		
-	})
+		console.log(vcheck, vsel, vtext, vbut);
+		
+		//확인 버튼 클릭할때마다 상태 값을 반대로 변경
+		$('#checkTest').prop('checked',!vcheck);
+		$('#selTest option:eq(1)').prop('selected',!vsel);
+		$('#txtTest').prop('readonly',!vtext);
+		$('#runBtn').prop('disabled',!vbut);
+		
+		
+		/* if(vcheck){
+			$('#checkTest').prop('checked',false)
+		}else{
+			$('#checkTest').prop('checked',true)
+		}
+		
+		if(vsel){
+			$('#selTest option:eq(1)').prop('selected',false)
+		}else{
+			$('#selTest option:eq(1)').prop('selected',true)
+		}
+		
+		if(vtext){
+			$('#txtTest').prop('readonly',false)
+		}else{
+			$('#txtTest').prop('readonly',true)
+		}
+		
+		if(vbut){
+			$('#runBtn').prop('disabled',false)
+		}else{
+			$('#runBtn').prop('disabled',true)
+		}
+		 */
+		
+		
+		
+	}) //btn1 끝
+	
+	$('#check').on('click', function(){
+		
+		//id=check인 요소의 checked 속성 상태 값을 가져온다 (getter)
+		vchk = $(this).prop('checked');
+		
+		//class=box인 곳에 checked 속성의 상태값을 vchk 변수를 설정한다 (setter)
+		$('.box').prop('checked', vchk);
+		
+		
+	})	
 	
 })
 
@@ -37,7 +80,7 @@ $(()=> {
 </head>
 <body>
 	
-	<h2></h2>
+	<h2>실행버튼 클릭할때마다 각 상태값을 선택과 해제(true/false)로 번갈아가면서 변경</h2>
 	<input type="button" value="확인" id="btn1">
 	<br><br>
 	<div id="result1">
@@ -54,14 +97,35 @@ $(()=> {
 		 </select><br><br>
 		ㄴ
 		 text객체(readonly) : 
-		 <input type="text" value="가나다" id="txtTest"><br><br>
+		 <input type="text" value="가나다" id="txtTest" readonly="readonly"><br><br>
 		
 		 button객체(disabled) : 
-		 <input type="button" value="실행" id="runBtn" >
+		 <input type="button" value="실행" id="runBtn"
+		 	onclick="alert('hello')" >
 </form>
 	</div>
 	<hr color="red">
 	<br><br>
+	
+	<h2> 전체선택의 상태 값으로 1~5 의 상태값을 설정</h2>
+	- 전체선택 : id<br>
+	- 1~5 : 같은 이름의 class
+	<br><br>
+	<div id="result2">
+		<form>
+		체크박스(전체선택/해제) : <br>
+		<input type="checkbox" id="check"> 전체선택
+		<input type="checkbox" class="box" >1
+		<input type="checkbox" class="box" >2
+		<input type="checkbox" class="box" >3
+		<input type="checkbox" class="box" >4
+		<input type="checkbox" class="box" >5
+		
+		</form>
+
+	</div>
+	<hr color="red">
+	<br><br>	
 
 </body>
 </html>
