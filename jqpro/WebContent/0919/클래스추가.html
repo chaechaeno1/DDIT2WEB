@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>4.메소드(12p.)</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+
+$(function(){
+	$('p').on('mouseover',function(){
+		$(this).addClass('fcolor');
+	})
+	$('p').on('mouseout',function(){
+		$(this).removeClass('fcolor');
+	})
+	
+})
+	
+</script>
+
+
+<!-- 정적 CSS :
+p, .reulst1은 이미 만들어져있음-->
+<style>
+p {
+	color: blue;
+	font-size: 1.3rem;
+}
+
+.result1 {
+	background: lightyellow;
+}
+
+p:hover{
+	text-decoration: underline;	
+}
+
+/* 동적CSS: addClass(), removeClass()
+아직 만들어지지 않음. 이벤트에서 실행 */
+.fcolor{
+	color : red;
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+	<h2></h2>
+	<input type="button" value="확인">
+	<br>
+	<br>
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+
+	<div class="result1">
+		<p>무궁화 꽃이 피었습니다</p>
+	</div>
+
+
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

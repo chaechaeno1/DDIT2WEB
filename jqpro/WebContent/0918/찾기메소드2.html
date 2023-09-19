@@ -21,8 +21,12 @@
 $(()=>{
 	// 버튼 클릭 했을 때 클릭한 버튼과 같은 영역의 span태그를 찾아라 
 	$('.btn').on('click', function(){
-		$(this).parents($('.siblings'))
+		vparent = $(this).parents('.siblings') // parents('s'를 붙여야함)
 		
+		
+		svalue = vparent.find('span').text().trim();
+		//svalue = vparent.find('span').html().trim();
+		alert(svalue);
 		
 	})
 	
@@ -39,18 +43,20 @@ $(()=>{
 <h2></h2>
 
 <br><br>
-<div id="result1" style="width:550px;" class="siblings">
+<div id="result1" style="width:550px;" class="siblings result">
 	<div style="width:500px;">div (great-grandparent)
 		<ul>ul (grandparent)  
 			<li>li (direct parent)
-				<span>1000</span>
+				<span>1000</span> <!-- span사이에 공백 있으면 안됨 -->
+				<!-- 1000이라는 문자에 text(), html() 둘다 써도되는데 tag 포함되어있으면
+				반드시 html()을 써야함! -->
 			</li>
 		</ul>   
 	</div> 
 	<input type="button" value="확인" class="btn">
 </div>
 
-<div id='result2' style="width:550px;" class="siblings">
+<div id='result2' style="width:550px;" class="siblings result">
 	<div style="width:500px;">div (great-grandparent)
 		<ul>ul (grandparent)
 			<li>li (direct parent)
@@ -61,7 +67,7 @@ $(()=>{
 	<input type="button" value="확인" class="btn">
 </div>
 
-<div id='result3' style="width:550px;" class="siblings">
+<div id='result3' style="width:550px;" class="siblings result">
 	<div style="width:500px;">div (great-grandparent)
 		<ul>ul (grandparent)  
 			<li>li (direct parent)
