@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>4.메소드(23p.)</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+	$(function() {
+		//추가버튼 이벤트  - 이미 만들어진 기존 요소 - bind 또는 delegate
+		$('#add').on('click', function() {
+			vfile = ' <p><input type="file" name="file">';
+			vfile += '<input type="button" value="삭제" class="del"></p> ';
+
+			//부모가 앞에왔으므로 append
+			$('#result1').append(vfile);
+		})
+
+		//삭제버튼 이벤트 - 새로 만들어진 동적 요소 - delegate
+		// empty - 안에있는 내용만 지워짐
+		// remove - 태그 자체를 지움
+		$(document).on('click', '.del', function() {
+			$(this).parent().remove();
+		})
+
+	})
+</script>
+
+<style>
+p{
+	border : 2px dotted green;
+}
+</style>
+
+
+</head>
+<body>
+
+	<h2></h2>
+	<br>
+	<br>
+	<input type="file" name="file">
+	<input type="button" value="추가" id="add">
+	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>
