@@ -1,0 +1,15 @@
+bind : 실행 전에 이미 만들어져 있는 요소들의 대한 이벤트
+         +) 실행 후에 동적으로 만들어진 새로운 요소는 이벤트 처리 불가
+$(’#btn1’).on(’click’,function(){})
+$(’#btn1’).bind(’click’,function(){})
+$(’#btn1’).click(function(){})
+
+$(’#btn1’).off(’click’); - 이벤트 클릭 해제(더이상 이벤트 실행이 되지 않도록)
+$(’#btn1’).one(’click’, function(){}) - 한번만 실행되도록(off필요없음)
+
+delegate : 실행 후에 동적으로 document에 새로 추가된 요소들에 대한 이벤트
+	+) 실행전에 이미 만들어져 있는 요소에 대하 이벤트도 가능
+$(document).on(‘click’, ‘#bb’, function(){})
+$(document).delegate(’#bb’, ‘click’, function(){})
+
+$(document).off(’click’, ‘#bb’); - 이벤트 클릭 해제
