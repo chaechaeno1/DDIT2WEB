@@ -20,7 +20,7 @@
 		형식) <typeAlias type="패키지명이 포함된 전체 클래스명" alias="별칭이름"/>
 	 -->
 	<typeAliases>
-	 	<typeAlias type="kr.or.ddit.vo.LprodVO" alias="lprodVO"/>
+	 	<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memberVO"/>
 	</typeAliases>
 	
 	<!-- DB연결 설정 -->
@@ -39,7 +39,7 @@
 	<!-- DB에서 처리될 SQL문들이 작성된 mapper파일들을 등록하는 부분 -->
 	<!-- 형식) <mapper resource="경로명/파일명.xml"/>-->
 	<mappers>
-		<mapper resource="kr/or/ddit/mybatis/mappers/lprod-mapper.xml"/>
+		<mapper resource="kr/or/ddit/mybatis/mapper/member.xml"/>
 	</mappers>
 	
 </configuration>
