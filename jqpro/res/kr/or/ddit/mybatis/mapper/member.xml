@@ -37,7 +37,8 @@
 	 	  	insert, delete, update - 실행된 결과의 건수(row, 행) - 기술되지않고 자동으로 리턴한다.
 	 	  	select - 거의 VO클래스/ 가끔 map...
 	 -->
-	 <select id="selectMember" resultType="kr.or.ddit.member.vo.MemberVO">
+	<!--  <select id="selectMember" resultType="kr.or.ddit.member.vo.MemberVO"> -->
+	 <select id="selectMember" resultType="MemberVO">
 	 	select * from member
 	 </select>
 
