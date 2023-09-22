@@ -38,8 +38,11 @@
 	 	  	select - 거의 VO클래스/ 가끔 map...
 	 -->
 	<!--  <select id="selectMember" resultType="kr.or.ddit.member.vo.MemberVO"> -->
-	 <select id="selectMember" resultType="MemberVO">
+	 <select id="selectMember" resultType="memberVO">
 	 	select * from member
 	 </select>
 
 </mapper>
+
+
+

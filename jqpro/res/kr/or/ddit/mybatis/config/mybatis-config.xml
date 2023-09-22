@@ -20,7 +20,7 @@
 		형식) <typeAlias type="패키지명이 포함된 전체 클래스명" alias="별칭이름"/>
 	 -->
 	<typeAliases>
-	 	<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="MemberVO"/>
+	 	<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memberVO"/>
 	</typeAliases>
 	
 	<!-- DB연결 설정 -->
