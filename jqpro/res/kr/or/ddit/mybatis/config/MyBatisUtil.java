@@ -27,7 +27,7 @@ public class MyBatisUtil {
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(in);
 
 		} catch (Exception e) {
-			System.out.println("MyBatis 초기화 실패!!!");
+			System.out.println("MyBatis 초기화 실패!!!"); // config오류날때
 			e.printStackTrace();
 		} finally {
 			if (in != null)
