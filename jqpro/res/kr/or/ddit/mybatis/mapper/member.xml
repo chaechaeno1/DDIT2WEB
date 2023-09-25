@@ -43,7 +43,7 @@
 	 </select>
 	 
 	 <select id="selectById" parameterType="map" resultType="memberVO">
-	 	select * from member where mem_id=#{mem_id} and mem_pass=#{mem_pass}
+	 	select * from member where mem_id=#{id} and mem_pass=#{pass}
 	 </select>
 
 </mapper>

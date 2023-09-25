@@ -12,7 +12,7 @@
 
 <!-- 내부스크립트 -->
 <script>
-$(fucntion(){
+$(function(){
 	$('#send').on('click', function(){
 		//입력한 값을 가져온다
 		idvalue = $('#id').val().trim();
@@ -20,18 +20,44 @@ $(fucntion(){
 		
 		//서버로 보내서 응답을 받는다
 		$.ajax({
+			//요청-->
 			url : 'memberInput.jsp',
 			type : 'post',
 			//data : "id=" + idvalue + "&pass=" + passvalue,
 			data : {"id":idvalue, "pass":passvalue},
+			//응답-->
 			success: function(res){
-				
+				if(res.sw=="ok"){
+					//alert("데이터 출력...")
+					code = `<table>`
+					code += `<tr><td>아이디</td>`
+					code += `<td> ${res.id} </td></tr>`
+					
+					code += `<tr><td>이름</td>`
+					code += `<td> ${res.name} </td></tr>`
+					
+					code += `<tr><td>전화번호</td>`
+					code += `<td> ${res.hp} </td></tr>`
+					
+					code += `<tr><td>메일</td>`
+					code += `<td> ${res.mail} </td></tr>`
+					
+					code += `<tr><td>주소</td>`
+					code += `<td> ${res.addr} </td></tr>`		
+					
+					code += `</table>`;
+					
+					$('#result1').html(code);
+					
+				}else{
+					alert("찾을 수 없는 데이터입니다...")
+				}
 			},
 			error: function(xhr){
 				alert("상태 : "+xhr.status);
 				//error에서 200이 뜬다면 응답은 성공했으나, JSON parse 오류발생 
 			},
-			dataTyoe:'json'
+			dataType:'json'
 			
 		})
 	})
