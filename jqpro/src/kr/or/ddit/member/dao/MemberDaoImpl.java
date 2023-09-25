@@ -3,7 +3,10 @@ package kr.or.ddit.member.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
+
 import kr.or.ddit.member.vo.MemberVO;
+import kr.or.ddit.mybatis.config.MyBatisUtil;
 
 /*
  * Data Access Object
@@ -13,8 +16,9 @@ import kr.or.ddit.member.vo.MemberVO;
  */
 public class MemberDaoImpl implements IMemberDao {
 	
-	private static IMemberDao dao;
-	private static IMemberDao getDao() {
+	private static IMemberDao dao; //자신의 객체 생성
+	private SqlSession sqlSession; //메서드 마다 하나씩 주어야 하므로 생성자 생성X, 각 메서드에 따로 줌
+	public static IMemberDao getDao() { //serviceImpl에서 써야하므로 private 말고 public
 		if(dao == null) dao = new MemberDaoImpl();
 		return dao;
 	}
@@ -23,14 +27,34 @@ public class MemberDaoImpl implements IMemberDao {
 
 	@Override
 	public List<MemberVO> selectMember() {
-		// TODO Auto-generated method stub
-		return null;
+		sqlSession = MyBatisUtil.getSqlSession();
+		List<MemberVO> list = null; //(1)선언
+		try {
+			list = sqlSession.selectList("member.selectMember");//(2)실행
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+		return list; //(3)리턴
 	}
 
 	@Override
 	public MemberVO selectById(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		sqlSession = MyBatisUtil.getSqlSession();
+		MemberVO vo = null; //(1)선언
+		try {
+			vo = sqlSession.selectOne("member.selectById", map);//(2)실행
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.commit();
+			sqlSession.close();
+		}
+		return vo; //(3)리턴
 	}
 
 }
