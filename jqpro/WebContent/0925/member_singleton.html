@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+	$(function() {
+		//vbtn = document.quertSelector('#btn1');
+		//vbtn.addEventListener('click',function({}))
+
+		$('#btn1').on('click', function() {
+			$.ajax({
+				url : 'memberController.jsp',
+				type : 'get',
+				success : function(res) {
+
+				},
+				error : function(xhr) {
+					alert("상태: " + xhr.status);
+				},
+				datatype : 'json'
+
+			})
+
+		})
+	})
+</script>
+
+
+</head>
+<body>
+
+	<h2>전체 데이터 가져오기</h2>
+	<input type="button" value="확인" id="btn1">
+	<br>
+	<br>
+	<div id="result1"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+	<h2>입력 데이터 가져오기</h2>
+	<input type="button" value="확인" id="btn2">
+	<br>
+	<br>
+	<div id="result2"></div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>
