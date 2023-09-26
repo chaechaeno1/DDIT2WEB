@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 외부CSS -->
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 외부스크립트 -->
+<script src="../js/jquery-3.7.1.min.js"></script>
+
+<!-- 내부스크립트 -->
+<script>
+	$(function() {
+		$('#btn1').on('click', function() {
+			$.ajax({
+				url : "/jqpro/SelectName.do",
+				method : 'get', //type도 가능
+				success : function(res){
+					code = "";
+					$.each(res, function(i,v){
+						code += $(`<p class="${v.buyer_id}">${v.buyer_name}</p>`)
+						
+					})
+					$('#names').html(code);
+					
+				},
+				error : function(xhr){
+					alert("상태: "+xhr.status);
+				},
+				dataType : 'json'
+				
+			})
+		})
+
+	})
+</script>
+
+<style>
+table {
+	border: 2px solid blue;
+}
+
+td {
+	width: 200px;
+	height: auto;
+	padding: 10px;
+	text-align: center;
+}
+
+.title {
+	background: lightblue;
+	font-size: 1.5rem;
+}
+
+#detail {
+	width: 500px;
+}
+</style>
+
+
+</head>
+<body>
+
+	<h2></h2>
+	<input type="button" value="확인" id="btn1">
+	<br>
+	<br>
+	<div id="result1">
+		<table border="1">
+			<tr class="title">
+				<td>거래처 이름</td>
+				<td>거래처 상세정보</td>
+			</tr>
+
+			<tr>
+				<td id="names"></td>
+				<td id="detail"></td>
+			</tr>
+
+		</table>
+	</div>
+	<hr color="red">
+	<br>
+	<br>
+
+</body>
+</html>

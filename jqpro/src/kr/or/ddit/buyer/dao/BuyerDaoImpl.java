@@ -17,6 +17,8 @@ public class BuyerDaoImpl implements IBuyerDao{
 	
 	private SqlSession sqlSession;
 	private static IBuyerDao dao; //자기 자신의 객체 선언, 클래스 혹은 인터페이스로 선언 가능
+	
+	//public 선언. service에서 사용되어야함.
 	public static IBuyerDao getDao() {
 		if(dao == null) dao = new BuyerDaoImpl();
 		return dao;
