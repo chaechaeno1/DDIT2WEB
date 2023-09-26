@@ -42,7 +42,7 @@ public class MyBatisUtil {
 	// 2) SqlSessionFactory객체의 openSession()메서드를 이용하여
 	// SQL문을 호출해서 실행할 수 있는 SqlSession객체를 생성
 	public static SqlSession getSqlSession() {
-		session = sqlSessionFactory.openSession();
+		session = sqlSessionFactory.openSession(true); //ture설정시 자동커밋
 		
 		return session;
 		
