@@ -5,13 +5,11 @@
 
 <%
 //서블릿에서 저장한 데이터 꺼내기   
-List<BuyerVO> list = (List<BuyerVO>)request.getAttribute("selectName");
-
-
-
+List<BuyerVO> list = (List<BuyerVO>) request.getAttribute("selectName");
 %>
 [
 <%
+	
 	for(int i=0; i<list.size(); i++){
 		BuyerVO vo = list.get(i);
 		if(i > 0) out.print(","); // JSP에 out은 내장객체

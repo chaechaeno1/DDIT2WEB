@@ -13,18 +13,77 @@
 <!-- 내부스크립트 -->
 <script>
 	$(function() {
+		//p태그로 만들어진 buyer이름을 클릭하면
+		$(document).on('click','p',function(){
+			//alert($(this).attr('class'));
+			buyerId = $(this).attr('class');
+			
+			$.ajax({ //속성 순서 상관없음
+				
+				//요청
+				url : "http://localhost/jqpro/BuyerDetail.do",
+				method : 'post', 
+				data : {"id":buyerId},
+				
+				//응답
+				success : function(res){
+					code = `<table id="table2">`;
+					
+					code += `<tr><td>buyer_id</td>`
+					code += `<td> ${res.b_id} </td></tr>`
+					
+					code += `<tr><td>buyer_name</td>`
+					code += `<td> ${res.b_name} </td></tr>`
+					
+					code += `<tr><td>buyer_lgu</td>`
+					code += `<td> ${res.b_lgu} </td></tr>`
+					
+					code += `<tr><td>buyer_bank</td>`
+					code += `<td> ${res.b_bank} </td></tr>`
+					
+					code += `<tr><td>buyer_bankno</td>`
+					code += `<td> ${res.b_bankno} </td></tr>`
+					
+					code += `<tr><td>buyer_bankname</td>`
+					code += `<td> ${res.b_bankname} </td></tr>`
+							
+					code += `<tr><td>buyer_mail</td>`
+					code += `<td> ${res.b_mail} </td></tr>`
+
+					code += `<tr><td>buyer_zip</td>`
+					code += `<td> ${res.b_zip} </td></tr>`
+					
+					code += `<tr><td>buyer_add1</td>`
+					code += `<td> ${res.b_add1} </td></tr>`
+					
+					code += `<tr><td>buyer_add2</td>`
+					code += `<td> ${res.b_add2} </td></tr>`		
+					
+					code += `</table>`;
+
+					$('#detail').html(code);
+				},
+				error : function(xhr){
+					alert("상태:" + xhr.status);
+				},
+				dataType : 'json'
+				
+			})
+			
+		});
+		
+		
 		$('#btn1').on('click', function() {
 			$.ajax({
 				url : "/jqpro/SelectName.do",
 				method : 'get', //type도 가능
-				success : function(res){
-					code = "";
-					$.each(res, function(i,v){
-						code += $(`<p class="${v.buyer_id}">${v.buyer_name}</p>`)
-						
-					})
-					$('#names').html(code);
-					
+				success: function(res) {
+				    let code = "";  // HTML 콘텐츠를 저장할 변수로 code를 선언
+				    $.each(res, function(i, v) {
+				        // 클래스와 텍스트 콘텐츠를 사용하여 HTML 요소를 동적으로 생성
+				        code += `<p class="${v.buyer_id}">${v.buyer_name}</p>`;
+				    });
+				    $('#names').html(code);  // 'names'라는 ID를 가진 요소에 HTML 콘텐츠를 설정
 				},
 				error : function(xhr){
 					alert("상태: "+xhr.status);
@@ -41,6 +100,12 @@
 table {
 	border: 2px solid blue;
 }
+#table2 {
+	border: none;
+}
+#table2 td{
+	text-align: left;
+}
 
 td {
 	width: 200px;
@@ -56,6 +121,9 @@ td {
 
 #detail {
 	width: 500px;
+}
+p:hover{
+	background: crimson;	
 }
 </style>
 

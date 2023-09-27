@@ -29,20 +29,20 @@ public class BuyerServiceImpl implements IBuyerService{
 
 	@Override
 	public List<BuyerVO> selectName() {
-		/* List<BuyerVO> list = null;
-		 * list = dao.selectName();
-		 * return list;
-		 */
-		return dao.selectName();
+		 List<BuyerVO> list = null;
+		 list = dao.selectName();
+		 return list;
+		
+		//return dao.selectName();
 	}
 
 	@Override
 	public BuyerVO selectById(String id) {
-		/* BuyerVO vo = null;
-		 * vo = dao.selectById();
-		 * return vo;
-		 */
-		return dao.selectById(id);
+		BuyerVO vo = null;
+		vo = dao.selectById(id);
+		return vo;
+		
+		//return dao.selectById(id);
 	}
 
 }

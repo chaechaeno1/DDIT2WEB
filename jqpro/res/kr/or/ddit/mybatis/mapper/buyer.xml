@@ -6,12 +6,11 @@
 <mapper namespace="buyer">
 
 	<select id="selectName" resultType="buyerVO">
-		select buyer_id, buyer_name from buyer;
+		select buyer_id, buyer_name from buyer
 	</select>
 
 	<select id="selectById" parameterType="String" resultType="buyerVO"> 
-		<!-- 파라미터가 한개면 #{}안에 들어가는 이름이 아무거나 들어가도됨 -->
-		select * from buyer where buyer_id = #{id};
+		select * from buyer where buyer_id = #{id}
 	</select>
 
 </mapper>	
