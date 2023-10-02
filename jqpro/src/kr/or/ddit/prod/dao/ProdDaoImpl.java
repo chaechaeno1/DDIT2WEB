@@ -41,7 +41,7 @@ public class ProdDaoImpl implements IProdDao {
 	@Override
 	public ProdVO selectByIdDetail(String pid) {
 		sqlSession = MyBatisUtil.getSqlSession();
-		ProdVO vo = null;
+		ProdVO vo= null;
 		try {
 			vo = sqlSession.selectOne("prod.selectByIdDetail", pid);
 		} catch (Exception e) {

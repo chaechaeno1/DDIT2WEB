@@ -4,7 +4,7 @@ pre{
   background : #fadeee;
   margin : 50px;
   
-  border : 15px solid green;
+  border : 15px solid purple;
   border-left : none;
   border-right : none;
   
@@ -12,7 +12,7 @@ pre{
 }
 
 div{
-	border: 2px dotted orange;
+	border: 2px dotted skyblue;
 	margin: 20px;
 	padding: 10px;
 	height: auto;
@@ -28,8 +28,8 @@ label{
 input[type=button], button[type=button]{
 	width: 80px;
 	height: 30px;
-	background: green;
-	color: white;
+	background: lightpink;
+	color: black;
 	border-radius: 10px;
 	font-size: 1.2rem;
 }
