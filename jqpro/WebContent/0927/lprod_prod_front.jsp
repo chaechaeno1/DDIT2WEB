@@ -19,10 +19,27 @@ isELIgnored="true"로 설정하면 EL을 사용할 수 없으며 ${...} 형식�
 <!-- 외부스크립트 -->
 <script src="../js/jquery-3.7.1.min.js"></script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<style>
+
+form{
+	margin: 20px;
+}
+img{
+	width: 50%;
+	height: 50%;
+}
+
+</style>
+
 
 <script>
 $(function(){
-	//lprodlist 출력
+	// 확인버튼 클릭 시 lprodlist 출력
 	$('#btn1').on('click', function(){
 		
 		//$.get(url, data, success, dataType)
@@ -67,7 +84,9 @@ $(function(){
 					code += `<option value="${v.lprod_gu}">${v.lprod_nm}</option>`;
 				});
 				
-				$('#lpord').html(code);
+				//lprod list 출력
+				$('#lprod').html(code);
+				$('#lprod').trigger('change');
 				
 			},
 			error : function(xhr){
@@ -78,8 +97,8 @@ $(function(){
 		})
 	})
 	
-	//lprod의 결과 중 option 하나를 선택하면
-	$(document).on('change', '#lpord', function(){
+	//lprod의 결과 중 option 하나를 선택하면 prod List 출력
+	$(document).on('change', '#lprod', function(){
 		//alert($('option:selected',this).val());
 		
 		vdata = $('option:selected',this).val();
@@ -102,10 +121,15 @@ $(function(){
 					})
 				}else{
 					code += `<option value="0">데이터 없음</option>`;
+					vimg = $("<img src='../images/spongebob.png' alt='spongebob.png'>");
+					//$('#result1').append(vimg); 초기화 되지 않고 그대로 이미지 추가됨
+					//remove말고 empty 사용
+					$('#result1').empty.append(vimg);
 					
 				}	
-					
+					// prod list 출력
 					$('#prod').html(code);
+					$('#prod').trigger('change');
 			},
 			error: function(xhr){
 				alert("상태: "+xhr.status)
@@ -116,7 +140,7 @@ $(function(){
 
 	})
 	
-	//prod list 결과 중 option하나를 선택하면
+	//prod list 결과 중 option하나를 선택하면 detail출력 
 	$(document).on('change', '#prod', function(){
 		
 		//alert($('option:selected',this).val());
@@ -130,7 +154,7 @@ $(function(){
 			type : 'post',
 			success: function(res){
 			
-				code = `<table border="1">`;
+				code = `<table class="table table-bordered">`;
 				code += `<tr><td>PROD_ID</td>`
 				code += `<td> ${res.prod_id} </td></tr>`
 				
@@ -146,12 +170,6 @@ $(function(){
 				code += `<tr><td>PROD_OUTLINE</td>`
 				code += `<td> ${res.prod_outline} </td></tr>`
 				
-				code += `<tr><td>PROD_SIZE</td>`
-				code += `<td> ${res.prod_size} </td></tr>`
-				
-				code += `<tr><td>PROD_COLOR</td>`
-				code += `<td> ${res.prod_color} </td></tr>`
-					
 				code += `<tr><td>PROD_COST</td>`
 				code += `<td> ${res.prod_cost} </td></tr>`
 				
@@ -160,11 +178,6 @@ $(function(){
 					
 				code += `<tr><td>PROD_SALE</td>`
 				code += `<td> ${res.prod_sale} </td></tr>`	
-				
-				
-				
-				code += `<tr><td>PROD_DETAIL</td>`
-				code += `<td> ${res.prod_detail} </td></tr>`
 						
 				code += `</table>`;	
 				
@@ -191,12 +204,17 @@ $(function(){
 	<input type="button" value="확인" id="btn1">
 	<br>
 	<br>
-	<select id="lpord">
-		<!-- 상단 script에서 btn1을 활성화 함으로써 select option 출력 -->
-	</select>
-
-	<select id="prod">
-	</select>
+	<form>
+    <label for="lprod" class="form-label">Lprod list</label>
+    <select class="form-select" id="lprod" name="sellist1">
+    </select>
+    <br>
+    
+    <label for="prod" class="form-label">Prod list</label>
+    <select class="form-select" id="prod" name="sellist2">   
+    </select>
+    
+  </form>
 
 	<div id="result1"></div>
 	<br>
