@@ -43,6 +43,7 @@ input[type=button] {
 				data: {"id": idvalue},
 				type: 'get',
 				success: function(res){
+					$('#idcheck').html(res.flag).css('color','red');
 					
 				},
 				error: function(xhr){
@@ -64,7 +65,8 @@ input[type=button] {
 		<form>
 			<div class="mb-3 mt-3 col-sm-3">
 				<label for="id">아이디</label> <input type="button" value="중복검사"
-					class="btn btn-outline-danger btn-sm"> <span id="idcheck"></span>
+					class="btn btn-outline-danger btn-sm"> 
+					<span id="idcheck"></span>
 				<input type="text" class="form-control" id="id" name="mem_id">
 
 			</div>

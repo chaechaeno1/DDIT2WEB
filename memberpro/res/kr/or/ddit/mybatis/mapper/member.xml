@@ -19,7 +19,7 @@
 	 
 	 <!-- 아이디 중복 검사 -->
 	 <select id="idCheck" parameterType="String" resultType="String">
-	 	select mem_id from member where mem_id = ${data}	 
+	 	select mem_id from member where mem_id = #{data} 
 	 </select>
 	 
 	 <!-- 우편번호 검색 -->
