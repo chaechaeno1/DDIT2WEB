@@ -3,6 +3,8 @@ package kr.or.ddit.member.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
+
 import kr.or.ddit.member.vo.MemberVO;
 import kr.or.ddit.member.vo.ZipVO;
 import kr.or.ddit.mybatis.config.MyBatisUtil;

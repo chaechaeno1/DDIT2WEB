@@ -39,7 +39,7 @@ input[type=button] {
 			}
 			//서버로 전송
 			$.ajax({
-				url: "<%= request.getContextPath()%>/IdCheck.do",
+				url: "<%=request.getContextPath()%>/IdCheck.do",
 				data: {"id": idvalue},
 				type: 'get',
 				success: function(res){
@@ -53,6 +53,99 @@ input[type=button] {
 				
 			})
 		})
+		
+		
+		//우편번호 검색
+		$('#zipbtn').on('click',function(){
+			window.open("searchDong.html","우편번호 찾기", "width=500 height=400");
+		})
+		
+		/* //저장하기 - button type=submit인 경우
+		//1) method와 action이 있는 경우 -> button / submit
+		//2) method와 action이 없는 경우 -> button / submit
+		
+		$('form').on('submit',function(){
+			//submit의 원래 고유 기능에 대한 이벤트 제거
+			event.preventDefault();
+			
+			//alert("submit");
+			
+			//입력한 모든 값을 가져온다.
+			idvalue = $('#id').val();
+			namevalue = $('#name').val();
+			birvalue = $('#bir').val();
+			pwdvalue = $('#pwd').val();
+			hpvalue = $('#hp').val();
+			mailvalue = $('#mail').val();
+			zipvalue = $('#zip').val();
+			add1value = $('#add1').val();
+			add2value = $('#add2').val();
+			
+			
+		}) */
+		
+		
+		//submit버튼이 아니고, type=button일 경우...
+		$('button[type=button]').on('click',function(){
+			//alert("button");
+			
+			//입력한 모든 값을 가져온다.
+			idvalue = $('#id').val();
+			//공백 또는 형식 체크 - 틀린경우, return false;
+			
+			namevalue = $('#name').val();
+			//공백 또는 형식 체크
+			
+			birvalue = $('#bir').val();
+			//공백 또는 형식 체크
+			
+			pwdvalue = $('#pwd').val();
+			//공백 또는 형식 체크
+			
+			hpvalue = $('#hp').val();
+			//공백 또는 형식 체크
+			
+			emailvalue = $('#email').val();
+			//공백 또는 형식 체크
+			
+			zipvalue = $('#zip').val();
+			//공백 또는 형식 체크
+			
+			add1value = $('#add1').val();
+			//공백 또는 형식 체크
+			
+			add2value = $('#add2').val();
+			//공백 또는 형식 체크
+			
+			
+			vdata = {"id"	: idvalue, 
+					 "name"	: namevalue, 
+					 "bir"	: birvalue, 
+					 "pwd"	: pwdvalue, 
+					 "hp"	: hpvalue,
+					 "email": emailvalue,
+					 "zip"	: zipvalue,
+					 "add1"	: add1value,
+					 "add2"	: add2value
+					} 
+			
+			$.ajax({
+				url: "<%=request.getContextPath()%>/Insert.do",
+				data: vdata,
+				type: 'post',
+				success: function(res){
+					$('#join').html(res.sw).css('color','red');
+				},
+				error:function(xhr){
+					alert("상태: "+xhr.status)
+				},
+				dataType: 'json'
+				
+			})
+			
+					
+		})
+		
 
 	})
 </script>
@@ -65,8 +158,7 @@ input[type=button] {
 		<form>
 			<div class="mb-3 mt-3 col-sm-3">
 				<label for="id">아이디</label> <input type="button" value="중복검사"
-					class="btn btn-outline-danger btn-sm"> 
-					<span id="idcheck"></span>
+					class="btn btn-outline-danger btn-sm"> <span id="idcheck"></span>
 				<input type="text" class="form-control" id="id" name="mem_id">
 
 			</div>
@@ -112,8 +204,9 @@ input[type=button] {
 					class="form-control" id="add2" name="mem_add2">
 			</div>
 
+			<button type="button" class="btn btn-outline-primary btn-sm">확인</button>
+			<!-- <button type="submit" class="btn btn-outline-primary btn-sm">확인</button> -->
 
-			<button type="submit" class="btn btn-outline-primary btn-sm">확인</button>
 			<span id="join"></span>
 
 		</form>
