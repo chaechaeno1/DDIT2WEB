@@ -23,15 +23,16 @@ public class Insert extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		//전송데이터 받기 - ajax의 vdata key값과 일치
-		String id = request.getParameter("id"); 
-		String name = request.getParameter("name"); 
-		String bir = request.getParameter("bir"); 
-		String pwd = request.getParameter("pwd"); 
-		String hp = request.getParameter("hp"); 
-		String email = request.getParameter("email"); 
-		String zip = request.getParameter("zip"); 
-		String add1 = request.getParameter("add1"); 
-		String add2 = request.getParameter("add2");
+		//serializeArray() 사용시에 파라미터값이 id가 아닌 name으로 들어가야함
+		String id = request.getParameter("mem_id"); 
+		String name = request.getParameter("mem_name"); 
+		String bir = request.getParameter("mem_bir"); 
+		String pwd = request.getParameter("mem_pass"); 
+		String hp = request.getParameter("mem_hp"); 
+		String email = request.getParameter("mem_mail"); 
+		String zip = request.getParameter("mem_zip"); 
+		String add1 = request.getParameter("mem_add1"); 
+		String add2 = request.getParameter("mem_add2");
 		
 		//service객체얻기
 		IMemberService service = MemberServiceImpl.getService();
