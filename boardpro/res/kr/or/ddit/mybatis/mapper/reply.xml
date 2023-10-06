@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="reply">
+
+
+<!-- 댓글 삭제 // 결과 int, id=메소드이름 param: 댓글번호(int)-->
+<delete id="deleteReply" parameterType="int">
+	delete from replytab where RENUM=#{RENUM}
+</delete>
+
+<!-- 댓글 수정 // 결과 int, id=메소드이름 param: vo-->
+<update id="updateReply" parameterType="replyVO">
+	update replytab set 
+	
+	update boardtap set subject=#{subject}, mail=#{mail}, 
+					content=#{content}, wip=#{wip}, wdate=sysdate
+				where num=#{num}
+
+</update>
+
+<!-- 댓글 저장 // 결과 int, id=메소드이름 param: vo-->
+
+<insert id="insetReply" parameterType="replyVO">
+
+</insert>
+
+<!-- 댓글 리스트 // 결과 list(vo알리아스), id=메소드이름  param: 게시판번호(int)-->
+<select id="listReply" parameterType="int">
+
+</select>
+
+
+
+</mapper>	

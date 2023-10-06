@@ -21,6 +21,9 @@
 	 -->
 	<typeAliases>
 	 	<!-- <typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memberVO"/> -->
+		<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="kr.or.ddit.board.vo.BoardVO" alias="boardVO"/>
+		<typeAlias type="kr.or.ddit.reply.vo.ReplyVO" alias="replyVO"/>
 
 	</typeAliases>
 	
@@ -40,7 +43,9 @@
 	<!-- DB에서 처리될 SQL문들이 작성된 mapper파일들을 등록하는 부분 -->
 	<!-- 형식) <mapper resource="경로명/파일명.xml"/>-->
 	<mappers>
+		<mapper resource="kr/or/ddit/mybatis/mapper/member.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mapper/board.xml"/>
+		<!-- <mapper resource="kr/or/ddit/mybatis/mapper/reply.xml"/> -->
 
 	</mappers>
 	
