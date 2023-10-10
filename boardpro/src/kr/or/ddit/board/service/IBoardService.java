@@ -25,5 +25,8 @@ public interface IBoardService {
 	//조회수 증가
 	public int updateHit(int bno);
 	
+	//페이지별 정보구하기 - start, end, 총 페이지수
+	
+	
 	
 }

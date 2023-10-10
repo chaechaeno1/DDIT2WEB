@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.ddit.member.service.IMemberService;
 import kr.or.ddit.member.service.MemberServiceImpl;
@@ -18,7 +19,7 @@ import kr.or.ddit.member.vo.MemberVO;
 /**
  * Servlet implementation class SelectById
  */
-@WebServlet("/SelectById.do")
+@WebServlet("/Logpro.do")
 public class SelectById extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -48,13 +49,22 @@ public class SelectById extends HttpServlet {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id",userId); //mapper.xml의 value값이 map의 키값이 됨
 		map.put("pass",userPass);
+		
 		MemberVO vo = service.selectById(map);
 		
 		//결과값을 view페이지로 이동 하기 위해서 저장 
-		request.setAttribute("mem", vo); //name은 아무거나 기입해도 됨
+		HttpSession session = request.getSession();
 		
+		if(vo != null) { // 로그인 성공
+			session.setAttribute("loginok", vo); //logpro.jsp에서의 값 입력
+			session.setAttribute("check", "true");
+		}else { // 로그인 실패
+			session.setAttribute("check", "false");
+		}
+		
+
 		//forward를 위한 객체 생성
-		RequestDispatcher disp = request.getRequestDispatcher("/0925/viewSelectOne.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher("/member/logpro.jsp");
 				
 		//forward 실행
 		disp.forward(request, response);

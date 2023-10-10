@@ -23,8 +23,8 @@
 		<jsp:include page="logpro.jsp"></jsp:include>
 	</div>
 	<br>
-	<a href="join.html" target="iboard">회원가입</a>&nbsp;&nbsp;&nbsp;
-	<a href="../board/temp.html" targer="iboard">게시판</a> 
+	<a href="join.jsp" target="iboard">회원가입</a>&nbsp;&nbsp;&nbsp;
+	<a href="../board/temp.html" target="iboard">게시판</a> 
 	<!-- ../board/board.jsp 로 만들거임 -->
 </header>
 
