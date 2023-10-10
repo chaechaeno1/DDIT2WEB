@@ -16,7 +16,7 @@
 		</sql>
 		
 		
-		<!-- 게시판 글 리스트 조건에 따라 3개씩 출력 -->
+		<!-- 게시판 리스트 - 3개씩 조회 -->
 		<select id="selectBoardList" parameterType="map" resultType="boardVO">
 		 select A.* from (select rownum as rnum, B.*  from 
 		 						(select * from boardtab  

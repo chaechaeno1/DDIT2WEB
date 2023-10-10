@@ -1,4 +1,4 @@
-package kr.or.ddit.member.controller;
+package kr.or.ddit.board.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
