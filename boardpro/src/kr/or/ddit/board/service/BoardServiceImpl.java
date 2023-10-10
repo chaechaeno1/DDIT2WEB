@@ -78,7 +78,7 @@ public class BoardServiceImpl implements IBoardService {
 		int perList = PageVO.getPerList();
 		int totalPage = (int)Math.ceil((double)count / perList) ; 
 		
-		return null;
+		return vo;
 	}
 
 }
