@@ -9,42 +9,27 @@
 
  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- 외부스크립트 -->
 <script src="../js/jquery-3.7.1.min.js"></script>
+
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+
+<script src="../js/board.js"></script>
+
+
 <script>
 
 mypath = "<%=request.getContextPath()%>";
+currentpage = 1; //전역변수
 
 $(function(){
 	
-	 //실행 하자마자 리스트 출력 - stype, sword 없는 상태
-	 
-	 vtype = $('#stype option:selected').val().trim();
-	 vword = $('#sword').val().trim();
-	 
-	 console.olg(vtype, vword);
-	 
-	$.ajax({
-		url : `${mypath}/BoardList.do`,
-		type : 'post',
-		data : {
-				"page" : "1",
-				"stype" : vtype,
-				"sword" : vword
-		},
-		success : function(res){
-			
-			
-		},
-		error : fucntion(xhr){
-			alert("상태 : "+xhr.status)
-		},
-		dataType : 'json'
-		
-	}) 
+	//실행 하자마자 리스트 출력 - stype, sword 없는 상태
+	$.listBoardServer(currentpage);
+	
 	
 })
 </script>
@@ -77,6 +62,10 @@ nav{
 nav a{
 	/* display: none; */  /* 영역까지 숨김 */
 	visibility: hidden;  /* 영역을 가지고 있음 */
+}
+#pageList{
+	margin : 2%;
+	margin-left: 40%	
 }
 
 
@@ -122,6 +111,7 @@ nav a{
 	<br><br>
 	
 	<div id="result"></div>
+	<br><br>
 	<div id="pageList"></div>
 
 
