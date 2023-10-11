@@ -45,7 +45,7 @@
 	<mappers>
 		<mapper resource="kr/or/ddit/mybatis/mapper/member.xml"/>
 		<mapper resource="kr/or/ddit/mybatis/mapper/board.xml"/>
-		<!-- <mapper resource="kr/or/ddit/mybatis/mapper/reply.xml"/> -->
+		<mapper resource="kr/or/ddit/mybatis/mapper/reply.xml"/>
 
 	</mappers>
 	

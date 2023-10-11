@@ -63,7 +63,7 @@
 		
 		<!-- 저장하기 // 결과: int, param: vo, id이름=메소드이름 -->
 		<insert id="insertBoard" parameterType="int">
-			insert into boardtap values()
+			insert into boardtap values(#{subject}, #{mail}, #{content}, #{wip}, sysdate, 0)
  		
 		</insert>
 		

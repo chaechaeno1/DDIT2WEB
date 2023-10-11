@@ -39,6 +39,7 @@ if(vo!=null) ss = gson.toJson(vo);
 mvo = <%= ss %> /* mvo.mem_id, mvo.mem_pass, mvo.mem_name .. */
 mypath = "<%=request.getContextPath()%>";
 currentpage = 1; //전역변수
+reply = {}; //객체 동적으로 추가 - reply.bonum(<-vidx), reply.name, reply.cont 
 
 $(function(){
 	
@@ -75,6 +76,45 @@ $(function(){
 	})
 	
 	//수정, 삭제, 댓글등록, 제목클릭, 댓글삭제, 댓글 수정 이벤트
+	$(document).on('click', '.action', function(){
+		
+		vname = $(this).attr('name');
+		vidx = $(this).attr('idx');
+		
+		if(vname == "delete"){
+			alert(vidx + "번 글을 삭제합니다.")
+		}else if(vname == "title"){
+			alert(vidx + "번 댓글을 출력합니다.")
+			//ajax 수행 - 댓글 출력
+			$.listReplyServer();
+			
+			
+		}else if(vname == "modify"){
+			alert(vidx + "번 글을 수정합니다.")
+		}else if(vname == "reply"){
+			//alert(vidx + "번 글에 댓글을 작성합니다.")
+			
+			//입력한 내용 가져오기
+			vcont = $(this).prev().val(); //get
+			console.log(vcont);
+			
+			reply.name = mvo.mem_name;
+			reply.bonum = vidx;
+			reply.cont = vcont;
+			
+			console.log(reply);
+			
+			//ajax수행
+			$.insertReplyServer();
+			
+			//입력한 값 지우기
+			$(this).prev().val(""); //set
+			
+		}
+		
+	})
+	
+	
 	
 	
 })

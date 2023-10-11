@@ -2,6 +2,43 @@
  * 
  */
 
+$.listReplyServer = function(){
+	$.ajax({
+		url : `${mypath}/ReplyList.do`,
+		type : 'post',
+		data : { "bonum" : vidx},
+		success : function(res){
+			
+		},
+		error : function(xhr){
+			alert("상태 : "+xhr.status)
+		},
+		datrType : 'json'
+		
+	})
+}
+
+
+
+
+$.insertReplyServer = function(){
+	$.ajax({
+		url : `${mypath}/ReplyInsert.do`,
+		type : 'post',
+		data : reply, /* name, bonum, cont*/
+		success : function(res){
+			
+		},
+		error : function(xhr){
+			alert("상태 : "+xhr.status)
+		},
+		datrType : 'json'
+		
+	})
+	
+}
+
+
 $.listBoardServer = function(cpage){
 	
 	 //실행 하자마자 리스트 출력 - stype, sword 없는 상태
@@ -26,8 +63,8 @@ $.listBoardServer = function(cpage){
 			$.each(res.datas, function(i,v){
 				code += `<div class="card">
 			      			<div class="card-header">
-			       			 <a class="btn" data-bs-toggle="collapse" href="#collapse${v.num}">
-			         		${v.subject}
+			       			 <a class="collapsed btn action" name="title" idx="${v.num}" data-bs-toggle="collapse" href="#collapse${v.num}">
+			         		${v.subject} 
 			      			  </a>
 			      			</div>
 			      <div id="collapse${v.num}" class="collapse" data-bs-parent="#accordion">
