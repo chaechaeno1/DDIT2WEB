@@ -8,14 +8,14 @@ int res = (Integer)request.getAttribute("res");
 if(res > 0){
 %>	
 	{
-		"sw" : "저장 성공"
+		"sw" : "성공"
 	}
 	
 	
 <% }else{ %>
 	
 	{
-		"sw" : "저장 실패"
+		"sw" : "실패"
 	}
 	
 	

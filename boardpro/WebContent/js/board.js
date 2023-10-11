@@ -2,6 +2,29 @@
  * 
  */
 
+
+//댓글 삭제
+$.deleteReplyServer = function(){
+	$.ajax({
+		url : `${mypath}/ReplyDelete.do`,
+		type : 'post',
+		data : { "renum" : vidx},
+		success : function(res){
+			//DB삭제 성공했으면 화면에서 삭제
+			
+		
+		},	
+		error : function(xhr){
+			alert("상태 : "+xhr.status)
+		}, 
+		dataType : 'json'
+		
+	})
+	
+}
+
+
+//댓글 리스트 가져오기
 $.listReplyServer = function(){
 	$.ajax({
 		url : `${mypath}/ReplyList.do`,
@@ -9,24 +32,56 @@ $.listReplyServer = function(){
 		data : { "bonum" : vidx},
 		success : function(res){
 			
-		},
+			rcode = "";
+			
+			$.each(res, function(i,v){
+			cont = v.cont;
+			vcont = cont.replaceAll(/\n/g, "<br>");
+	
+			//+= 안해주면 코드가 하나씩만 뜨게됨 (오류발생)
+			rcode += `<div class="reply-body">
+			         <div class="pp">
+			         	<p class="p1">작성자 <span class="wr">${v.name}</span>
+			         				   날짜 <span class="dat">${v.redate}</span>
+			         	</p>
+			         	<p class="p2">
+			         		<input idx="${v.renum}" type="button" value="댓글수정" class="action" name="r_modify">
+			         		<input idx="${v.renum}" type="button" value="댓글삭제" class="action" name="r_delete">         		
+			         	</p>
+			         </div>
+			         <p class="p3">${vcont}</p>			      
+			        </div>`;
+
+			}) /* 반복문 끝 */
+			
+			//댓글 출력 = card-body
+			target.parents('.card').find('.reply-body').remove();
+			//target.parents('.card').find('.reply-body').empty(); //공간이 남음
+			target.parents('.card').find('.card-body').append(rcode);
+			
+			
+			
+		}, /* success 끝*/
 		error : function(xhr){
 			alert("상태 : "+xhr.status)
-		},
-		datrType : 'json'
+		}, /* error 끝*/
+		dataType : 'json'
 		
 	})
 }
 
 
 
-
+//성공하면 댓글저장
 $.insertReplyServer = function(){
 	$.ajax({
 		url : `${mypath}/ReplyInsert.do`,
 		type : 'post',
 		data : reply, /* name, bonum, cont*/
 		success : function(res){
+			//댓글을 화면에 추가하기 위해서
+			//댓글 리스트 가져오기를 수행한다.
+			$.listReplyServer();
 			
 		},
 		error : function(xhr){

@@ -78,13 +78,14 @@ $(function(){
 	//수정, 삭제, 댓글등록, 제목클릭, 댓글삭제, 댓글 수정 이벤트
 	$(document).on('click', '.action', function(){
 		
+		target = $(this); //전역변수
 		vname = $(this).attr('name');
 		vidx = $(this).attr('idx');
 		
 		if(vname == "delete"){
 			alert(vidx + "번 글을 삭제합니다.")
 		}else if(vname == "title"){
-			alert(vidx + "번 댓글을 출력합니다.")
+			//alert(vidx + "번 댓글을 출력합니다.")
 			//ajax 수행 - 댓글 출력
 			$.listReplyServer();
 			
@@ -104,20 +105,28 @@ $(function(){
 			
 			console.log(reply);
 			
-			//ajax수행
+			//ajax수행 - 댓글 저장
 			$.insertReplyServer();
+			
+			//댓글을 화면에 추가 (insert성공한 다음에 추가되어야 함, 여기서는 X)
 			
 			//입력한 값 지우기
 			$(this).prev().val(""); //set
 			
+		}else if(vname == "r_modify"){
+			//alert(vidx + "번 댓글을 수정합니다.");
+		}else if(vname == "r_delete"){
+			//alert(vidx + "번 댓글을 삭제합니다.");
+			
+			//ajax수행 - 댓글 삭제
+			$.deleteReplyServer();
+			
+			
 		}
 		
-	})
-	
-	
-	
-	
-})
+	}) // click 이벤트 끝
+
+}) // $(function) 끝
 </script>
 
 
@@ -127,7 +136,7 @@ $(function(){
 	flex-direction: column;
 }
 p{
-	border: 1px dotted gold;
+	border: 1px dotted black;
 	margin: 2px;
 	padding: 3px;
 }
@@ -156,6 +165,12 @@ nav a{
 input[name=reply]{
 	height : 50px;
 	vertical-align: top;
+}
+.reply-body{
+	border : 1px dotted yellow;
+	background: #B0E0E6;
+	margin : 3px;
+	padding : 5px;
 }
 
 
