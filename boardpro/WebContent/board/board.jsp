@@ -1,3 +1,5 @@
+<%@page import="com.google.gson.Gson"%>
+<%@page import="kr.or.ddit.member.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="true" %>
@@ -19,16 +21,60 @@
 
 <script src="../js/board.js"></script>
 
+<%
+//로그인 상태 체크
+MemberVO vo = (MemberVO)session.getAttribute("loginok");
+String ss = null;
 
+Gson gson = new Gson();
+if(vo!=null) ss = gson.toJson(vo);
+/* ss = { "mem_id" : "b001",
+		  "mem_pass" : "1234",
+		  "mem_name" : "이쁜이"		  
+		} 
+*/
+
+%>
 <script>
-
+mvo = <%= ss %> /* mvo.mem_id, mvo.mem_pass, mvo.mem_name .. */
 mypath = "<%=request.getContextPath()%>";
 currentpage = 1; //전역변수
 
 $(function(){
 	
+	
 	//실행 하자마자 리스트 출력 - stype, sword 없는 상태
 	$.listBoardServer(currentpage);
+	
+	//페이지 번호 클릭 이벤트
+	$(document).on('click', '.pageno', function(){
+		currentpage = parseInt($(this).text().trim()); 
+		$.listBoardServer(currentpage);
+	})
+	
+	
+	//다음 클릭 이벤트
+	$(document).on('click', '#next', function(){
+		currentpage = parseInt($('.pageno').last().text().trim()) +1;
+		$.listBoardServer(currentpage);
+	})
+		
+	
+	//이전 클릭 이벤트
+	$(document).on('click', '#prev', function(){
+		currentpage = parseInt($('.pageno').first().text().trim()) -1;
+		$.listBoardServer(currentpage);
+	})
+	
+	
+	//search 검색 이벤트
+	$(document).on('click', '#search', function(){
+		currentpage = 1
+		$.listBoardServer(currentpage);
+
+	})
+	
+	//수정, 삭제, 댓글등록, 제목클릭, 댓글삭제, 댓글 수정 이벤트
 	
 	
 })
@@ -67,6 +113,10 @@ nav a{
 	margin : 2%;
 	margin-left: 40%	
 }
+input[name=reply]{
+	height : 50px;
+	vertical-align: top;
+}
 
 
 </style>
@@ -102,7 +152,7 @@ nav a{
       	</select>
       
         <input class="form-control me-2" id="sword" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
+        <button class="btn btn-primary" id="search" type="button">Search</button>
       </form>
     </div>
   </div>

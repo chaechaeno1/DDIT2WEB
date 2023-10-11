@@ -44,7 +44,10 @@ $.listBoardServer = function(cpage){
 			         	</p>
 			         </div>
 			         <p class="p3">${v.content}</p>
-			         <p class="p4">댓글쓰기 textarea 등록버튼</p>
+			         <p class="p4">
+						<textarea rows="3" cols="50"></textarea>
+						<input type="button" idx="${v.num}" class="action" name="reply" value="등록">
+					</p>
 			        </div>
 			      </div>
 			    </div>`
@@ -87,16 +90,16 @@ pageList = function(sp, ep, tp){
 	//페이지 번호
 	for(i = sp; i<=ep; i++){
 		if(i==currentpage){
-			pager += `<li class="page-item active"><a class="page-link pageno" href="#">${i}</a></li>`
+			pager += `<li class="page-item active"><a class="page-link pageno">${i}</a></li>`
 		}else{
-			pager += `<li class="page-item"><a class="page-link pageno" href="#">${i}</a></li>`
+			pager += `<li class="page-item"><a class="page-link pageno">${i}</a></li>`
 			
 		}
 	}
 	
 	//다음
 	if(ep < tp){
-		pager += `<li class="page-item"><a id="next" class="page-link" href="#">Next</a></li>`
+		pager += `<li class="page-item"><a id="next" class="page-link">Next</a></li>`
 	}
 	
 
