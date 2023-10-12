@@ -10,6 +10,14 @@
 <script src="../js/jquery-3.7.1.min.js"></script>
 <!-- <script src="http://localhost/boardpro/js/jquery-3.7.1.min.js"></script> -->
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <script>
 $(function(){
 	//로그인
@@ -83,12 +91,12 @@ $(function(){
 %>
 	<input type="text" id="id" placeholder="id">
 	<input type="password" id="pass" placeholder="pass">
-	<button type="button" id="login">로그인</button><br>	
+	<button type="button" id="login" class="btn btn-primary btn-sm">로그인</button><br>	
 
 		
 <%	}else if(vo != null){ // 로그인 되어있을 때 -> 로그아웃폼 보여줘야함%>
 	<span><%= vo.getMem_id()%>님 환영합니다!</span>
-	<button type="button" id="logout">로그아웃</button><br>	
+	<button type="button" id="logout" class="btn btn-danger btn-sm">로그아웃</button><br>	
 
 <%		
 	}

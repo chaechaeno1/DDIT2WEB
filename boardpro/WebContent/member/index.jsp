@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인 및 게시물 작성</title>
 
 <!-- 외부 CSS -->
 <link rel="stylesheet" href="../css/logpro.css">

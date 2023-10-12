@@ -42,28 +42,29 @@
 		
 		<!-- 삭제 //결과: int, param: 글번호(int), id이름=메소드이름 -->
 		<delete id="deleteBoard" parameterType="int">
-			delete from boardtap where num = #{data}
+			delete from boardtab where num = #{data}
 		</delete>
 		
 		
 		<!-- 수정 //결과: int, param: vo, id이름=메소드이름 -->
 		<update id="updateBoard" parameterType="boardVO">
-			update boardtap set subject=#{subject}, mail=#{mail}, 
+			update boardtab set subject=#{subject}, mail=#{mail}, 
 					content=#{content}, wip=#{wip}, wdate=sysdate
 				where num=#{num}
 		</update>
 		
 		<!-- 조회수 증가 //결과: int, param: 글번호(int), id이름=메소드이름 -->
 		<update id="updateHit" parameterType="int">
-			update boardtap set hit = hit+1
+			update boardtab set hit = hit+1
 				where num = #{data}
 		
 		</update>
 		
 		
 		<!-- 저장하기 // 결과: int, param: vo, id이름=메소드이름 -->
-		<insert id="insertBoard" parameterType="int">
-			insert into boardtap values(#{subject}, #{mail}, #{content}, #{wip}, sysdate, 0)
+		<insert id="insertBoard" parameterType="boardVO">
+			insert into boardtab(num, subject, writer, mail, password, content, hit, wip, wdate)
+			values(boardtab_num_seq.nextval, #{subject}, #{writer},#{mail}, #{password}, #{content}, 0, #{wip}, sysdate)
  		
 		</insert>
 		
