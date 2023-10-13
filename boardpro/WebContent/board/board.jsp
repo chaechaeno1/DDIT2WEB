@@ -99,7 +99,7 @@
 			}
 			  
 		  }else if(vname == "modify"){ //게시판 수정
-			alert(vidx + "번 글을 수정합니다") ;
+			//alert(vidx + "번 글을 수정합니다") ;
 		  
 		  	$('#uModal').modal('show');
 		  	
@@ -107,7 +107,7 @@
 		  	
 		  	//본문내용 가져오기
 		  	vparent = $(this).parents('.card');
-		  	vsub = vparent.find('a').text()
+		  	vsub = vparent.find('a').text().trim();
 		  	vpass = vparent.find('.bpass').text()
 		  	vwr = vparent.find('.wr').text()
 		  	vem = vparent.find('.em').text() 
@@ -151,7 +151,8 @@
 			 $(this).prev().val("");
 			  
 		  }else if(vname == "r_modify"){
-			  alert(vidx + "번 댓글을 수정합니다");
+			  //alert(vidx + "번 댓글을 수정합니다");
+			  
 			  
 		  }else if(vname == "r_delete"){
 			  
@@ -279,18 +280,32 @@
     margin : 3px;
     padding : 5px;
  }
- .modal label{
+.modal label{
     width : 100px;
     height : 30px
  }
- .bpass{
+.bpass{
  	display: none;
  }
+#modifyform{
+	display: none;
+} 
  
  </style> 
 
 </head>
 <body>
+
+	<!-- 댓글 수정 -->
+	<div id="modifyform">
+		<textarea rows="5" cols="40" id="mtext"></textarea>
+		<input type="button" value="확인" id="mok">
+		<input type="button" value="취소" id="mcancel">
+	</div>
+
+
+
+
    <input type="button" id="bwrite" value="글쓰기"> 
    
    <!-- 이벤트 핸들러 없이 모달을 띄운다 -->

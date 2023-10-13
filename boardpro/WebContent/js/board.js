@@ -155,9 +155,9 @@ $.listReplyServer = function(){
 		  	rcode += `<div class="reply-body">
 		           <div class="pp">
 		               <p class="p1">
-                                                작성자 <span class="wr">${v.name}</span>
+                                                작성자 <span class="rwr">${v.name}</span>
 		                                         
-		                                 날짜<span class="dat">${v.redate}</span>
+		                                 날짜<span class="rdat">${v.redate}</span>
 		               </p>`
 
 					if(mvo != null && mvo.mem_name == v.name){
@@ -168,7 +168,7 @@ $.listReplyServer = function(){
                      }
 
 		          rcode += `</div>
-		           <p class="p3">${vcont}</p>
+		           <p class="p3 rp3">${vcont}</p>
 		           
 		        </div>`
 
@@ -237,9 +237,7 @@ $.listBoardServer = function(cpage){
 				
 			 code += `<div class="card">
 		      <div class="card-header">
-		        <a class="collapsed btn action" name="title" idx="${v.num}" data-bs-toggle="collapse" href="#collapse${v.num}">
-		         ${v.subject}
-		       </a>
+		        <a class="collapsed btn action" name="title" idx="${v.num}" data-bs-toggle="collapse" href="#collapse${v.num}">${v.subject}</a>
 		      </div>
 		      <div id="collapse${v.num}" class="collapse" data-bs-parent="#accordion">
 		        <div class="card-body">
