@@ -1,6 +1,47 @@
 /**
  * 
  */
+
+
+//게시판 글 수정
+
+//function $.updateBoardServer(){
+//$.updateBoardServer = () = > {
+$.updateBoardServer = function(){
+	$.ajax({
+		url : `${mypath}/BoardUpdate.do`,
+		type: 'post',
+		data : vdata, //num, writer, maill, content, password
+		success : function(res){
+			if(res.sw=="성공"){
+				//vdata의 내용으로 화면의 본문내용을 변경한다.
+				
+			  	vparent.find('a').text(vdata.subject);
+			  	vparent.find('.bpass').text(vdata.password);
+			  	vparent.find('.wr').text(vdata.writer);
+			  	vparent.find('.em').text(vdata.mail);
+				
+				cont = vdata.content; //\r\n 포함
+				//console.log("vdata.content==", cont)
+				cont = cont.replace(/\n/g, "<br>");
+				
+			  	vparent.find('.p3').html(cont); //<br>태그가 포함
+					
+				
+			}
+			
+		},
+		error : function(xhr){ //필수항목은 아님
+			alert("상태 : "+xhr.status);
+		},
+		dataType : 'json'
+		
+	})
+	
+}
+
+
+
 //조회수 증가 
 $.updateHitServer = function(){
 	
@@ -9,6 +50,19 @@ $.updateHitServer = function(){
 		type : 'get',
 		data : {"num" : vidx},
 		success : function(res){
+			if(res.sw=="성공"){
+				//화면부분의 조회수를 변경
+				//공통조상 찾기 -> 후손 class=hit 찾기
+				//(js에서는 this 사용 불가능)
+				vhit = target.parents('.card').find('.hit');
+				 
+				//값을 가져오기 - 1증가
+				hitvalue = parseInt(vhit.text()) + 1
+				
+				//1 증가된 값을 다시 출력
+				vhit.text(hitvalue);
+				
+			}
 			
 		},
 		error : function(xhr){
@@ -48,6 +102,7 @@ $.insertBoardServer = function(){
 		data : vdata,
 		success : function(res){
 			if(res.sw =="성공" ){
+				
 				currentpage = 1;
 				$.listBoardServer(currentpage);
 			}
@@ -173,6 +228,13 @@ $.listBoardServer = function(cpage){
 			code += "<div id='accordion'>"
 			
 			$.each(res.datas, function(i, v){
+				
+			cont = v.content;
+			cont = cont.replace(/\n/g, "<br>");	
+			//cont = cont.replaceAll(/\n/g, "<br>");
+			
+			
+				
 			 code += `<div class="card">
 		      <div class="card-header">
 		        <a class="collapsed btn action" name="title" idx="${v.num}" data-bs-toggle="collapse" href="#collapse${v.num}">
@@ -183,6 +245,7 @@ $.listBoardServer = function(cpage){
 		        <div class="card-body">
 		           <div class="pp">
 		               <p class="p1">
+						<span class="bpass">${v.password}</span>
                                                 작성자 <span class="wr">${v.writer}</span>
 		                                 이메일 <span class="em">${v.mail}</span>
                                                 조회수 <span class="hit">${v.hit}</span>
@@ -197,7 +260,7 @@ $.listBoardServer = function(cpage){
                       }
 
 		          code += `</div>
-		           <p class="p3">${v.content}</p>
+		           <p class="p3">${cont}</p>
 		           <p class="p4">
                       <textarea rows=""  cols="50"></textarea>
                       <input type="button" idx="${v.num}" class="action" name="reply" value="등록">

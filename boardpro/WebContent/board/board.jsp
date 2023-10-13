@@ -14,10 +14,12 @@
  
  <script src="../js/jquery-3.7.1.min.js"></script>
  
+ 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="../js/board.js"></script>
+<script src="../js/jquery.serializejson.min.js"></script>
 
 <%
  //로그인 상태 체크 
@@ -91,11 +93,43 @@
 			  
 			vaex  = $(this).attr('aria-expanded');
 			if(vaex == "true"){
-				alert("조회수 증가");
+				//alert("조회수 증가");
+				//ajax수행 -조회수 증가
+				$.updateHitServer();
 			}
 			  
-		  }else if(vname == "modify"){
-			 alert(vidx + "번 글을 수정합니다") ;
+		  }else if(vname == "modify"){ //게시판 수정
+			alert(vidx + "번 글을 수정합니다") ;
+		  
+		  	$('#uModal').modal('show');
+		  	
+		  	
+		  	
+		  	//본문내용 가져오기
+		  	vparent = $(this).parents('.card');
+		  	vsub = vparent.find('a').text()
+		  	vpass = vparent.find('.bpass').text()
+		  	vwr = vparent.find('.wr').text()
+		  	vem = vparent.find('.em').text() 
+		  	vp3 = vparent.find('.p3').html() //<br>태그가 포함
+		  	vp3 = vp3.replace(/<br>/g, "");
+		  	
+		  	//수정 모달창에 출력하기
+		  	$('#uform #uwriter').val(vwr);
+		  	$('#uform #upassword').val(vpass);
+		  	$('#uform #umail').val(vem);
+		  	$('#uform #usubject').val(vsub);
+		  	$('#uform #ucont').val(vp3);
+		  	
+		  	//글 번호를 히든으로 hidden으로 모달창에 설정
+		  	$('#uform #unum').val(vidx);
+		  	
+			$('#uform #uwriter').prop('readonly',true);
+			
+			//값을 변경, 수정, 입력 하고 전송 버튼 클릭 -> 이벤트 발생
+			
+			
+		  	
 			 
 		  }else if(vname == "reply"){
 			  //alert(vidx + "번 글에 댓글을 씁니다");
@@ -173,6 +207,32 @@
 		  
 	  })
 	  
+	  
+	  //글수정 모달창에서 수정 입력하고 전송버튼 클릭 이벤트
+	  $('#usend').on('click', function(){
+		  //수정입력된 모든 내용울 가져 온다.
+		  
+		  //data를 생성하여 서버로 보내기
+		  
+		  //vdata = $('#uform').serializeArray();
+		  //js 폴더에 jquery.serializejson.min.js 추가해야함
+		  //board.js의 vdata가 배열로 받고 있으므로 Array대신 json사용
+		  vdata = $('#uform').serializeJSON();
+		  
+		  console.log(vdata);
+		  
+		  //ajax실행 - db수정완료 성공하면 vdata의 내용으로 본문의 내용으로 바꾼다.
+		  $.updateBoardServer();
+		  
+		  //모달창 닫기 
+	      $('#uModal').modal('hide');
+			
+		  //모달창 입력 내용 지우기
+		  $('#uModal .txt').val("");
+		  
+		  
+	  })
+	  
  })  //$(function)
 </script>
 
@@ -223,6 +283,10 @@
     width : 100px;
     height : 30px
  }
+ .bpass{
+ 	display: none;
+ }
+ 
  </style> 
 
 </head>
@@ -274,14 +338,14 @@
    <div id="pageList"></div>
    
    
-   <!-- The Modal -->
+   <!-- 글쓰기 The Modal -->
 <div class="modal" id="wModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
+        <h4 class="modal-title">글 작성하기</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -315,6 +379,60 @@
     </div>
   </div>
 </div>
+<!-- 글쓰기 모달 끝 -->
+
+   
+   
+   
+   
+   
+   
+ <!-- 글수정 The Modal -->
+<div class="modal" id="uModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">글 수정하기</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form name="uform" id="uform">
+       
+         <input type="hidden" class="txt" name="num" id="unum"> 
+       
+         <label>작성자</label>
+         <input type="text" class="txt"  name="writer" id="uwriter"><br>
+         
+         <label>제목</label>
+         <input type="text"  class="txt" name="subject" id="usubject"><br>
+         
+         <label>비빌번호</label>
+         <input type="password"  class="txt" name="password" id="upassword"><br>
+       
+         <label>메일</label>
+         <input type="text"   class="txt" name="mail" id="umail"><br>
+         
+         <label>내용</label><br>
+         <textarea rows="10" cols="50" name="content"  class="txt" id="ucont"></textarea>
+         <br><br>
+         <input type="button" value="전송" id="usend">
+       </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>   
+   
+   
    
    
 </body>

@@ -95,7 +95,7 @@ $(function(){
 
 		
 <%	}else if(vo != null){ // 로그인 되어있을 때 -> 로그아웃폼 보여줘야함%>
-	<span><%= vo.getMem_id()%>님 환영합니다!</span>
+	<span><%= vo.getMem_id()%>(<%= vo.getMem_name()%>)님 환영합니다!</span>
 	<button type="button" id="logout" class="btn btn-danger btn-sm">로그아웃</button><br>	
 
 <%		
