@@ -151,7 +151,28 @@
 			 $(this).prev().val("");
 			  
 		  }else if(vname == "r_modify"){
-			  //alert(vidx + "번 댓글을 수정합니다");
+			  alert(vidx + "번 댓글을 수정합니다");
+			  
+			  //댓글 위치의 요소(p3) 접근
+			  vp3 = $(this).parents('.reply-body').find('.p3');
+			  
+			  //댓글 원래 내용 가져오기
+			  vcont = vp3.html().trim();
+			  
+			  // <br>을 \n으로 변경
+			  vcont = vcont.replace(/<br>/g, "\n");
+			  
+			  //modifyform의 mtext에 출력
+			  $('#modifyform #mtext').val(vcont);
+			  
+			  //modifyform을 현재 p3 위치로 append
+			  // * append는 계속 뒤에 붙으므로 empty처리 해주어야 함
+			  vp3.empty().append($('#modifyform'));
+			  
+			  //modifyform을 show
+			  //$('#modifyform').show();
+			  $('#modifyform').css('display', 'block');
+			  
 			  
 			  
 		  }else if(vname == "r_delete"){
@@ -163,6 +184,38 @@
 		  }
 		  
 	  })// click 이벤트 
+	  
+	  
+	  //댓글 수정 에서 확인 버튼 클릭
+	  
+	  $('#mok').on('click',function(){
+		//modifycont - 원래 내용
+		  
+	  })
+	  
+	  
+	  //댓글 수정 에서 취소 버튼 클릭
+	  $('#mcancel').on('click', function(){
+		  
+	  })
+	  
+	  
+	  //(ajax상관없이) 댓글 수정시 확인 또는 취소 버튼 클릭 시 modifyform을 body로 다시 옮겨놓는 작업
+	  replyReset = function(){
+		  
+		  //p3 또는 rp3 찾기
+		  vmp = $('#modifyform').patent();
+		  
+		  //수정 폼을 body태그로 다시 이동 - append
+		  $('body').append($('#modifyform'));
+		  $('#modifyform').hide();
+		  
+		  //p3에 원래 내용을 출력
+		  //vmp 혹은 $(vmp)로 써도됨 - jquery 변수
+		  vmp.html(modifycont);
+		  
+	  }
+
 	  
 	  //글쓰기 이벤트 - 
 	  $('#bwrite').on('click', function(){
