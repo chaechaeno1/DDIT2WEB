@@ -2,6 +2,28 @@
  * 
  */
 
+//댓글 수정
+$.replyUpdateServer= function(){
+	$.ajax({
+		url : `${mypath}/ReplyUpdate.do`,
+		type : 'post',
+		data : reply, //cont, renum 들어있음
+		success : function(res){
+			//성공 후 화면 변경
+			if(res.sw=="성공"){
+				vp3.html(vnewcont);
+			}
+		},
+		error : function(xhr){
+			alert("상태 : "+xhr.status);
+		},
+		dataType : 'json'
+		
+	})
+}
+
+
+
 
 //게시판 글 수정
 

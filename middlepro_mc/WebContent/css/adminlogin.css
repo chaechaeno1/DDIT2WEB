@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "NPSfontBold";
+	src:
+		url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+		format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+
+
+
+body {
+	height: 900px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#login-header {nm
+	color: #D6D46D;
+	text-align: center
+}
+
+#main-holder {
+	width: 300px;
+	height: 250px;
+	justify-items: center;
+	align-items: center;
+	background-color: white;
+	box-shadow: 0px 0px 5px 2px #DE8F5F;
+}
+
+.login-form-field {
+	width: 50;
+	border: none;
+	border-bottom: 1px solid #D6D46D;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	outline: none;
+	padding: 5px 5px 5px 5px;
+}
+
+#login-form-submit {
+
+
+
+	width: 150px;
+	height: 50px;
+	margin-right: 20px;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	background-color: #D6D46D;
+	cursor: pointer;
+	font-size: 20px
+}
+
+#login-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* 세로 방향 가운데 정렬 */
+}

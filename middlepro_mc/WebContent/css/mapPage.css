@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/* 섹션 */
+section {
+  width: 100%;
+}
+/* 메뉴타이틀 & 배경 */
+#mapback {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+#mapback > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+#mapback h1 {
+  color: #d6d46d;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 지도 */
+#map {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 70px;
+}
+#map h1 {
+  font-size: 35px;
+  margin: 30px;
+  margin-bottom: 40px;
+}
+#iframeRight {
+  margin-left: 30px;
+  padding: 20px;
+}
+#iframeRight * {
+  text-align: left;
+  line-height: 30px;
+}
+#iframeRight > p {
+  font-size: 20px;
+}
+#map #mnflex {
+  justify-content: center;
+}
+#waybox > li {
+  margin: 10px 0;
+}
+.way {
+  background: #f1f0cb;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.wul {
+  visibility: hidden;
+  height: 0;
+  background: #d6d46dd6;
+  transition: all 0.5s;
+}
+.wul.on {
+  visibility: visible;
+  height: auto;
+  padding: 10px;
+  transition: all 0.5s;
+}

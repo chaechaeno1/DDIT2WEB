@@ -153,14 +153,19 @@
 		  }else if(vname == "r_modify"){
 			  alert(vidx + "번 댓글을 수정합니다");
 			  
+			  //댓글 수정 폼이 이미 열려있는지 비교
+			  if($('#modifyform').css('display') != "none"){
+				  replyReset(); //원래내용 보관하고 있다가 창 닫고 다시 출력
+			  }
+			  
 			  //댓글 위치의 요소(p3) 접근
 			  vp3 = $(this).parents('.reply-body').find('.p3');
 			  
 			  //댓글 원래 내용 가져오기
-			  vcont = vp3.html().trim();
+			  vcontsrc = vp3.html().trim(); //<br> 포함
 			  
 			  // <br>을 \n으로 변경
-			  vcont = vcont.replace(/<br>/g, "\n");
+			  vcont = vcontsrc.replace(/<br>/g, "\n");
 			  
 			  //modifyform의 mtext에 출력
 			  $('#modifyform #mtext').val(vcont);
@@ -187,16 +192,34 @@
 	  
 	  
 	  //댓글 수정 에서 확인 버튼 클릭
-	  
 	  $('#mok').on('click',function(){
-		//modifycont - 원래 내용
-		  
+		//modifycont - 수정된 내용 - 가져오기		
+		vnewcontsrc = $('#modifyform #mtext').val(); //\r\n이 포함
+		
+		//\r\n을 <br>로 변경 , db수정 성공 후 화면을 변경
+		vnewcont = vnewcontsrc.replace(/\n/g, "<br>");
+		
+		//p3을 검색 - ajxj를 통해서 DB수정-> 성공 후 화면 변경
+		vp3 = $('#modifyform').parent();
+		 
+		//modifyform을 다시 body로 이동 - hide
+		//$('body').append($('#modifyform'));
+		$('#modifyform').appendTo($('body'));
+		$('#modifyform').hide();
+		
+		//ajax수행- cont, renum 필요
+		reply.cont = vnewcontsrc;
+		reply.renum = vidx;
+		//location.href="_.do" 
+		$.replyUpdateServer();
+		
+		
 	  })
 	  
 	  
-	  //댓글 수정 에서 취소 버튼 클릭
+	  //댓글 수정 에서 취소 버튼 클릭 - 원래 내용 가져오기
 	  $('#mcancel').on('click', function(){
-		  
+		  replyReset(); 
 	  })
 	  
 	  
@@ -204,7 +227,7 @@
 	  replyReset = function(){
 		  
 		  //p3 또는 rp3 찾기
-		  vmp = $('#modifyform').patent();
+		  vmp = $('#modifyform').parent();
 		  
 		  //수정 폼을 body태그로 다시 이동 - append
 		  $('body').append($('#modifyform'));
@@ -212,7 +235,7 @@
 		  
 		  //p3에 원래 내용을 출력
 		  //vmp 혹은 $(vmp)로 써도됨 - jquery 변수
-		  vmp.html(modifycont);
+		  vmp.html(vcontsrc);
 		  
 	  }
 

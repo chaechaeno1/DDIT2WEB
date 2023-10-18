@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+/* 섹션 */
+section {
+  width: 100%;
+}
+
+/* 고정배너 */
+#sidebanner {
+  height: 280px;
+  width: 150px;
+  background: #8e923bd0;
+  position: fixed;
+  top: 50%;
+  right: 3.5%;
+  transform: translate(-3.5%, -50%);
+  border-radius: 30px;
+}
+#sidebanner * {
+  text-align: left;
+  color: #4e4e1e;
+}
+#sideclose {
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  top: 10px;
+  font-size: 30px;
+}
+#sideCont {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  padding: 13px;
+}
+#sideCont span {
+  display: inline-block;
+  line-height: 25px;
+}
+#sideCont h3 {
+  font-size: 22px;
+  margin: 20px 0;
+}
+
+/* 메인 이미지 슬라이더 */
+#imageSlide {
+  height: 700px;
+}
+#gallery_wrap {
+  margin: 0 auto;
+  width: 100%;
+  height: 700px;
+  box-sizing: border-box;
+}
+.slide_gallery li img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+.slideCont {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+}
+.slideCont p {
+  font-size: 18px;
+  text-align: left;
+  color: #f1f0cb;
+  margin: 15px;
+}
+.slideCont h1 {
+  font-size: 35px;
+  color: #f1f0cb;
+  text-align: left;
+  margin: 20px;
+}
+.bx-wrapper {
+  margin-bottom: 0;
+  border: none;
+}
+
+/* 오시는길 */
+/* 지도 */
+#map {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 70px;
+}
+#map h1 {
+  font-size: 35px;
+  margin: 30px;
+  margin-bottom: 40px;
+}
+#iframeRight {
+  margin-left: 30px;
+  padding: 20px;
+}
+#iframeRight * {
+  text-align: left;
+  line-height: 30px;
+}
+#iframeRight > p {
+  font-size: 20px;
+}
+#map #mnflex {
+  justify-content: center;
+}
+#waybox > li {
+  margin: 10px 0;
+}
+.way {
+  background: #f1f0cb;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.wul {
+  visibility: hidden;
+  height: 0;
+  background: #d6d46dd6;
+  transition: all 0.5s;
+}
+.wul.on {
+  visibility: visible;
+  height: auto;
+  padding: 10px;
+  transition: all 0.5s;
+}

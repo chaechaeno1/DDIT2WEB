@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+
+			
+			#review{
+				width: 70%;
+				margin: 60px auto;
+		
+			}
+			
+		 	
+           
+            body{
+                background-color: #fdf4e1;
+            }
+
+            .modal-content {
+                background-color: #fdf4e1; /* 모달 배경색 변경 */
+                color: #9A4444;
+                
+            }
+            
+       
+            
+            .rewwr{
+                padding: 10px;
+                float: right;
+            }
+
+
+            .retab{
+                border: 3px solid #D6D46D;
+                margin: 10px;
+                
+            }
+			
+			hr{
+			height : 2px;
+			background-color: rgb(204, 204, 90);
+			}
+         
+            
+            .adrev{
+            margin : 10px;
+            padding-left : 30px;
+            padding: 10px;
+            }
+            
+            .page-link {
+			  color: #ffffff; 
+			  background-color: rgb(254, 181, 14);
+			  border: 1px solid rgb(254, 181, 14); 
+			}
+			
+			.page-item.active .page-link {
+			 z-index: 1;
+			 color:  #DE8F5F;
+			 font-weight:bold;
+			 background-color: #D6D46D;
+			 border-color: #DE8F5F;
+			 
+			}
+			
+			.page-link:focus, .page-link:hover {
+			  color: #DE8F5F;
+			  background-color: #D6D46D; 
+			  border-color: #DE8F5F;
+			}

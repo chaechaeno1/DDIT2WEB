@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* css 리셋 */
+@import "reset.css";
+
+/* 폰트적용 */
+@font-face {
+	font-family: "NPSfontBold";
+	src:
+		url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+		format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* 전체CSS */
+body {
+	width: 100%;
+	font-family: "NPSfontBold", "Malgun Gothic", "굴림", "Gulim", "Arial";
+	height: auto;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 후버하면 글 색상 변경 */
+.cc {
+	transition: all 0.3s;
+}
+
+.cc:hover {
+	color: #f1f0cb !important;
+}
+
+/* | */
+.bar {
+	margin: 0 15px;
+}

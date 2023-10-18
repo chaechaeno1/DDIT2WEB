@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+/* 기존 CSS도 하단에 기재했고, 필요한 것만 남겨두었음 */    
+
+#NOTICE {
+  width: 100%;
+}
+
+/* 타이틀 CSS */
+#titleImg{
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+#titleImg > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+#titleImg h1 {
+  color: #ffffff;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+ 					
+/* 수정 및 추가 CSS - 231018 */
+
+#search{
+	display: flex;
+	justify-content: center;
+	margin: 40px 0px;	
+}
+#search button{
+	color: #ffffff;
+    background: lightgray;
+}
+table{
+	margin: 30px auto; /* 가운데 정렬 */
+}
+#num, #date, #hit {
+	width: 80px;
+	height: 40px;
+	padding-top: 10px;
+}
+#subject{
+	width: 600px;
+}
+tr{
+	text-align: center;
+}
+th{
+	border-top: 2px solid black ;
+	border-bottom: 2px solid gray ;	
+}
+td{
+	padding-top: 17px;
+	height: 50px;
+	border-left: 0;
+	border-right: 0;
+	border-top: 1px solid black ;
+	border-bottom: 1px solid lightgray ;		
+}
+nav{
+	margin-top: 20px;	
+}
+
+
+
+/* 기존 css인데 필요한 것들만 남겨둠 */
+/* 기존 css인데 필요한 것들만 남겨둠 */
+/* 기존 css인데 필요한 것들만 남겨둠 */
+
+
+.panel-faq-container {
+	margin-bottom: -16px;
+}
+
+.panel-faq-title {
+	cursor: pointer;
+}
+
+.panel-faq-answer { 
+	height: 0;
+	overflow: hidden;	
+/* 	변화가 시작되는 쪽에다가 transition 적용해준다 0 -> 300px 
+                왜? 닫기 버튼을 누를 때 변화가 티남 */
+	transition: all 1s;
+}
+/* 반드시 active가 뒤에 와야함!!!!! */
+.active { /* 게시물 클릭 시 열릴 때 높이 */
+    display: block;
+    /*  높이를 정해줘야지만 transition이 적용됨 */
+    height: 200px;
+}
+
+
+/* 페이징 처리 시 CSS */
+
+/* 수정후  */
+.page-link{
+	color: black;
+	border: 1px solid #ffffff; 
+	margin: 0px 3px;
+	font-weight:bold;
+}
+#prev, #next{
+	color: #ffffff;
+	background-color: #4d2222;
+	border-color: #ffffff;
+}
+#prev{
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+#next{
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;	
+}
+.page-link:focus, .page-link:hover {
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
