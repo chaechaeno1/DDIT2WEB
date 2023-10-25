@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+<mapper namespace="admin">
+	
+	
+	<select id="SelectByAdminId" parameterType="map" resultType="AdminVO">
+		select admin_id, admin_pass from admin
+		where admin_id = #{admin_id} and admin_pass = #{admin_pass}
+	</select>
+	
+	
+	<select id="SaleMonth" resultType="map">
+	SELECT TO_CHAR(PAY_DATE, 'YYYY-MM') AS MONTH, SUM(PAY_AMT) AS TOTAL_PAY_AMOUNT
+		FROM PAY
+		WHERE REFUND_FLAG = 0
+		GROUP BY TO_CHAR(PAY_DATE, 'YYYY-MM')
+		ORDER BY TO_CHAR(PAY_DATE, 'YYYY-MM')
+	</select>
+  
+  
+	<select id="SaleDay" resultType="map">
+	    SELECT TO_CHAR("PAY_DATE", 'YYYY-MM-DD') AS "DATE", SUM("PAY_AMT") AS "TOTAL_PAY_AMOUNT"
+		    FROM PAY
+		    WHERE REFUND_FLAG = 0
+		    GROUP BY TO_CHAR("PAY_DATE", 'YYYY-MM-DD')
+		    ORDER BY TO_CHAR("PAY_DATE", 'YYYY-MM-DD')
+	</select>
+	
+	
+</mapper>

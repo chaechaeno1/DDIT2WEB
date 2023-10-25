@@ -1,0 +1,192 @@
+@charset "UTF-8";
+
+
+#login-form {
+   display: flex;
+   justify-items: center;
+   align-items: center;
+   margin: 30px auto;
+   width: 300px;
+   margin-bottom: 0;
+}
+
+
+/* 1019 추가 CSS */
+/* 타이틀 CSS */
+#titleImg{
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+#titleImg > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+#titleImg h1 {
+  color: #ffffff;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+/* 1019 추가 CSS 끝 */
+
+
+
+
+
+section#userlogin {
+   width: 50%;
+   margin: 0 auto;
+}
+
+
+#login-header {
+   color: #D6D46D;
+   text-align: center;
+   position: relative;
+   top: -30px;
+}
+
+#main-holder {
+   padding: 10%; 
+   margin: 15%;
+   justify-items: center;
+   align-items: center;
+   background-color: white;
+   position: relative;
+} 
+
+
+
+.login-form-field::placeholder {
+   color: lightgray;
+}
+
+.login-form-field {
+   width: 50;
+   border: none;
+   border-bottom: 1px solid #D6D46D;
+   margin-bottom: 10px;
+   border-radius: 3px;
+   outline: none;
+   padding: 5px 5px 5px 5px;
+}
+
+#login-form-submit {
+   width: 150px;
+   height: 50px;
+   margin-right: 20px;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   background-color: #D6D46D;
+   cursor: pointer;
+   font-size: 20px
+}
+
+#idfind, #passfind, #userjoin {
+   margin: 10px;
+}
+
+
+#div1 {
+   padding: 30px;
+   display: flex;
+   justify-content: center;
+    flex-wrap: wrap;
+    width: 240px;
+}
+
+#div2 {
+   display: flex;
+   justify-content: center;
+   margin-bottom : 30px;
+}
+
+.idbfind {
+   width: 50;
+   border: none;
+   border-bottom: 1px solid #D6D46D;
+   margin-bottom: 10px;
+   border-radius: 3px;
+   outline: none;
+   padding: 5px 5px 5px 5px;
+}
+
+.pwbfind {
+   width: 50;
+   border: none;
+   border-bottom: 1px solid #D6D46D;
+   margin-bottom: 10px;
+   border-radius: 3px;
+   outline: none;
+   padding: 5px 5px 5px 5px;
+}
+
+.find {
+   width: 100px;
+   height: 30px;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   background-color: #D6D46D;
+   cursor: pointer;
+   font-size: 15px
+}
+.idfbutton {
+   width: 100px;
+   height: 30px;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   background-color: #D6D46D;
+   cursor: pointer;
+   font-size: 20px
+}
+
+.pwfbutton {
+   width: 100px;
+   height: 30px;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   background-color: #D6D46D;
+   cursor: pointer;
+   font-size: 20px
+}
+
+.modal-title {
+   color: #D6D46D;
+}
+
+#test {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   box-shadow: 0px 0px 5px 2px #d6d46d;
+   width : 450px;
+   height: 250px;
+}
+#login{
+   padding: 7px 10px;
+   background: #f1f0cb;
+   border: none;
+   border-radius: 10px;
+   height: 60px;
+   font-size: 15px;
+}
+.modal-body{
+   display: flex;
+    justify-content: center;
+}

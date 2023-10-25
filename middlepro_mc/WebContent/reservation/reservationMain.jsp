@@ -19,30 +19,30 @@
     	$("#footer").load("<%=request.getContextPath()%>/main/footer.jsp");
     	
       // 기본 선택된 버튼과 배경색 설정
-      $("#resG").css("background-color", "#89C427");
+      $("#resG").css("background-color", "#f1f0cb");
 
       // 예약 버튼이 클릭될 때의 핸들러
       $(".resbtn").click(function() {
         $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
-        $(this).css("background-color", "#89C427");  // 클릭된 버튼에 배경색 설정
+        $(this).css("background-color", "#f1f0cb");  // 클릭된 버튼에 배경색 설정
       });
 
       /* 글램핑 예약하기 클릭 시 버튼 배경색 유지*/
       $("#resG").click(function() {
         $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
-        $("#resG").css("background-color", "#89C427");  // 선택된 버튼에 배경색 설정
+        $("#resG").css("background-color", "#f1f0cb");  // 선택된 버튼에 배경색 설정
       });
 
       /* 오토캠핑 예약하기 클릭 시 버튼 배경색 유지*/
       $("#resA").click(function() {
         $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
-        $("#resA").css("background-color", "#89C427");  // 선택된 버튼에 배경색 설정
+        $("#resA").css("background-color", "#f1f0cb");  // 선택된 버튼에 배경색 설정
       });
 
       /* 카라반 예약하기 클릭 시 버튼 배경색 유지*/
       $("#resC").click(function() {
         $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
-        $("#resC").css("background-color", "#89C427");  // 선택된 버튼에 배경색 설정
+        $("#resC").css("background-color", "#f1f0cb");  // 선택된 버튼에 배경색 설정
       });
     });
   </script>

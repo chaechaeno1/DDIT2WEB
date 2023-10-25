@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rsv">
+<!-- 	<select id="selectRsvAll" resultType="rsvVo" parameterType="rsvVo"> -->
+<!-- 		select * from rsv -->
+<!-- 		where campsite_no = #{campsite_no}  -->
+<!-- 		and to_char(rsv_start_date, 'yyyy-mm-dd') = #{rsv_start_date} -->
+<!-- 	</select> -->
+	<select id="selectRsvAll" resultType="rsvVo" parameterType="rsvVo">
+		select * from rsv  
+		where to_char(rsv_start_date, 'yyyy-mm-dd') like #{rsv_start_date} || '%' 
+		and campsite_no like #{campsite_no} || '%' 
+		order by rsv_start_date asc, campsite_no asc
+	</select>
+	
+	
+	<select id="selectRsvInfo" resultType="map" parameterType="String">
+	select r.rsv_no as rsv_no, to_char(r.rsv_date, 'yyyy.mm.dd') as rsv_date, r.campsite_no as campsite_no, 
+	to_char(r.rsv_start_date, 'yyyy.mm.dd') as rsv_start_date, to_char(r.rsv_end_date, 'yyyy.mm.dd') as rsv_end_date, 
+	r.rsv_person_cnt as rsv_person_cnt, p.pay_amt as pay_amt, p.refund_flag as refund_flag
+	from rsv r inner join pay p on p.rsv_no = r.rsv_no where r.mem_id = #{mem_id} order by p.refund_flag asc, r.rsv_no desc, r.rsv_date asc
+
+
+	</select>
+	
+	<!-- 예약하기 ********************************************************************** -->
+	<!-- 예약 정보 등록 -->
+	<insert id="insertRsv" parameterType="rsvVo">
+		insert into rsv(rsv_no, rsv_date, campsite_no, rsv_start_date, rsv_end_date,
+							rsv_person_cnt, mem_id, rsv_flag) 
+					values(rsv_no_seq.nextval, sysdate, #{campsite_no}, #{rsv_start_date}, #{rsv_end_date},
+							#{rsv_person_cnt}, #{mem_id}, 1)
+	</insert>
+	
+	<!-- 예약 정보 등록 후 바로 예약번호 가져오기 -->
+	<select id="getRightRsvNo" resultType="int">
+		SELECT rsv_no_seq.currval from dual
+	</select>
+	<!--  *************************************************************************** -->
+	
+	
+	<!-- 예약조회 ********************************************************************** -->
+	<resultMap type="rsvVo" id="rsvMap">
+		<result column="rsv_no" property="rsv_no"/>
+		<result column="mem_id" property="mem_id"/>
+		<result column="campsite_no" property="campsite_no"/>
+		<result column="rsv_start_date" property="rsv_start_date"/>
+		<result column="rsv_end_date" property="rsv_end_date"/>
+		<result column="rsv_date" property="rsv_date"/>
+		<result column="rsv_person_cnt" property="rsv_person_cnt"/>
+		<collection property="payVo" resultMap="payVo"></collection>
+	</resultMap>
+	<resultMap type="payVo" id="payVo">
+		<result column="pay_name" property="pay_name"/>
+		<result column="pay_amt" property="pay_amt"/>
+	</resultMap>
+		
+	<!-- <select id="selectByRsv" parameterType="rsvVo" resultType="rsvVo"> -->
+	<select id="selectByRsv" parameterType="rsvVo" resultMap="rsvMap">
+		select r.rsv_no, r.mem_id, r.campsite_no, to_char(r.rsv_start_date, 'yyyy-mm-dd') rsv_start_date, to_char(r.rsv_end_date, 'yyyy-mm-dd') rsv_end_date, r.rsv_date, r.rsv_person_cnt, p.pay_name, p.pay_amt
+		from rsv r inner join pay p on r.rsv_no = p.rsv_no
+		where to_char(r.rsv_start_date, 'yyyy-mm-dd') = #{rsv_start_date} and r.campsite_no = #{campsite_no}
+	</select>
+	<!--  *************************************************************************** -->
+	
+	
+	
+	<update id="updateRsvInfo" parameterType="int">
+		update rsv set rsv_flag = 0 where rsv_no = #{rsv_no}
+	</update>
+	
+</mapper>

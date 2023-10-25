@@ -52,7 +52,7 @@ $(function(){
 
 <body>
 	
-	<!-- 헤더(고정) -->
+	<!-- 헤더(고정)!! -->
 	<header id="header"></header>
 	
 	

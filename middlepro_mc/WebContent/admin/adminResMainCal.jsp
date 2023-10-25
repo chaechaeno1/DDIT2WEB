@@ -90,7 +90,6 @@ label{
 .sat{
 	color : blue;
 }
-
 .cal{
 	padding-top: 10px;
 }
@@ -883,7 +882,7 @@ label{
 											<table id="resList">
 												<tr class="tflex">
 													<td class="possibleBtn"> 
-														<button type="button" id="g001" class="btn btn-success btn-sm gbtn" 
+														<button type="button" id="g001" class="btn btn-danger btn-sm gbtn" 
 														data-bs-toggle="modal" data-bs-target="#resModal">글램핑(G-001)</button> 
 														<input type="hidden" name="roomIdx" value="G001">
 														<input type="hidden" name="roomAble" value="1">
@@ -976,26 +975,26 @@ label{
 									<div class="layerDiv">
 											<table id="resList">
 												<tr class="tflex">
-													<td class="possibleBtn"> 
-														<button type="button" id="g001" class="btn btn-success btn-sm gbtn" 
-														data-bs-toggle="modal" data-bs-target="#resModal">최예원(G001)</button> 
+													<td class="impossibleBtn"> 
+														<button type="button" id="g001" class="btn btn-danger btn-sm gbtn" 
+														data-bs-toggle="modal" data-bs-target="#resModal">글램핑(G001)</button> 
 														<input type="hidden" name="roomIdx" value="G001">
 														<input type="hidden" name="roomAble" value="1">
 													</td>
 													<td class="possibleBtn"> 
 														<button type="button" id="g002" class="btn btn-success btn-sm gbtn" 
-														data-bs-toggle="modal" data-bs-target="#resModal">전민균(G002)</button> 
+														data-bs-toggle="modal" data-bs-target="#resModal">글램핑(G002)</button> 
 														<input type="hidden" name="roomIdx" value="G002">
 														<input type="hidden" name="roomAble" value="1">
 													</td>
 													<td class="possibleBtn"> 
 														<button type="button" id="g003" class="btn btn-success btn-sm gbtn" 
-														data-bs-toggle="modal" data-bs-target="#resModal">정소현(G003)</button> 
+														data-bs-toggle="modal" data-bs-target="#resModal">글램핑(G003)</button> 
 														<input type="hidden" name="roomIdx" value="G003">
 														<input type="hidden" name="roomAble" value="1">
 													<td class="possibleBtn"> 
 														<button type="button" id="g004" class="btn btn-success btn-sm gbtn" 
-														data-bs-toggle="modal" data-bs-target="#resModal">하지웅(G004)</button> 
+														data-bs-toggle="modal" data-bs-target="#resModal">글램핑(G004)</button> 
 														<input type="hidden" name="roomIdx" value="G004">
 														<input type="hidden" name="roomAble" value="1">									
 												</tr>

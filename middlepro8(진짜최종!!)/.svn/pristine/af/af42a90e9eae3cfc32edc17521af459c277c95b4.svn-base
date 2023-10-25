@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pay">
+
+	<insert id="insertPayInfo" parameterType="payVo">
+		insert into pay(rsv_no, pay_name, pay_date, pay_amt, refund_flag) 
+					values(#{rsv_no}, #{pay_name}, sysdate, #{pay_amt}, 0)
+	</insert>
+	
+	<update id="updateRefundInfo" parameterType="int">
+		update pay set refund_flag = 1 where rsv_no = #{rsv_no}
+	</update>
+	
+</mapper>
+
+	

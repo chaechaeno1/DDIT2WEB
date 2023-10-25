@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,24 +27,49 @@ button {
 }
 </style>
 <script>
+<%
+// 로그인 체크 - 서블릿에서 저장한 session값을 얻어온다
+MemberVO vo = (MemberVO)session.getAttribute("loginMember");
+
+%>
 $(function() {
 	// 본인인증
 	$('#auth button').on('click', function() {
 		vpass = $('#pwd').val();
 		
-		if(vpass == "1234") {	// 현재 로그인한 사람의 비밀번호(예시 1234)와 비교
+		if(vpass == "<%=vo.getMem_pass()%>") {	// 현재 로그인한 사람의 비밀번호와 비교
 			$('#withdrawalModal').modal('show');
+		} else {
+			alert("본인인증 실패");
 		}
 	});
 	
 	// 회원탈퇴 버튼 클릭
 	$('#withdrawalBtn').on('click', function() {
 		
-		// DB 삭제 성공시 띄우기
-		alert("탈퇴되었습니다.");
-		
-		location.href="../member/withdrawalPage.html";
-		
+		if(confirm("정말로 탈퇴하시겠습니까?")) {
+			$.ajax({
+				url : "<%= request.getContextPath()%>/withdrawalMember.do",
+				data : { 
+					"mem_id" : "<%=vo.getMem_id()%>", 
+					"mem_pass" : "<%=vo.getMem_pass()%>"
+				},
+				type : 'post',
+				dataType : 'json',
+				success : function(res) {
+					if(res == "성공") {
+						$('#withdrawalModal').modal('hide');
+						window.top.location.href="<%= request.getContextPath()%>/member/withdrawalPage.jsp";
+					} else if(res == "실패") {
+						alert("회원탈퇴 실패");
+					}
+				},
+		    	error : function(xhr){
+		    		alert("상태 :" + xhr.status);
+		    	}
+			});
+			
+		}
 	});
 	
 });
@@ -86,7 +112,7 @@ $(function() {
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal" id="withdrawalBtn" data-bs-dismiss="modal">회원탈퇴</button>
+        <button type="button" class="btn btn-danger btn-lg" id="withdrawalBtn">회원탈퇴</button>
       </div>
 
     </div>

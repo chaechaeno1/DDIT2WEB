@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.infoIframeDiv {
+	text-align: center;
+	margin : 0 auto;
+}
+
+.pageTitle {
+	text-align: center;
+	margin-bottom : 50px;
+	margin-top : 50px;
+}

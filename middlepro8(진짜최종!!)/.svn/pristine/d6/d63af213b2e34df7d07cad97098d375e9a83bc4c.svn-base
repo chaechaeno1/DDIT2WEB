@@ -1,0 +1,73 @@
+package kr.or.ddit.admin.controller;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
+
+import kr.or.ddit.admin.service.AdminServiceImpl;
+import kr.or.ddit.admin.service.IAdminService;
+import kr.or.ddit.vo.AdminVO;
+
+/**
+ * Servlet implementation class SelectAdminById
+ */
+@WebServlet("/adminIdLogin.do")
+public class AdminIdLogin extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		///전송데이터 받기
+
+		String adminId = request.getParameter("admin_id");
+		String adminPass = request.getParameter("admin_pass");
+		
+		System.out.println(adminId+adminPass);
+		//service 객체얻기
+		IAdminService service = AdminServiceImpl.getService();
+		
+		
+		//service 메소드 호출하기  - 결과값 받기 AdminVO
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("admin_id", adminId);
+		map.put("admin_pass", adminPass);
+		System.out.println(map);
+		AdminVO vo = service.SelectByAdminId(map);
+		
+		HttpSession session = request.getSession();
+		
+		Gson gson = new Gson();
+		String jsonData = null;
+		
+		System.out.println(vo);
+		
+		if(vo != null) {
+			jsonData = gson.toJson("성공");
+			System.out.println(jsonData);
+			session.setAttribute("SelectByAdminId", vo);
+			/* session.setAttribute("check", "true"); */		
+		}else {
+			System.out.println(jsonData);
+			jsonData = gson.toJson("실패");
+		}
+		System.out.println(jsonData);
+		response.getWriter().write(jsonData);
+		response.flushBuffer();
+	
+		
+	}
+
+}

@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,19 +28,48 @@ li {
 </style>
 </head>
 <body>
+<%
+	// 로그인 체크 - 서블릿에서 저장한 session값을 얻어온다
+	MemberVO vo = (MemberVO)session.getAttribute("loginMember");
 
+%>
 <div class="infoIframeDiv">
 	<h2 class="pageTitle">내 정보 조회</h2>
 
 	<div id="myinfo_list">
 		<ul class="list-group list-group-flush">
-		    <li class="list-group-item"><span class="info_field">아이디</span><span>아이디값</span></li>
-		    <li class="list-group-item"><span class="info_field">이 름</span><span>아이디dsad값</span></li>
-		    <li class="list-group-item"><span class="info_field">연락처</span><span>아이디asdasd값</span></li>
-		    <li class="list-group-item"><span class="info_field">이메일</span><span>아이디asdasd값</span></li>
-		    <li class="list-group-item"><span class="info_field">우편번호</span><span>아asd이디값</span></li>
-		    <li class="list-group-item"><span class="info_field">주소</span><span>아이디sad값</span></li>
-		    <li class="list-group-item"><span class="info_field">상세주소</span><span>아이asd디값</span></li>
+		    <li class="list-group-item">
+		    	<span class="info_field">아이디</span>
+		    	<span><%=vo.getMem_id() %></span>
+		    </li>
+		    <li class="list-group-item">
+		    	<span class="info_field">이 름</span>
+		    	<span><%=vo.getMem_name() %></span>
+		    </li>
+		    <li class="list-group-item">
+		    	<span class="info_field">생년월일</span>
+		    	<span><%= vo.getMem_bir() %></span>
+		    </li>
+		    <li class="list-group-item">
+		    	<span class="info_field">연락처</span>
+		    	<span><%= vo.getMem_hp() %></span>
+		    </li>
+		    <li class="list-group-item">
+		    	<span class="info_field">이메일</span>
+		    	<span><%= vo.getMem_mail() %></span>
+		    </li>
+		    <li class="list-group-item">
+		    	<span class="info_field">우편번호</span>
+		    	<span><%=vo.getMem_zip() %></span>
+		    </li>
+		    <li class="list-group-item">
+		    	<span class="info_field">주소</span>
+		    	<span><%=vo.getMem_addr1() %></span>
+		    </li>
+		    <li class="list-group-item">
+		    	<span class="info_field">상세주소</span>
+		    	<span><%=vo.getMem_addr2() %></span>
+		    </li>
 		</ul>
 	</div>
 </div>

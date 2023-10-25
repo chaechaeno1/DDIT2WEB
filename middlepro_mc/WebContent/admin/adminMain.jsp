@@ -6,22 +6,44 @@
 <meta charset="UTF-8">
 <title>관리자 메인페이지</title>
 <script src="<%=request.getContextPath()%>/js/jquery-3.7.1.min.js"></script>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/basic.css" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/basic.css" />
 <script type="text/javascript">
 	$(function() {
 		/* 검색 input 이벤트 */
 		$('#searchbtn').on('click', function() {
 			$(this).prev().toggleClass("on");
 		})
+		
 		/* 메뉴 마우스후버 이벤트 */
-		$('.submenu>li').on('mouseover', function() { 
+		$('.submenu>li').on('mouseover', function() {
 		    $(this).find('span').addClass("bck");
 		});
 		$('.submenu>li').on('mouseout', function() {
 		    $(this).find('span').removeClass("bck");
+		});
+		
+		/* 클릭한 메뉴의 data-url 속성에 따라 #section 안에서 html 이동 */
+		$('a.alink').on('click', function(e) {
+		    e.preventDefault(); // 기본 링크 동작을 중단
+
+		    var url = $(this).data('url'); // 해당 링크의 data-url 속성을 가져옴
+
+		    // AJAX를 사용하여 해당 URL 페이지를 로드하고 표시
+		    $.ajax({
+		        url: url,
+		        type: 'GET',
+		        success: function(data) {
+		            // 로드가 성공하면 페이지를 표시
+		            $('div#section').html(data);
+		        },
+		        error: function() {
+		            alert('페이지를 로드하는 동안 오류가 발생했습니다.');
+		        }
+		    });
 		});
 	})
 </script>
@@ -122,7 +144,7 @@ header span.material-symbols-outlined {
 	left: 40px;
 }
 #sidemenu .lif {
-	height: 155px;
+	height: 130px;
 	position: relative;
 }
 .lif > span {
@@ -138,6 +160,7 @@ header span.material-symbols-outlined {
 	position: inherit;
 	z-index: 10;
 	transition: all 0.4s;
+	cursor: pointer;
 }
 .submenu li:hover a{
 	color: #f1f0cb !important;
@@ -146,7 +169,7 @@ header span.material-symbols-outlined {
 	transition: all 0.5s;
 }
 #second {
-	margin-bottom: 30px;
+	margin-bottom: 70px;
 }
 span.bck {
     display: inline-block;
@@ -155,7 +178,7 @@ span.bck {
     height: 39px;
     position: absolute;
     top: -13px;
-    left: -80%;
+    left: -100%;
     z-index: 1;
 }
 </style>
@@ -188,13 +211,21 @@ span.bck {
 		<div id="sidemenu">
 			<ul>
 				<li class="lif">
+					<span class="material-symbols-outlined">person</span>
+					<h3>
+						회원 관리
+					</h3>
+					<ul class="submenu">
+						<li><span></span><a class="alink" data-url="<%=request.getContextPath()%>">회원 정보 조회</a></li>
+					</ul>
+				</li>
+				<li class="lif">
 					<span class="material-symbols-outlined">camping</span>
 					<h3>
 						캠핑장 예약 관리
 					</h3>
 					<ul class="submenu">
-						<li><span></span><a href="../admin/adminResMain.jsp" id="info">예약 현황 조회</a></li>
-						<li><span></span><a href="../admin/adminResManage.jsp" id="manage">예약가능 여부 관리</a></li>
+						<li><span></span><a class="alink" data-url="<%=request.getContextPath()%>/admin/adminResMain.jsp">예약 현황 조회</a></li>
 					</ul>
 				</li>
 				<li class="lif" id="second">
@@ -203,9 +234,9 @@ span.bck {
 						게시판 관리
 					</h3>
 					<ul class="submenu">
-						<li><span></span><a href="#">이용후기 게시판 댓글 관리</a></li>
-						<li><span></span><a href="#">FAQ 게시판</a></li>
-						<li><span></span><a href="#">공지사항 게시판</a></li>
+						<li><span></span><a class="alink" data-url="<%=request.getContextPath()%>/admin/adminReview.jsp">이용후기 게시판 댓글 관리</a></li>
+						<li><span></span><a class="alink" data-url="<%=request.getContextPath()%>/admin/adminFAQ.jsp">FAQ 게시판</a></li>
+						<li><span></span><a class="alink" data-url="<%=request.getContextPath()%>/admin/adminNotice.jsp">공지사항 게시판</a></li>
 					</ul>
 				</li>
 				<li class="lif">
@@ -214,14 +245,14 @@ span.bck {
 						매출 관리
 					</h3>
 					<ul class="submenu">
-						<li><span></span><a href="#">날짜별 매출 조회</a></li>
+						<li><span></span><a class="alink" data-url="<%=request.getContextPath()%>/admin/sale.jsp">날짜별 매출 조회</a></li>
 					</ul>
 				</li>
+
 			</ul>
 		</div>
-		<!-- **만든 부분** -->
+		<!-- **만든 것 넣기 부분** -->
 		<div id="section">
-			<!-- 이 곳입니다 ! -->
 		</div>
 	</div>
 </body>

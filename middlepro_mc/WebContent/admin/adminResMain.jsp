@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 메인페이지</title>
+<title>관리자 예약 현황 조회 페이지</title>
 
 <!-- 모달사용 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -357,64 +357,9 @@ iframe {
 </style>
 </head>
 <body>
-	<!-- 헤더 -->
-	<header id="header">
-		<div id="logo">
-			<img alt="" src="<%=request.getContextPath()%>/images/perm_logo.png">
-		</div>
-		<p>슬기로운 캠핑생활 캠핑장 관리자 프로그램</p>
-		<div id="log">
-			<div id="logsearch">
-				<input type="text" placeholder="검색어 입력">
-				<p id="searchbtn" title="검색">
-					<span class="material-symbols-outlined symbol">search</span>
-				</p>
-			</div>
-			<p title="로그아웃">
-				<span class="material-symbols-outlined symbol">logout</span>
-			</p>
-			<p title="이용자사이트로가기">
-				<a href="<%=request.getContextPath()%>/main/mainPage.jsp"><span
-					class="material-symbols-outlined symbol"> home </span></a>
-			</p>
-		</div>
-	</header>
 	<!-- 헤더 아래 모두 -->
 	<div id="container">
-		<div id="sidemenu">
-			<ul>
-				<li class="lif">
-					<span class="material-symbols-outlined">camping</span>
-					<h3>
-						캠핑장 예약 관리
-					</h3>
-					<ul class="submenu">
-						<li><span></span><a href="../admin/adminResMain.jsp" id="info">예약 현황 조회</a></li>
-						<li><span></span><a href="../admin/adminResManage.jsp" id="manage">예약가능 여부 관리</a></li>
-					</ul>
-				</li>
-				<li class="lif" id="second">
-					<span class="material-symbols-outlined">assignment</span>
-					<h3>
-						게시판 관리
-					</h3>
-					<ul class="submenu">
-						<li><span></span><a href="#">이용후기 게시판 댓글 관리</a></li>
-						<li><span></span><a href="#">FAQ 게시판</a></li>
-						<li><span></span><a href="#">공지사항 게시판</a></li>
-					</ul>
-				</li>
-				<li class="lif">
-					<span class="material-symbols-outlined">paid</span>
-					<h3>
-						매출 관리
-					</h3>
-					<ul class="submenu">
-						<li><span></span><a href="#">날짜별 매출 조회</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
+
 		<!-- **만든 부분** -->
 		<div id="section">
 		

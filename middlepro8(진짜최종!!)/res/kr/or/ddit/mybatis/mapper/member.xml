@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="member">
+
+<sql id="dynamicCondition">
+    <where>
+        <if test="!(searchType == null or searchType == '')">
+           ${searchType} LIKE '%' || #{searchMem} || '%'
+        </if>
+   	 </where>
+</sql>
+
+
+
+
+
+	 <select id="loginMember" parameterType="map" resultType="memberVo">
+	 	<!-- map의 키 이름과 동일해야 함 -->
+	 	select mem_id, mem_pass, mem_name, to_char(mem_bir, 'YYYY-MM-DD') mem_bir, 
+	 			mem_hp, mem_mail, mem_zip, mem_addr1, mem_addr2, is_active
+	 		from member 
+	 		where mem_id=#{mem_id} and mem_pass = #{mem_pass}
+	 </select>
+	 
+	 <!-- 아이디 중복검사 -->
+	 <select id="idCheck" parameterType="String" resultType="String">
+	 	select mem_id from member where mem_id = #{data}	
+	 </select>
+	 
+	 <!-- 회원가입 -->
+	 <insert id="insertMember" parameterType="memberVo">
+	 	insert into member(
+		    mem_id, 
+		    mem_pass, 
+		    mem_name, 
+		    mem_bir,
+		    mem_hp,
+		    mem_mail,
+		    mem_zip,
+		    mem_addr1,
+		    mem_addr2
+		) values(
+		    #{mem_id}, 
+		    #{mem_pass}, 
+		    #{mem_name}, 
+		    #{mem_bir},
+		    #{mem_hp},
+		    #{mem_mail},
+		    #{mem_zip},
+		    #{mem_addr1},
+		    #{mem_addr2}
+		)
+	 </insert>
+	 
+	 <!-- 마이페이지 내 정보 수정 -->
+	 <update id="updateMember" parameterType="memberVo">
+	 	update member
+	 		set mem_pass=#{mem_pass},
+	 			mem_hp=#{mem_hp},
+	 			mem_mail=#{mem_mail},
+	 			mem_zip=#{mem_zip},
+	 			mem_addr1=#{mem_addr1},
+	 			mem_addr2=#{mem_addr2}
+	 	where mem_id=#{mem_id}
+	 </update>
+	 
+
+
+
+<!-- 회원 정보 조회 -->
+<select id="selectMemberList" parameterType="map" resultType="memberVo">
+     select A.* from ( 
+		select rownum as rnum, B.* from (
+		    select * from member   
+		      <include refid="dynamicCondition"/> 
+		     ) B
+		<![CDATA[
+		 where rownum <= #{end}) A
+	where A.rnum >= #{start}
+	 ]]>
+ </select>
+
+<!-- 회원 수 구하기 -조건에 따라 수행 -->
+<select id="getTotalCont" parameterType="map" resultType="int">
+   select count(*)  from member 
+     <include refid="dynamicCondition"/> 
+</select>
+
+
+
+
+	 
+	 <!-- 회원 탈퇴 -->
+	 <update id="withdrawalMember" parameterType="map">
+	 	update member set is_active=0 where mem_id=#{mem_id} and mem_pass=#{mem_pass}
+	 </update>
+	 
+	 <!-- 아이디찾기 -->
+	  	 <select id="idFind" parameterType="memberVo" resultType="string">
+	 select mem_id from member where mem_name=#{mem_name} and mem_mail=#{mem_mail}
+	 </select>
+	 
+	 	  <!-- 비번찾기 -->
+	 	 <select id="pwFind" parameterType="memberVo" resultType="string">
+	 	select mem_pass from member where mem_id=#{mem_id} and mem_mail=#{mem_mail}
+
+	 </select>
+	 
+	 <!-- 임시비번 업데이트 -->
+	   <update id="updatePassword" parameterType="Map">
+        UPDATE member
+        SET mem_pass = #{newPassword}
+        WHERE mem_id = #{mem_id}
+    </update>
+	 
+	 
+</mapper>

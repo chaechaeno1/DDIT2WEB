@@ -5,20 +5,54 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>캠핑장</title>
+<title>회원가입 페이지</title>
+
 <script src="../js/jquery-3.7.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="../css/basic.css">
+
+
+
 <style>
+/* 타이틀 CSS */
+#titleImg{
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+#titleImg > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.8;
+}
+#titleImg h1 {
+  color: #ffffff;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
 #joinDiv {
-	margin : 30px auto;
+	width: 100%;
+	margin : 0 auto;
 }
 
 #joinForm {
-	margin : 0 auto;
+	width: 40%;
+	padding: 50px;
+	margin : 30px auto;
+	border : 1px solid #d6d46d;
 }
 
 #joinForm * {
@@ -26,10 +60,10 @@
 	margin : 5px;
 }
 
-#pageTitle {
+/* #pageTitle {
 	text-align : center;
 	margin-bottom : 50px;
-}
+} */
 
 #joinForm label {
 	width : 100px;
@@ -74,6 +108,13 @@ input[type=button] {
 	text-align: center;
 	width : 150px;
 }
+#joinBtn{
+	padding: 7px 10px;
+    background: #f1f0cb;
+    border: none;
+    border-radius: 10px;
+    color: #4d2222;
+}
 
 </style>
 <script>
@@ -96,7 +137,7 @@ $(function() {
 		
 		// 서버로 전송
 		$.ajax({
-			url : "<%= request.getContextPath()%>/IdCheck.do",
+			url : "<%= request.getContextPath()%>/idCheck.do",
 			data : { "id" : idvalue },
 			type : 'get',
 			success : function(res) {
@@ -200,6 +241,11 @@ $(function() {
 			return false;
 		}
 		
+		if($('#pwd').val() != $('#pwdconfirm').val()) {
+			alert("비밀번호 확인란을 다시 작성해주세요.");
+			return false;
+		}
+		
 		// 이메일 합쳐서
 		$('input[name=mem_mail]').val($('#email1').val() + "@" + $('#email2').val());
 		
@@ -209,14 +255,14 @@ $(function() {
 		console.log(vdata);
 		
 		$.ajax({
-			url : "<%= request.getContextPath()%>/Insert.do",
+			url : "<%= request.getContextPath()%>/insertMember.do",
 			data : vdata,
 			type : 'post',
 			success : function(res) {
 				alert(res.str);
 				
 				if(res.flag == "성공") {
-					location.href="http://www.naver.com";	// 서블릿으로 보내거나?
+					location.href="<%= request.getContextPath()%>/main/mainPage.jsp";
 				}
 				
 			},
@@ -224,22 +270,28 @@ $(function() {
 				alert("상태 : " + xhr.status);
 			},
 			dataType : 'json'
-		})
-	})
+		});
+	});
 	
-})
+});
 </script>
 </head>
 <body>
 
 <header id="header"></header>
+
 <section id="joinDiv">
+
+  <div id="titleImg">
+	<h1>회원가입</h1>
+	<img src="../images/camp01.jpg"alt="" />
+  </div>	
+
   <form id="joinForm">
-    <h2 id="pageTitle">회원가입</h2>
     <div>
       <label for="id">아이디</label>
       <input type="text" class="form-control" id="id" name="mem_id">
-      <input type="button" value="중복검사" class="btn btn-success btn-sm">
+      <input type="button" value="중복검사" id="joinBtn" class="btn btn-success btn-sm">
       <span id="idcheck"></span>
     </div>
     
@@ -282,11 +334,11 @@ $(function() {
       </select>
       <input type="hidden" name="mem_mail">
     </div>
-    
+     
     <div>
       <label for="zip">우편번호</label>
       <input type="text" class="form-control" id="zip" name="mem_zip">
-      <input type="button" value="우편번호 찾기" class="btn btn-success btn-sm" id="zipBtn">
+      <input type="button" value="우편번호 찾기" id="joinBtn" class="btn btn-success btn-sm" id="zipBtn">
     </div>
     
     <div>
@@ -301,11 +353,13 @@ $(function() {
   
 	<div id="bottomBtn">
 	  <button type="button" class="btn btn-primary btn-lg" id="joinBtn">회원가입</button>
-      <button type="reset" class="btn btn-primary btn-lg">초기화</button>
+      <button type="reset" class="btn btn-primary btn-lg" id="joinBtn">초기화</button>
 	</div>
     
   </form>
 </section>
+
+
 <footer id="footer"></footer>
 </body>
 </html>

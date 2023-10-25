@@ -1,0 +1,166 @@
+/* css 리셋 */
+@import "reset.css";
+
+/* 폰트적용 */
+@font-face {
+	font-family: "NPSfontBold";
+	src:
+		url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+		format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	font-family: "NPSfontBold", "Malgun Gothic", "굴림", "Gulim", "Arial";
+}
+
+body * {
+	color: #4d2222;
+	text-align: center;
+}
+
+#container {
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#mnflex {
+	display: flex;
+}
+
+/* 헤더 */
+header {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	background: #D6D46D;
+	padding: 0 30px;
+}
+
+#logo {
+	margin: 10px;
+	height: 50px;
+}
+
+#menu {
+	margin-left: 30px;
+	display: flex;
+}
+
+#menu li {
+	cursor: pointer;
+	line-height: 30px;
+}
+
+.subbck {
+	visibility: hidden;
+	height: 0;
+
+	position: fixed;
+	top: 70px;
+	left: 0;
+	
+	transition: all 0.7s;
+	width: 100%;
+	background: #d6d46dda;
+}
+
+.submenu {
+	visibility: hidden;
+	height: 0;
+	position: absolute;
+	top: 70px;
+	left: 0;
+	transition: all 0.7s;
+	overflow: hidden;
+	width: 100%;
+}
+
+.menuitem {
+	position: relative;
+	width: 150px;
+	padding: 20px;
+    overflow: visible;
+}
+
+.subitem {
+	box-sizing: border-box;
+	width: 150px;
+	transition: all 0.3s;
+	padding: 10px;
+}
+
+.subitem:hover {
+	color: #f1f0cb;
+}
+
+#log {
+	height: 50px;
+	margin: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	line-height: 30px;
+}
+#log span {
+	transition: all 0.3s;
+}
+#log span:hover {
+	color: #f1f0cb;
+}
+
+.bar {
+	margin: 0 15px;
+}
+
+/* 섹션 */
+section {
+	width: 100%;
+	height: 600px;
+}
+
+
+
+/* 예약완료   css 부분*/
+
+#ressus{
+	height: 500px;
+	/* display: flex; */
+    justify-content: center;
+    padding : 200px;
+    font-size : 2.0rem;
+}
+#ressus h2, #ressus p{
+	color: black;
+}
+
+
+/* 예약하기 css 끝*/
+
+
+/* 푸터 */
+footer {
+	position: relative;
+	width: 100%;
+	height: auto;
+	bottom: 0;
+	background: #616031;
+	padding: 20px;
+	padding-left: 40px;
+	box-sizing: border-box;
+}
+
+footer * {
+	color: #f1f0cb;
+	text-align: left;
+}
+
+#footcontent span {
+	font-size: 11px;
+	line-height: 30px;
+}

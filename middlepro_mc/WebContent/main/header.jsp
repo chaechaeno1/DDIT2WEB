@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,6 +21,8 @@ $(function(){
           $(".subbck").css({ visibility: "hidden", height: "0" });
         }
      );
+ 	
+
 })
 </script>
 <style>
@@ -118,24 +121,47 @@ header  * {
             <li class="menuitem">
               <a>고객센터</a>
               <ul class="submenu">
-                <li class="subitem"><a href="#" class="cc">FAQ</a></li>
-                <li class="subitem"><a href="#" class="cc">공지사항</a></li>
-                <li class="subitem"><a href="#" class="cc">이용후기</a></li>
+                <li class="subitem"><a href="<%=request.getContextPath()%>/board/FAQ.jsp" class="cc">FAQ</a></li>
+                <li class="subitem"><a href="<%=request.getContextPath()%>/board/NOTICE.jsp" class="cc">공지사항</a></li>
+                <li class="subitem"><a href="<%=request.getContextPath()%>/board/review.jsp" class="cc">이용후기</a></li>
               </ul>
             </li>
-            <li class="menuitem"><a href="#" class="cc">예약하기</a></li>
+            <li class="menuitem"><a href="<%=request.getContextPath()%>/reservation/reservationMain.jsp" class="cc">예약하기</a></li>
           </ul>
         </div>
         <div id="log">
-          <a href="#" id="logstatus">
+<%
+		// 로그인 체크 - 서블릿에서 저장한 session값을 얻어온다
+		MemberVO vo = (MemberVO)session.getAttribute("loginMember");
+	
+		if(vo==null) {	// 로그인 상태가 아닐 때
+%>
+				
+          <a href="<%=request.getContextPath()%>/login/userlogin.jsp" id="logstatus">
             <span class="cc">로그인</span>
             <!--로그인/로그아웃-->
           </a>
           <span class="bar"> | </span>
-          <a href="#" id="logpage">
+          <a href="<%=request.getContextPath()%>/member/join.jsp" id="logpage">
             <span class="cc">회원가입</span>
             <!--회원가입/마이페이지-->
           </a>
+	
+	<%	} else { // 로그인 상태일 때 %>	
+			<a href="<%=request.getContextPath()%>/memberLogout.do" id="logstatus">
+            <span class="cc">로그아웃</span>
+            <!--로그인/로그아웃-->
+          </a>
+          <span class="bar"> | </span>
+          <a href="<%=request.getContextPath()%>/member/mypage.jsp" id="logpage">
+            <span class="cc">마이페이지</span>
+            <!--회원가입/마이페이지-->
+          </a>
+		
+	<%
+		}
+	%>
+		
         </div>
       </header>
 </body>

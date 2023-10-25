@@ -1,0 +1,110 @@
+<%@page import="kr.or.ddit.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>예약 페이지</title>
+<link rel="icon" href="<%=request.getContextPath()%>/images/favicon.ico">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/basic.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/reservationMain.css">
+<!-- 헤더와 푸터를 위한 JSP 태그 포함 -->
+<script type="text/javascript">
+campCode = "";
+
+
+
+
+$(document).ready(function() {
+    	
+    	/* 오류주의!! 잘못 설정하면 footer가 section보다 위로 올라감 */
+    	$("#header").load("<%=request.getContextPath()%>/main/header.jsp");
+    	$("#footer").load("<%=request.getContextPath()%>/main/footer.jsp");
+    	
+    	
+    		<%
+    		// 로그인 체크 - 서블릿에서 저장한 session값을 얻어온다
+    		MemberVO vo = (MemberVO)session.getAttribute("loginMember");
+    		
+    		// 비로그인 시 마이페이지 접근 => main페이지로 보냄
+    		if(vo==null) {
+    		%>
+    			location.href="<%=request.getContextPath()%>/login/userlogin.jsp";
+    			alert("로그인이 필요한 페이지 입니다.");
+    			location.href="<%=request.getContextPath()%>/login/userlogin.jsp";
+    		<%
+    		} 
+    		%>
+    		
+
+    	
+    	
+    	
+      // 기본 선택된 버튼과 배경색 설정
+      $("#resG").css("background-color", "#f1f0cb");
+
+      // 예약 버튼이 클릭될 때의 핸들러
+      $(".resbtn").click(function() {
+        $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
+        $(this).css("background-color", "#f1f0cb");  // 클릭된 버튼에 배경색 설정
+      });
+
+      /* 글램핑 예약하기 클릭 시 버튼 배경색 유지*/
+      $("#resG").click(function() {
+        $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
+        $("#resG").css("background-color", "#f1f0cb");  // 선택된 버튼에 배경색 설정
+      });
+
+      /* 오토캠핑 예약하기 클릭 시 버튼 배경색 유지*/
+      $("#resA").click(function() {
+        $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
+        $("#resA").css("background-color", "#f1f0cb");  // 선택된 버튼에 배경색 설정
+      });
+
+      /* 카라반 예약하기 클릭 시 버튼 배경색 유지*/
+      $("#resC").click(function() {
+        $(".resbtn").css("background-color", "");  // 모든 버튼의 배경색 초기화
+        $("#resC").css("background-color", "#f1f0cb");  // 선택된 버튼에 배경색 설정
+      });
+    });
+    
+
+  </script>
+</head>
+<body>
+  <header id="header"></header>
+
+  <section>
+    <div id="subject">
+      <h2>캠핑장 예약하기</h2>	
+    </div>
+
+    <nav>
+<!--       <div id="resbutton"> -->
+<%--         <a href="<%=request.getContextPath()%>/calender/calGram.jsp?campCode=G" class="resbtn" id="resG" target="if_rescal" txt="G">글램핑 예약하기</a> --%>
+<%--         <a href="<%=request.getContextPath()%>/calender/calAuto.jsp" class="resbtn" id="resA" target="if_rescal" txt="A">오토캠핑 예약하기</a> --%>
+<%--         <a href="<%=request.getContextPath()%>/calender/calCaraban.jsp" class="resbtn" id="resC" target="if_rescal" txt="C">카라반 예약하기</a> --%>
+<!--       </div> -->
+      <div id="resbutton">
+        <a href="<%=request.getContextPath()%>/calender/calendarUser.jsp?campCode=G" class="resbtn" id="resG" target="if_rescal" txt="G">글램핑 예약하기</a>
+        <a href="<%=request.getContextPath()%>/calender/calendarUser.jsp?campCode=A" class="resbtn" id="resA" target="if_rescal" txt="A">오토캠핑 예약하기</a>
+        <a href="<%=request.getContextPath()%>/calender/calendarUser.jsp?campCode=C" class="resbtn" id="resC" target="if_rescal" txt="C">카라반 예약하기</a>
+      </div>
+    </nav>
+
+	<!-- 예약불가 버튼 색깔 안내 -->
+		<div class="resColor">
+			<img src="../images/예약불가.PNG" alt="예약완료"> 
+			<span class="red" style="user-select: auto;">예약완료</span>
+		</div>
+<%--     <iframe src="<%=request.getContextPath()%>/calender/calGram.jsp" name="if_rescal" title="캘린더 api예정" ></iframe> --%>
+    <iframe src="<%=request.getContextPath()%>/calender/calendarUser.jsp?campCode=G" name="if_rescal" title="캘린더 api예정" ></iframe>
+
+  </section>
+
+  <footer id="footer"></footer>
+
+</body>
+</html>

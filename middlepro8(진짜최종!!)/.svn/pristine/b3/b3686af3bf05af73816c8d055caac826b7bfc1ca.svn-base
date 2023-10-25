@@ -1,0 +1,84 @@
+
+
+/* 섹션 */
+section {
+	width: 100%;
+	height: 1000px;
+}
+section * {
+	color: #4d2222;
+}
+/* 예약하기에서 들어가는  css 부분*/
+#subject{
+	text-align: center;
+	margin : 40px;
+	font-size : 30px;
+}
+
+nav{
+	text-align: center;
+	margin: 30px;
+	display: flex;
+    justify-content: center;
+}
+#resbutton{
+	text-align: center;
+	/* border : 1px dotted green; */
+	padding : 40px;
+}
+#resbutton a{
+	margin : 10px;
+	padding : 20px;
+	border : 4px solid #f1f0cb;
+	background: white;
+	border-radius : 25px;
+	font-size : 20px;
+	/* color: black; */
+}
+#resbutton a:link{
+	text-decoration : none;
+}
+#resbutton a:hover{
+	background: #f1f0cb;
+	border-color: #f1f0cb;
+}
+#resbutton a:visited{
+	text-decoration : none;
+}
+#resbutton a:active{
+	/* color : none; */
+	border-color: #f1f0cb;
+}
+#resbutton a:focus{
+	outline : none;
+}
+
+iframe {
+	width: 70%;
+	height: 700px;
+	padding: 10px;
+	border: 1px dotted;
+	box-sizing: border-box;
+	display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.resColor img{
+	width: 15px;
+	height: 17px;
+}
+.resColor {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+span.red {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+/* 예약하기 css 끝*/
+
+

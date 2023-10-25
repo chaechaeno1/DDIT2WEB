@@ -1,0 +1,226 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 :: 회원 정보 조회</title>
+<link rel="icon" href="<%=request.getContextPath()%>/images/favicon_admin.ico">
+<script src="<%=request.getContextPath()%>/js/jquery-3.7.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.serializejson.min.js"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/basic.css" /> 
+<script src="../js/mem.js"></script>
+ 
+
+
+<script>
+mypath = "<%= request.getContextPath()%>";
+currentpage = 1;
+
+
+
+
+$(function(){
+	 //실행 하자 마자 리스트 출력  - stype, sword없다 
+	  $.listMemberServer(currentpage);
+
+	//페이지 번호 클릭 이벤트 
+	  $(document).on('click', '.pageno', function(){
+		  currentpage = parseInt($(this).text().trim());
+		  $.listMemberServer(currentpage);
+	  });
+	  
+	  //다음 클릭 이벤트 
+	  $(document).on('click', '#next', function(){
+		  currentpage = parseInt( $('.pageno').last().text().trim()) + 1;
+		  $.listMemberServer(currentpage);
+	  });
+	  
+	   //이전 클릭 이벤트 
+	  $(document).on('click', '#prev', function(){
+		  currentpage = parseInt( $('.pageno').first().text().trim()) - 1;
+		  $.listMemberServer(currentpage);
+	  });
+	  
+	  //search검색 이벤트
+	  $(document).on('click', '#search', function(){
+	      currentpage = 1;
+	      $.listMemberServer(currentpage);
+	  });
+	 
+
+})
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<!-- ** memberList CSS ** -->
+<style type="text/css">
+section * {
+    color: #4d2222;
+}
+#memList h1 {
+	font-size: 35px;
+	text-align: center;
+	margin: 25px 0;
+	color: #4d2222;
+}
+#listhead {
+	display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin: 20px auto;
+}
+input[type="button"] {
+    background: #f1f0cb;
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+}
+#memList p span {
+    color: #DE8F5F;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 16px;
+}
+select#searchType, #searchMem {
+	padding: 7px 10px;
+	
+}
+#listright {
+	margin-left: 10px;
+}
+#listBox {
+	width : 80%;
+	margin : 0 auto;
+	border-top: 1px solid #4d2222;
+	border-bottom: 1px solid #4d2222;
+}
+/* 페이징 처리 시 CSS */
+.page-link{
+	color: black;
+	border: 1px solid #ffffff; 
+	margin: 0px 3px;
+	font-weight:bold;
+}
+#prev, #next{
+	color: #ffffff;
+	background-color: #4d2222;
+	border-color: #ffffff;
+}
+#prev{
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+#next{
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;	
+}
+.page-link:focus, .page-link:hover {
+	color: black;
+}
+.list {
+	display: flex; 
+	flex-direction: row;
+	padding: 18px;
+	border-bottom : 2px solid #d6d46d;
+	text-align: center;
+}
+.list li:first-child {
+	flex: 10%;
+}
+.list li:nth-child(2), .list li:nth-child(3) {
+	flex: 20%;
+}
+.list li:nth-child(4), .list li:nth-child(5) {
+	flex: 25%;
+}
+#firlist {
+	border: 1px solid;
+	background: #d6d46d;
+}
+#listBox hr {
+	height: 1px;
+	background: #d6d46d;
+	opacity: 0.7;
+}
+</style>
+
+</head>
+<body>
+
+
+<jsp:include page="adminHeader.jsp"></jsp:include>
+
+
+	<!-- 헤더 아래 모두 -->
+	<div id="container">
+
+		<!-- Include "adminMain.jsp"의 header 부분 -->
+	    <jsp:include page="adminSidemenu.jsp"></jsp:include>
+
+
+		<!-- **만든 것 넣기 부분** -->
+		<div id="section">
+		
+			<section id="memList">
+			
+				<h1>회원 정보 조회</h1>
+				<div id="listhead">
+					<div>
+						<p>검색결과 |  <span>총 </span><span id="searchCnt"></span><span> 명</span></p>
+					</div>
+					<form id="listright">
+						<select id="searchType">
+							<option value="">전체</option>
+							<option value="mem_id">아이디</option>
+							<option value="mem_name">이름</option>
+							<option value="mem_mail">메일</option>
+							<option value="mem_hp">전화번호</option>
+						</select>
+						<input type="text" placeholder="검색어를 입력" id="searchMem">
+						<input type="button" id="search" value="검색">
+					</form>
+				</div>
+				
+				<!-- 회원리스트출력되는곳 -->
+				<div id="listBox">
+				
+				</div>
+				
+				<br>
+				
+				
+				<nav>
+				<div id="mpageList"></div>
+				</nav>
+				
+				
+			</section> <!-- memList 끝 -->
+			
+			
+			
+		</div> <!-- id section 끝 -->
+		
+		
+		
+		
+	</div> <!-- container 끝 -->
+	
+	
+</body>
+</html>

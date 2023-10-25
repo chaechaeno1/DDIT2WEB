@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* 폰트적용 */
+@font-face {
+	font-family: "NPSfontBold";
+	src:
+		url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+		format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+
+section#userlogin {
+   margin: 0 auto;
+}
+
+#login-header {
+   color: rgb(193, 102, 157);
+   text-align: center;
+   position: relative;
+   top: -30px;
+   font-family: "NPSfontBold", sans-serif;
+}
+
+#main-holder {
+   justify-items: center;
+   align-items: center;
+   background-color: white;
+   position: relative;
+   font-family: "NPSfontBold", sans-serif;
+} 
+
+
+#login-form-submit {
+   width: 150px;
+   height: 50px;
+   margin-right: 20px;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   background-color: rgb(193, 102, 157);
+   cursor: pointer;
+   font-size: 20px;
+   font-family: "NPSfontBold", sans-serif;
+}
+
+#test { /* 로그인 화면 */
+   box-shadow: 0px 0px 5px 2px rgb(193, 102, 157);
+   width : 450px;
+   height: 220px;
+   margin-top: 70%;
+   font-family: "NPSfontBold", sans-serif;
+
+}
+#login{ /* 로그인 버튼 */
+   padding: 7px 10px;
+   background: rgb(193, 102, 157);
+   border: none;
+   border-radius: 10px;
+   height: 60px;
+   font-size: 15px;
+   margin-top: 60px;
+   cursor: pointer;
+   color: white;
+   font-family: "NPSfontBold", sans-serif;
+}
+
+
+.login-form-field::placeholder {
+   color: lightgray;
+}
+
+.login-form-field {
+   width: 50;
+   border: none;
+   border-bottom: 1px solid rgb(193, 102, 157);
+   margin-bottom: 10px;
+   border-radius: 3px;
+   outline: none;
+   padding: 5px 5px 5px 5px;
+   font-family: "NPSfontBold", sans-serif;
+}
+#login-form {
+   display: flex;
+   justify-items: center;
+   align-items: center;
+   margin: 0 auto;
+   width: 300px;
+   font-family: "NPSfontBold", sans-serif;
+}
+#div1 {
+   padding: 30px;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 240px;
+   margin-top: 20px;
+   font-family: "NPSfontBold", sans-serif;
+}
